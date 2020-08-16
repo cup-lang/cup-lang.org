@@ -20,6 +20,10 @@
             background: #111;
         }
 
+        .nav-link {
+            padding: 10px;
+        }
+
         .content {
             max-width: 1200px;
             margin: 0 auto;
@@ -31,7 +35,12 @@
 <body>
     <nav>
         <div class="content">
-            <img src="logo.png">
+            <a class="nav-link" href="/">
+                <img src="logo.png">
+            </a>
+            <a class="nav-link" href="/blog">Blog</a>
+            <a class="nav-link" href="/features">Features</a>
+            <a class="nav-link" href="/download">Download</a>
         </div>
     </nav>
 
