@@ -53,12 +53,6 @@
             margin-right: 10px;
         }
 
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
         .section {
             width: 100%;
             background: black;
@@ -66,6 +60,12 @@
 
         .section:nth-child(2n) {
             background: red;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
     </style>
 </head>
@@ -85,11 +85,7 @@
             </div>
         </div>
     </nav>
-
-    <div class="content">
-        {{ content }}
-    </div>
-
+    {{ content }}
     <footer>
 
     </footer>
