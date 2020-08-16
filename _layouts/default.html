@@ -29,6 +29,11 @@
             justify-content: space-between;
         }
 
+        .nav-side {
+            display: flex;
+            align-items: center;
+        }
+
         .content {
             max-width: 1200px;
             margin: 0 auto;
@@ -41,12 +46,12 @@
 <body>
     <nav>
         <div class="content nav-content">
-            <div>
+            <div class="nav-side">
                 <a class="nav-link" href="/">
                     <img src="logo.png">
                 </a>
             </div>
-            <div>
+            <div class="nav-side">
                 <a class="nav-link" href="/blog">Blog</a>
                 <a class="nav-link" href="/features">Features</a>
                 <a class="nav-link" href="/download">Download</a>
