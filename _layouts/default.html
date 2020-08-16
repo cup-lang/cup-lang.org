@@ -24,23 +24,33 @@
             padding: 10px;
         }
 
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
         .content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
+
     </style>
 </head>
 
 <body>
     <nav>
-        <div class="content">
-            <a class="nav-link" href="/">
-                <img src="logo.png">
-            </a>
-            <a class="nav-link" href="/blog">Blog</a>
-            <a class="nav-link" href="/features">Features</a>
-            <a class="nav-link" href="/download">Download</a>
+        <div class="content nav-content">
+            <div>
+                <a class="nav-link" href="/">
+                    <img src="logo.png">
+                </a>
+            </div>
+            <div>
+                <a class="nav-link" href="/blog">Blog</a>
+                <a class="nav-link" href="/features">Features</a>
+                <a class="nav-link" href="/download">Download</a>
+            </div>
         </div>
     </nav>
 
