@@ -1,9 +1,14 @@
 navigation:
-  - title: Learn
-    url: /learn
   - title: Features
     url: /features
+  - title: Learn
+    url: /learn
   - title: Download
     url: /download
   - title: Documentation
     url: /documentation
+
+exclude:
+  - CNAME
+  - LICENSE
+  - README.md
