@@ -40,7 +40,7 @@
             font-family: "Titillium Web";
         }
 
-        .nav-link:hover {
+        .nav-link-active, .nav-link:hover {
             background: #3a3b42;
         }
 
@@ -89,9 +89,9 @@
                 </a>
             </div>
             <div class="nav-side">
-                <a class="nav-link" href="/blog">Blog</a>
-                <a class="nav-link" href="/features">Features</a>
-                <a class="nav-link" href="/download">Download</a>
+                {% for item in site.navigation %}
+                <a class="nav-link {% if page.title == item.title %}nav-link-active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
+                {% endfor %}
             </div>
         </div>
     </nav>

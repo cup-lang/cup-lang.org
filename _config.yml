@@ -1,0 +1,9 @@
+navigation:
+  - title: Learn
+    url: /learn
+  - title: Features
+    url: /features
+  - title: Download
+    url: /download
+  - title: Documentation
+    url: /documentation
