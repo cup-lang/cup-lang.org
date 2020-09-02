@@ -115,4 +115,24 @@
     </footer>
 </body>
 
+<script type="text/javascript">
+    function autorun() {
+        var platform = window.navigator.platform;
+        var macos = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"];
+        var ios = ["iPhone", "iPad", "iPod"];
+        var windows = ["Win32", "Win64", "Windows", "WinCE"];
+
+        if (macosPlatforms.indexOf(platform) !== -1 || iosPlatforms.indexOf(platform) !== -1) {
+            alert("win");
+        } else if (windowsPlatforms.indexOf(platform) !== -1 || /Android/.test(window.navigator.userAgent)) {
+            alert("mac");
+        } else if (/Linux/.test(platform)) {
+            alert("linux");
+        }
+    }
+    if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+    else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+    else window.onload = autorun;
+</script>
+
 </html>
