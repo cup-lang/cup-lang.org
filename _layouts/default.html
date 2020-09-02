@@ -122,9 +122,9 @@
         var ios = ["iPhone", "iPad", "iPod"];
         var windows = ["Win32", "Win64", "Windows", "WinCE"];
 
-        if (macosPlatforms.indexOf(platform) !== -1 || iosPlatforms.indexOf(platform) !== -1) {
+        if (macos.indexOf(platform) !== -1 || ios.indexOf(platform) !== -1) {
             alert("win");
-        } else if (windowsPlatforms.indexOf(platform) !== -1 || /Android/.test(window.navigator.userAgent)) {
+        } else if (windows.indexOf(platform) !== -1 || /Android/.test(window.navigator.userAgent)) {
             alert("mac");
         } else if (/Linux/.test(platform)) {
             alert("linux");
