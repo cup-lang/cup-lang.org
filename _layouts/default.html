@@ -126,6 +126,10 @@
 
 <script type="text/javascript">
     function autorun() {
+        fetch("http://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
+            console.log(data);
+        });
+
         var platform = window.navigator.platform;
         var macos = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"];
         var ios = ["iPhone", "iPad", "iPod"];
