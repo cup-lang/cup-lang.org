@@ -91,12 +91,12 @@
             padding: 30px 15px;
         }
 
-        .git-box {
+        .github-box {
             background: #222;
             border-radius: 5px;
         }
 
-        .git-svg {
+        .github-svg {
             height: 32px;
         }
     </style>
@@ -126,7 +126,7 @@
 
 <script type="text/javascript">
     function autorun() {
-        fetch("http://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
+        fetch("https://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
             console.log(data);
         });
 
