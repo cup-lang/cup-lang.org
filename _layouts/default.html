@@ -131,7 +131,7 @@
 <script type="text/javascript">
     function autorun() {
         fetch("https://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
-            console.log(data.stargazers_count);
+            document.getElementById("star-count").innerText = data.stargazers_count;
         });
 
         var platform = window.navigator.platform;
