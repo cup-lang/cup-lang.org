@@ -133,11 +133,8 @@
         var windows = ["Win32", "Win64", "Windows", "WinCE"];
 
         if (macos.indexOf(platform) !== -1 || ios.indexOf(platform) !== -1) {
-            alert("mac");
         } else if (windows.indexOf(platform) !== -1 || /Android/.test(window.navigator.userAgent)) {
-            alert("win");
         } else if (/Linux/.test(platform)) {
-            alert("linux");
         }
     }
     if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
