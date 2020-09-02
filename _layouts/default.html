@@ -123,9 +123,9 @@
         var windows = ["Win32", "Win64", "Windows", "WinCE"];
 
         if (macos.indexOf(platform) !== -1 || ios.indexOf(platform) !== -1) {
-            alert("win");
-        } else if (windows.indexOf(platform) !== -1 || /Android/.test(window.navigator.userAgent)) {
             alert("mac");
+        } else if (windows.indexOf(platform) !== -1 || /Android/.test(window.navigator.userAgent)) {
+            alert("win");
         } else if (/Linux/.test(platform)) {
             alert("linux");
         }
