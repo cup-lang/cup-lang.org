@@ -1,12 +1,12 @@
 navigation:
   - title: Features
-    url: /features
+    base: features
   - title: Learn
-    url: /learn
+    base: learn
   - title: Download
-    url: /download
+    base: download
   - title: Documentation
-    url: /documentation
+    base: documentation
 
 exclude:
   - CNAME

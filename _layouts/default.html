@@ -120,7 +120,7 @@
             <div class="nav-side">
                 {% for item in site.navigation %}
                 <a class="nav-link {% if page.base == item.title %}nav-link-active{% endif %}"
-                    href="{{ item.url }}">{{ item.title }}</a>
+                    href="/{{ item.base }}">{{ item.title }}</a>
                 {% endfor %}
             </div>
         </div>
