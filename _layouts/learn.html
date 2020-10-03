@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% for item in site.learn %}
+<a href="{{ item.url }}">
+{% for sub in item.subs %}
+<a href="{{ sub.url }}">
+{% endfor %}
+</a>
+{% endfor %}
+
+{{ content }}

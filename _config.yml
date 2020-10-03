@@ -1,4 +1,4 @@
-navigation:
+header:
   - title: Features
     base: features
   - title: Learn
@@ -7,6 +7,14 @@ navigation:
     base: download
   - title: Documentation
     base: documentation
+
+learn:
+  - url: getting-started
+    subs:
+      - url: installation
+      - url: hello-world
+      - url: commands
+  - url: test
 
 exclude:
   - CNAME
