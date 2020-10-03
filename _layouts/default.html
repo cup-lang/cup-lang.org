@@ -119,7 +119,7 @@
             </div>
             <div class="nav-side">
                 {% for item in site.navigation %}
-                <a class="nav-link {% if page.base == item.title %}nav-link-active{% endif %}"
+                <a class="nav-link {% if page.base == item.base %}nav-link-active{% endif %}"
                     href="/{{ item.base }}">{{ item.title }}</a>
                 {% endfor %}
             </div>
