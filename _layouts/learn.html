@@ -2,9 +2,9 @@
 layout: default
 ---
 {% for item in site.learn %}
-<a href="{{ item.url }}">{{ item.name }}
+<a href="/learn/{{ item.url }}">{{ item.name }}
 {% for sub in item.subs %}
-<a href="{{ sub.url }}">{{ sub.name }}</a>
+<a href="/learn/{{ item.url }}/{{ sub.url }}">{{ sub.name }}</a>
 {% endfor %}
 </a>
 {% endfor %}
