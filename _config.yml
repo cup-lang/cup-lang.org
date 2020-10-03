@@ -9,12 +9,17 @@ header:
     base: documentation
 
 learn:
-  - url: getting-started
+  - name: Getting Started
+    url: getting-started
     subs:
-      - url: installation
-      - url: hello-world
-      - url: commands
-  - url: test
+      - name: Installation
+        url: installation
+      - name: Hello World
+        url: hello-world
+      - name: Commands
+        url: commands
+  - name: Test
+    url: test
 
 exclude:
   - CNAME
