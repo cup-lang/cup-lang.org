@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     color: #fff;
-    background: #2f3136;
+    background: #292b2f;
 }
 
 h1,
@@ -70,7 +70,7 @@ nav {
 }
 
 .section-odd {
-    background: #36393f;
+    background: #2f3136;
 }
 
 .section-content {
