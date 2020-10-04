@@ -85,10 +85,6 @@ nav {
     padding: 30px 15px;
 }
 
-#header {
-    color: var(--color3);
-}
-
 #top-buttons {
     display: flex;
 }
