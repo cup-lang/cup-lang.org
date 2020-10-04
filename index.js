@@ -3,7 +3,7 @@ function setStars(stars) {
     if (stars === undefined) {
         stars = localStorage.stars;
         if (stars === undefined) {
-            stars = 0;
+            stars = "?";
         }
     }
     document.getElementById("star-count").innerHTML += stars;
