@@ -3,6 +3,7 @@
     --color0hover: #3a3b42;
     --color1: #292b2f;
     --color2: #2f3136;
+    --color3: #d99e82;
 }
 
 html {
@@ -84,6 +85,10 @@ nav {
     padding: 30px 15px;
 }
 
+#header {
+    color: var(--color3);
+}
+
 #top-buttons {
     display: flex;
 }
@@ -91,7 +96,7 @@ nav {
 .top-button {
     width: 210px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 15px;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -108,13 +113,13 @@ nav {
     background: #fff;
 }
 
+    #github-button > svg {
+        height: 32px;
+        flex-shrink: 0;
+        margin: 0 10px;
+    }
+
 #download-button {
     color: #222;
-    background: #fff;
-}
-
-.github-svg {
-    height: 32px;
-    flex-shrink: 0;
-    margin: 0 10px;
+    background: var(--color3);
 }
