@@ -102,11 +102,11 @@ nav {
     border-radius: 5px;
 }
 
-.top-button > svg {
-    height: 32px;
-    flex-shrink: 0;
-    margin: 0 10px;
-}
+    .top-button > svg {
+        height: 32px;
+        flex-shrink: 0;
+        margin: 0 10px;
+    }
 
 .top-button-info {
     display: flex;
@@ -125,3 +125,7 @@ nav {
     color: #222;
     background: var(--color3);
 }
+
+    #download-button > svg {
+        color: #fff;
+    }
