@@ -103,9 +103,13 @@ nav {
     flex-direction: column;
 }
 
-.github-button {
+#github-button {
     color: #222;
     background: #fff;
+}
+
+#download-button {
+    
 }
 
 .github-svg {
