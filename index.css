@@ -4,7 +4,8 @@ html {
 
 body {
     margin: 0;
-    background: #1e202a;
+    color: #fff;
+    background: #2f3136;
 }
 
 h1,
@@ -16,9 +17,11 @@ h5,
     font-family: "Titillium Web";
 }
 
+/* #region header */
+
 nav {
     height: 50px;
-    background: #171921;
+    background: #202225;
     position: relative;
     z-index: 1;
 }
@@ -28,7 +31,6 @@ nav {
     align-items: center;
     height: 100%;
     padding: 0 15px;
-    color: #fff;
     text-decoration: none;
     font-size: 20px;
     line-height: 1;
@@ -54,6 +56,8 @@ nav {
     margin-right: 10px;
 }
 
+/* #endregion */
+
 .content {
     max-width: 1200px;
     margin: 0 auto;
@@ -62,12 +66,10 @@ nav {
 .section {
     position: relative;
     width: 100%;
-    color: #fff;
 }
 
 .section-odd {
-    color: #000;
-    background: #fdfdfd;
+    background: #36393f;
 }
 
 .section-content {
