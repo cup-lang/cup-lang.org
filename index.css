@@ -1,3 +1,10 @@
+:root {
+    --color0: #202225;
+    --color0hover: #3a3b42;
+    --color1: #292b2f;
+    --color2: #2f3136;
+}
+
 html {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -5,7 +12,7 @@ html {
 body {
     margin: 0;
     color: #fff;
-    background: #292b2f;
+    background: var(--color1);
 }
 
 h1,
@@ -21,7 +28,7 @@ h5,
 
 nav {
     height: 50px;
-    background: #202225;
+    background: var(--color0);
     position: relative;
     z-index: 1;
 }
@@ -39,7 +46,7 @@ nav {
 
 .nav-link-active,
 .nav-link:hover {
-    background: #3a3b42;
+    background: var(--color0hover);
 }
 
 .nav-content {
@@ -70,22 +77,25 @@ nav {
 }
 
 .section-odd {
-    background: #2f3136;
+    background: var(--color2);
 }
 
 .section-content {
     padding: 30px 15px;
 }
 
-.github-button {
+.top-button {
     width: 210px;
     height: 50px;
     display: flex;
     align-items: center;
-    background: #fff;
-    color: #222;
     text-decoration: none;
     border-radius: 5px;
+}
+
+.github-button {
+    color: #222;
+    background: #fff;
 }
 
 .github-svg {
