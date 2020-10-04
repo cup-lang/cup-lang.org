@@ -3,10 +3,10 @@ header:
     base: features
   - name: Learn
     base: learn
-  - name: Download
-    base: download
   - name: Documentation
     base: documentation
+  - name: Packages
+    base: packages
 
 learn:
   - name: Getting Started
