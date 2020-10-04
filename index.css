@@ -109,7 +109,8 @@ nav {
 }
 
 #download-button {
-    
+    color: #222;
+    background: #fff;
 }
 
 .github-svg {
