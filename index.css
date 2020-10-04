@@ -90,5 +90,6 @@ nav {
 
 .github-svg {
     height: 32px;
+    flex-shrink: 0;
     margin: 0 10px;
 }
