@@ -122,10 +122,6 @@ nav {
 #download-button 
 {
     width: 250px;
-    color: #222;
+    color: #fff;
     background: var(--color3);
 }
-
-    #download-button > svg {
-        color: #fff;
-    }
