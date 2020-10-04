@@ -93,6 +93,11 @@ nav {
     border-radius: 5px;
 }
 
+.top-button-info {
+    display: flex;
+    flex-direction: column;
+}
+
 .github-button {
     color: #222;
     background: #fff;
