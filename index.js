@@ -6,7 +6,7 @@ function setStars(stars) {
             stars = 0;
         }
     }
-    document.getElementById("star-count").innerText += stars;
+    document.getElementById("star-count").innerHTML += stars;
     localStorage.stars = stars;
 }
 
