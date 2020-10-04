@@ -103,6 +103,12 @@ nav {
     border-radius: 5px;
 }
 
+    .top-button > svg {
+        height: 32px;
+        flex-shrink: 0;
+        margin: 0 10px;
+    }
+
 .top-button-info {
     display: flex;
     flex-direction: column;
@@ -112,12 +118,6 @@ nav {
     color: #222;
     background: #fff;
 }
-
-    #github-button > svg {
-        height: 32px;
-        flex-shrink: 0;
-        margin: 0 10px;
-    }
 
 #download-button {
     color: #222;
