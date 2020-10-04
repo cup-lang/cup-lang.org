@@ -96,6 +96,7 @@ nav {
     align-items: center;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 15px;
 }
 
     .top-button > svg {
@@ -115,8 +116,7 @@ nav {
     background: #fff;
 }
 
-#download-button 
-{
+#download-button {
     width: 250px;
     color: #fff;
     background: var(--color3);
