@@ -110,6 +110,10 @@
 </head>
 
 <body>
+    {% if page.script %}
+    <script src="/{{ page.script }}" type="text/javascript"></script>
+    {% endif %}
+
     <nav>
         <div class="nav-content content">
             <div class="nav-side">
@@ -120,7 +124,7 @@
             <div class="nav-side">
                 {% for item in site.header %}
                 <a class="nav-link {% if page.base == item.base %}nav-link-active{% endif %}"
-                    href="/{{ item.base }}">{{ item.title }}</a>
+                    href="/{{ item.base }}">{{ item.name }}</a>
                 {% endfor %}
             </div>
         </div>

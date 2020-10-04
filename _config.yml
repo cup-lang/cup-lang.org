@@ -1,11 +1,11 @@
 header:
-  - title: Features
+  - name: Features
     base: features
-  - title: Learn
+  - name: Learn
     base: learn
-  - title: Download
+  - name: Download
     base: download
-  - title: Documentation
+  - name: Documentation
     base: documentation
 
 learn:
