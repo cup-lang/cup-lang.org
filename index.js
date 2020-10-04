@@ -4,7 +4,7 @@ function autorun() {
     });
 
     fetch("https://api.github.com/repos/cup-lang/cup/contents/bin").then(res => res.json()).then(data => {
-        document.getElementById("file-size").innerHTML = "v0.0.1 - " + data[0].size + "kB";
+        document.getElementById("file-size").innerHTML = "v0.0.1 - " + data[0].size / 1000 + "kB";
     });
 
     var platform = window.navigator.platform;
