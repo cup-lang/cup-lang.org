@@ -84,6 +84,10 @@ nav {
     padding: 30px 15px;
 }
 
+#top-buttons {
+    display: flex;
+}
+
 .top-button {
     width: 210px;
     height: 50px;
