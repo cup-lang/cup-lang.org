@@ -1,10 +1,37 @@
+function setStars(stars) {
+    document.getElementById("star-count").innerHTML = '<svg viewBox="0 0 14 16" width="12" height="12" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>';
+    if (stars === undefined) {
+        stars = localStorage.stars;
+        if (stars === undefined) {
+            stars = 0;
+        }
+    }
+    document.getElementById("star-count").innerText += stars;
+    localStorage.stars = stars;
+}
+
+function setSize(size) {
+    document.getElementById("file-size").innerText = "v0.0.1";
+    if (size === undefined) {
+        size = localStorage.size;
+        if (size === undefined) {
+            return;
+        }
+    }
+    document.getElementById("file-size").innerText += " - " + size + "kB";
+    localStorage.size = size;
+}
+
 function autorun() {
+    setStars();
+    setSize();
+
     fetch("https://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
-        document.getElementById("star-count").innerHTML = '<svg viewBox="0 0 14 16" width="12" height="12" aria-hidden="true"><path fill-rule="evenodd"d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>' + data.stargazers_count;
+        setStars(data.stargazers_count);
     });
 
     fetch("https://api.github.com/repos/cup-lang/cup/contents/bin").then(res => res.json()).then(data => {
-        document.getElementById("file-size").innerHTML = "v0.0.1 - " + data[0].size / 1000 + "kB";
+        setSize(data[0].size / 1000);
     });
 
     var platform = window.navigator.platform;
