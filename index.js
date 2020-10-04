@@ -31,7 +31,7 @@ function autorun() {
     });
 
     fetch("https://api.github.com/repos/cup-lang/cup/contents/bin").then(res => res.json()).then(data => {
-        setSize(data[0].size / 1000);
+        setSize(Math.floor(data[0].size / 1000));
     });
 
     var platform = window.navigator.platform;
