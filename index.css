@@ -8,12 +8,11 @@
     --color4hover: #774131;
 }
 
-html {
+body, html {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-body {
+    width: 100%;
     margin: 0;
+    padding: 0;
     color: #fff;
     background: var(--color1);
 }
