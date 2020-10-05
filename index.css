@@ -136,8 +136,11 @@ nav {
 }
 
 #vertical-line {
-    height: 90%;
-    border-left: 1px solid #fff;
+    width: 2px;
+    height: 80%;
+    background: #fff;
+    border-radius: 1px;
+    margin: 0 10px 0 -1px;
 }
 
 #download-arrow {
