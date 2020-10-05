@@ -132,10 +132,14 @@ nav {
 #download-button {
     color: #fff;
     background: var(--color3);
+    padding-right: 0;
 }
 
 #download-arrow {
     height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
     margin-left: 10px;
 }
 
