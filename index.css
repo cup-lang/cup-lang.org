@@ -10,7 +10,6 @@
 
 body, html {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    min-width: fit-content;
     margin: 0;
     padding: 0;
     color: #fff;
@@ -32,6 +31,7 @@ nav {
     height: 50px;
     background: var(--color0);
     position: relative;
+    overflow-x: scroll;
     z-index: 1;
 }
 
