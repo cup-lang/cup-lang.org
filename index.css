@@ -162,6 +162,6 @@ nav {
     height: 20px;
 }
 
-#download-button, #download-arrow:hover {
+#download-button:hover, #download-arrow:hover {
     background: var(--color3hover);
 }
