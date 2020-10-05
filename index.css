@@ -138,3 +138,7 @@ nav {
     height: 20px;
     margin: 0 0 0 10px;
 }
+
+    #download-arrow:hover {
+        background: #ffffff66;
+    }
