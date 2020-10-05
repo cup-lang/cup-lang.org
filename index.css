@@ -159,3 +159,7 @@ nav {
     #download-arrow:hover {
         background: #ffffff33;
     }
+
+    #download-arrow > svg {
+        height: 20px;
+    }
