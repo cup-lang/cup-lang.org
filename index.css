@@ -4,6 +4,7 @@
     --color1: #292b2f;
     --color2: #2f3136;
     --color3: #8a4b38;
+    --color3hover: #8a4b38;
 }
 
 html {
@@ -153,14 +154,14 @@ nav {
 
 #download-arrow {
     color: #fff;
-    padding: 0 5px 0 15px;
+    padding: 0 5px 0 13px;
     border-radius: 0 5px 5px 0;
 }
 
-    #download-arrow:hover {
-        /* background: #ffffff33; */
-    }
+#download-arrow > svg {
+    height: 20px;
+}
 
-    #download-arrow > svg {
-        height: 20px;
-    }
+#download-button, #download-arrow:hover {
+    background: var(--color3hover);
+}
