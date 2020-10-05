@@ -78,7 +78,7 @@ nav {
     width: 100%;
 }
 
-.section-odd {
+.section:nth-child(2n) {
     background: var(--color2);
 }
 
