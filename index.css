@@ -110,6 +110,10 @@ nav {
     flex-direction: column;
 }
 
+.top-button-sub-info {
+    font-size: 13px;
+}
+
 #github-button {
     width: 210px;
     color: #222;
