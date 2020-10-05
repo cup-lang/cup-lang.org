@@ -26,9 +26,9 @@ function autorun() {
     setStars();
     setSize();
 
-    // document.getElementById("download-arrow").onclick = function() {
-    //     return false;
-    // };
+    document.getElementById("download-arrow").onclick = function() {
+        return false;
+    };
 
     fetch("https://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
         setStars(data.stargazers_count);
