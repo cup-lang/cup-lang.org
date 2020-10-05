@@ -3,7 +3,7 @@
     --color1: #292b2f;
     --color2: #2f3136;
     --color3: #fff;
-    --color3hover: #d9d9d9;
+    --color3hover: #e6e6e6;
     --color4: #8a4b38;
     --color4hover: #774131;
 }
@@ -137,7 +137,7 @@ nav {
 
 #download-button {
     color: #fff;
-    padding-right: 10px;
+    padding-right: 5px;
     border-radius: 5px 0 0 5px;
     z-index: 1;
 }
@@ -146,7 +146,7 @@ nav {
     width: 2px;
     height: 50px;
     background: var(--color4);
-    padding: 0 3px;
+    padding: 0 4px;
 }
 
     #vertical-line > div {
