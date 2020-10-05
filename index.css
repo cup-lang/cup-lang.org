@@ -158,7 +158,7 @@ nav {
 }
 
     #download-arrow:hover {
-        background: #ffffff33;
+        /* background: #ffffff33; */
     }
 
     #download-arrow > svg {
