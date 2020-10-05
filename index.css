@@ -135,6 +135,11 @@ nav {
     padding-right: 0;
 }
 
+#vertical-line {
+    height: 90%;
+    border-left: 1px solid #fff;
+}
+
 #download-arrow {
     height: 100%;
     display: flex;
