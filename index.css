@@ -1,12 +1,12 @@
 :root {
     --color0: #202225;
-    --color0hover: #3a3b42;
+    --color0hover: #3e4247;
     --color1: #292b2f;
     --color2: #2f3136;
     --color3: #fff;
-    --color3hover: #dbdbdb;
+    --color3hover: #e6e6e6;
     --color4: #8a4b38;
-    --color4hover: #975a48;
+    --color4hover: #ae5f47;
 }
 
 html {
