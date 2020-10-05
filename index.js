@@ -30,7 +30,7 @@ function autorun() {
     var open;
     arrow.onclick = function () {
         open = !open;
-        arrow.childNodes[0].style.transform = open ? "" : "rotateZ(180deg)";
+        arrow.childNodes[1].style.transform = open ? "" : "rotateZ(180deg)";
         return false;
     };
 
