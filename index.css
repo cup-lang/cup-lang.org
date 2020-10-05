@@ -132,6 +132,7 @@ nav {
 
 #download-button {
     color: #fff;
+    padding-right: 5px;
     border-radius: 5px 0 0 5px;
 }
 
@@ -139,6 +140,7 @@ nav {
     width: 2px;
     height: 50px;
     background: var(--color3);
+    padding: 0 5px;
 }
 
     #vertical-line > div {
@@ -150,7 +152,7 @@ nav {
 
 #download-arrow {
     color: #fff;
-    padding: 0 15px;
+    padding: 0 5px;
     border-radius: 0 5px 5px 0;
 }
 
