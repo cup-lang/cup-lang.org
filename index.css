@@ -1,6 +1,5 @@
 :root {
     --color0: #202225;
-    --color0hover: #323539;
     --color1: #292b2f;
     --color2: #2f3136;
     --color3: #fff;
@@ -50,7 +49,7 @@ nav {
 
 .nav-link-active,
 .nav-link:hover {
-    background: var(--color0hover);
+    background: var(--color2);
 }
 
 .nav-content {
