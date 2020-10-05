@@ -26,7 +26,11 @@ function autorun() {
     setStars();
     setSize();
 
-    document.getElementById("download-arrow").onclick = function() {
+    var arrow = document.getElementById("download-arrow");
+    var open;
+    arrow.onclick = function () {
+        open = !open;
+        arrow.style.transform = open ? "" : "rotateZ(180deg)";
         return false;
     };
 
