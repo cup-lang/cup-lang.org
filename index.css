@@ -133,3 +133,8 @@ nav {
     color: #fff;
     background: var(--color3);
 }
+
+#download-arrow {
+    height: 20px;
+    margin-left: 10px;
+}
