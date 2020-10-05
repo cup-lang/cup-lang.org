@@ -29,8 +29,20 @@ function autorun() {
     var arrow = document.getElementById("download-arrow");
     var open;
     arrow.onclick = function () {
-        open = !open;
-        arrow.childNodes[1].style.transform = open ? "" : "rotateZ(180deg)";
+        function hide() {
+            open = false;
+            arrow.childNodes[1].style.transform = "";
+            window.onmousedown = null;
+        }
+        if (open) {
+            hide();
+        } else {
+            open = true;
+            arrow.childNodes[1].style.transform = "rotateZ(180deg)";
+            window.onmousedown = function () {
+                hide();
+            };
+        }
         return false;
     };
 
