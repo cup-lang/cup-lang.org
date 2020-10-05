@@ -27,10 +27,11 @@ function autorun() {
     setSize();
 
     var arrow = document.getElementById("download-arrow");
+    var arrow_svg = arrow.getElementsByTagName("svg");
     var open;
     arrow.onclick = function () {
         open = !open;
-        arrow.style.transform = open ? "" : "rotateZ(180deg)";
+        arrow_svg.style.transform = open ? "" : "rotateZ(180deg)";
         return false;
     };
 
