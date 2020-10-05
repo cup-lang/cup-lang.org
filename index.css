@@ -31,7 +31,7 @@ nav {
     height: 50px;
     background: var(--color0);
     position: relative;
-    overflow-x: scroll;
+    overflow-x: auto;
     z-index: 1;
 }
 
