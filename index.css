@@ -135,8 +135,8 @@ nav {
 }
 
 #download-arrow {
-    height: 20px;
-    margin: 0 0 0 10px;
+    height: 100%;
+    margin-left: 10px;
 }
 
     #download-arrow:hover {
