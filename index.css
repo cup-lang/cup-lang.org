@@ -167,9 +167,9 @@ nav {
         height: 20px;
     }
 
-#download-arrow:enabled {
-    transform: rotateZ(180deg);
-}
+    #download-arrow:enabled > svg {
+        transform: rotateZ(180deg);
+    }
 
 #download-button:hover, #download-arrow:enabled, #download-arrow:hover {
     background: var(--color4hover);
