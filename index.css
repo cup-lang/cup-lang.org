@@ -170,7 +170,7 @@ nav {
     }
 
     #download-arrow[disabled] > svg {
-        transform: 0;
+        transform: rotateZ(0);
     }
 
 #download-arrow[disabled] {
