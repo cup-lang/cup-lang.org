@@ -136,6 +136,7 @@ nav {
     }
 
 #download-button {
+    position: relative;
     color: #fff;
     padding-right: 5px;
     border-radius: 5px 0 0 5px;
@@ -171,6 +172,7 @@ nav {
 }
 
 #download-menu {
+    position: absolute;
     width: 250px;
     height: 100px;
     background: red;
