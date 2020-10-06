@@ -163,11 +163,15 @@ nav {
     border-radius: 0 5px 5px 0;
 }
 
-#download-arrow > svg {
-    height: 20px;
+    #download-arrow > svg {
+        height: 20px;
+    }
+
+#download-arrow:enabled {
+    transform: rotateZ(180deg);
 }
 
-#download-button:hover, #download-arrow:hover {
+#download-button:hover, #download-arrow:enabled, #download-arrow:hover {
     background: var(--color4hover);
 }
 
