@@ -185,7 +185,6 @@ nav {
 #download-menu {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: absolute;
     top: 52px;
     right: 0;
@@ -198,6 +197,7 @@ nav {
 .download-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 45px;
     padding: 0 10px;
     color: var(--color3);
