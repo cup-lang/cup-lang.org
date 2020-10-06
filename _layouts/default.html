@@ -33,7 +33,7 @@
             <div class="nav-side">
                 {% for item in site.header %}
                 <a class="nav-link {% if page.base == item.base %}nav-link-active{% endif %}"
-                    href="/{{ item.base }}">{{ item.name }}</a>
+                    href="/{{ item.base }}" title="{{ item.name }}">{{ item.name }}</a>
                 {% endfor %}
             </div>
         </div>
