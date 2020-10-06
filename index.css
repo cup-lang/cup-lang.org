@@ -183,10 +183,11 @@ nav {
 
 #download-menu {
     position: absolute;
-    top: 50px;
+    top: 52px;
     right: 0;
     width: 200px;
     height: 100px;
     background: red;
+    border-radius: 5px;
     z-index: 1;
 }
