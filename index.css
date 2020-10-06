@@ -196,5 +196,9 @@ nav {
 
 .download-item {
     display: flex;
-    height: 20px;
+    height: 35px;
 }
+
+    .download-item > svg {
+        width: 30px;
+    }
