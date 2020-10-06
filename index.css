@@ -161,12 +161,12 @@ nav {
     color: #fff;
     padding: 0 4px 0 10px;
     border-radius: 0 5px 5px 0;
-    transform: rotateZ(180deg);
     background: var(--color4hover);
 }
 
     #download-arrow > svg {
         height: 20px;
+        transform: rotateZ(180deg);
     }
 
     #download-arrow[disabled] > svg {
