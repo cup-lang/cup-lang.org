@@ -41,6 +41,7 @@ function autorun() {
             arrow.childNodes[1].style.transform = "rotateZ(180deg)";
             window.onmousedown = function () {
                 hide();
+                return false;
             };
         }
         return false;
