@@ -28,7 +28,7 @@ function autorun() {
 
     var arrow = document.getElementById("download-arrow");
     var open;
-    arrow.onclick = function () {
+    arrow.onclick = function (e) {
         function hide() {
             open = false;
             arrow.childNodes[1].style.transform = "";
@@ -41,9 +41,9 @@ function autorun() {
             arrow.childNodes[1].style.transform = "rotateZ(180deg)";
             window.onmousedown = function () {
                 hide();
-                return false;
             };
         }
+        e.stopPropagation();
         return false;
     };
 
