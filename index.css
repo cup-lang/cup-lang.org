@@ -194,6 +194,7 @@ nav {
     z-index: 1;
 }
 
-    #download-menu > a {
-        height: 20px;
-    }
+.download-item {
+    display: flex;
+    height: 20px;
+}
