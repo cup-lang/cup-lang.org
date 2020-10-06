@@ -136,7 +136,6 @@ nav {
     }
 
 #download-button {
-    position: relative;
     color: #fff;
     padding-right: 5px;
     border-radius: 5px 0 0 5px;
@@ -158,6 +157,7 @@ nav {
     }
 
 #download-arrow {
+    position: relative;
     color: #fff;
     padding: 0 4px 0 10px;
     border-radius: 0 5px 5px 0;
