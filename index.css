@@ -169,3 +169,9 @@ nav {
 #download-button:hover, #download-arrow:hover {
     background: var(--color4hover);
 }
+
+#download-menu {
+    width: 250px;
+    height: 100px;
+    background: red;
+}

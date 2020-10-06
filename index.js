@@ -26,13 +26,15 @@ function autorun() {
     setStars();
     setSize();
 
-    var arrow = document.getElementById("download-arrow");
     var open;
+    var arrow = document.getElementById("download-arrow");
+    var menu = document.getElementById("download-menu");
     arrow.onmousedown = function (e) { e.stopPropagation(); }
-    arrow.onclick = function (e) {
+    arrow.onclick = function () {
         function hide() {
             open = false;
             arrow.childNodes[1].style.transform = "";
+            menu.style.display = "";
             window.onmousedown = null;
         }
         if (open) {
@@ -41,7 +43,7 @@ function autorun() {
             open = true;
             arrow.childNodes[1].style.transform = "rotateZ(180deg)";
             window.onmousedown = hide;
-            
+            menu.style.display = "none";
         }
         return false;
     };
