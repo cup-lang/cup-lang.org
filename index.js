@@ -29,7 +29,7 @@ function autorun() {
     var open;
     var arrow = document.getElementById("download-arrow");
     var menu = document.getElementById("download-menu");
-    arrow.onmousedown = menu.onmousedown = function (e) { e.stopPropagation(); }
+    arrow.onmousedown = menu.onmousedown = menu.onclick = function (e) { e.stopPropagation(); }
     arrow.onclick = function () {
         function hide() {
             open = false;
