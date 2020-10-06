@@ -201,6 +201,7 @@ nav {
     height: 45px;
     padding: 0 10px;
     color: var(--color3);
+    text-decoration: none;
 }
 
 .download-item:hover {
