@@ -33,7 +33,7 @@ function autorun() {
     arrow.onclick = function () {
         function hide() {
             open = false;
-            arrow.childNodes[1].removeAttribute("disabled");
+            arrow.removeAttribute("disabled");
             menu.style.display = "none";
             window.onmousedown = null;
         }
@@ -41,7 +41,7 @@ function autorun() {
             hide();
         } else {
             open = true;
-            arrow.childNodes[1].setAttribute("disabled", "");
+            arrow.setAttribute("disabled", "");
             window.onmousedown = hide;
             menu.style.display = "";
         }
