@@ -230,5 +230,6 @@ nav {
 /* #endregion */
 
 #social-buttons {
-
+    display: flex;
+    
 }
