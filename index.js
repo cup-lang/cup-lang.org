@@ -40,9 +40,8 @@ function autorun() {
         } else {
             open = true;
             arrow.childNodes[1].style.transform = "rotateZ(180deg)";
-            window.onmousedown = function () {
-                hide();
-            };
+            window.onmousedown = hide;
+            
         }
         return false;
     };
