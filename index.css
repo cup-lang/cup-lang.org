@@ -207,7 +207,7 @@ nav {
     background: var(--color4hover);
 }
 
-    .download-item > svg {
+    .download-item-svg {
         width: 24px;
         margin-right: 10px;
     }
