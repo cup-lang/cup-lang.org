@@ -173,6 +173,7 @@ nav {
 
 #download-menu {
     position: absolute;
+    top: 50px;
     width: 250px;
     height: 100px;
     background: red;
