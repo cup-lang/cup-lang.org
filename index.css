@@ -189,7 +189,7 @@ nav {
     top: 52px;
     right: 0;
     width: 220px;
-    background: red;
+    background: var(--color4);
     border-radius: 5px;
     z-index: 1;
 }
@@ -198,10 +198,15 @@ nav {
     display: flex;
     align-items: center;
     height: 35px;
-    padding: 5px;
+    padding: 5px 10px;
+    color: var(--color3);
+}
+
+.download-item:hover {
+    background: var(--color4hover);
 }
 
     .download-item > svg {
         width: 24px;
-        margin-right: 5px;
+        margin-right: 10px;
     }
