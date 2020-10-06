@@ -207,7 +207,12 @@ nav {
     background: var(--color4hover);
 }
 
-    .download-item-svg {
-        width: 24px;
-        margin-right: 10px;
+    .download-item > div {
+        display: flex;
+        align-items: center;
     }
+
+.download-item-svg {
+    width: 24px;
+    margin-right: 10px;
+}
