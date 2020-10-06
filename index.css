@@ -200,7 +200,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 45px;
+    height: 42px;
     padding: 0 10px;
     margin-left: -1px;
     color: var(--color3);
