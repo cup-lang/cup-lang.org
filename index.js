@@ -28,6 +28,7 @@ function autorun() {
 
     var arrow = document.getElementById("download-arrow");
     var open;
+    arrow.onmousedown = function (e) { e.stopPropagation(); }
     arrow.onclick = function (e) {
         function hide() {
             open = false;
@@ -43,7 +44,6 @@ function autorun() {
                 hide();
             };
         }
-        e.stopPropagation();
         return false;
     };
 
