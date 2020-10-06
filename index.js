@@ -34,7 +34,7 @@ function autorun() {
         function hide() {
             open = false;
             arrow.childNodes[1].style.transform = "";
-            menu.style.display = "";
+            menu.style.display = "none";
             window.onmousedown = null;
         }
         if (open) {
@@ -43,7 +43,7 @@ function autorun() {
             open = true;
             arrow.childNodes[1].style.transform = "rotateZ(180deg)";
             window.onmousedown = hide;
-            menu.style.display = "none";
+            menu.style.display = "";
         }
         return false;
     };
