@@ -68,6 +68,8 @@ nav {
 
 /* #endregion */
 
+/* #region sections */
+
 .content {
     max-width: 1200px;
     margin: 0 auto;
@@ -85,6 +87,10 @@ nav {
 .section-content {
     padding: 30px 15px;
 }
+
+/* #endregion */
+
+/* #region top-buttons */
 
 #top-buttons {
     display: flex;
@@ -219,4 +225,10 @@ nav {
 .download-item-svg {
     width: 24px;
     margin-right: 10px;
+}
+
+/* #endregion */
+
+#social-buttons {
+
 }
