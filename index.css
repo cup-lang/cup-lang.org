@@ -183,6 +183,7 @@ nav {
 }
 
 #download-menu {
+    display: flex;
     position: absolute;
     top: 52px;
     right: 0;
