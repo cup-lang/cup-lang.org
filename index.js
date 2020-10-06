@@ -41,7 +41,7 @@ function autorun() {
             hide();
         } else {
             open = true;
-            arrow.childNodes[1].setAttribute("disabled");
+            arrow.childNodes[1].setAttribute("disabled", "");
             window.onmousedown = hide;
             menu.style.display = "";
         }
