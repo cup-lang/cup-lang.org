@@ -174,7 +174,9 @@ nav {
 #download-menu {
     position: absolute;
     top: 50px;
-    width: 250px;
+    right: 0;
+    width: 200px;
     height: 100px;
     background: red;
+    z-index: 1;
 }
