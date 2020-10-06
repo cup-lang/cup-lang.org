@@ -197,7 +197,7 @@ nav {
 .download-item {
     display: flex;
     align-items: center;
-    height: 35px;
+    height: 25px;
     padding: 5px 10px;
     color: var(--color3);
 }
