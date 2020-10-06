@@ -45,7 +45,6 @@ function autorun() {
             window.onmousedown = hide;
             menu.style.display = "";
         }
-        return false;
     };
 
     fetch("https://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
