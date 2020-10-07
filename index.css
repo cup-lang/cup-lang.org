@@ -16,17 +16,7 @@ body, html {
     background: var(--color1);
 }
 
-p {
-    margin: 10px 0 15px 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-.nav-link {
-    margin: 0;
+h1, .nav-link {
     font-family: "Titillium Web";
 }
 
@@ -95,7 +85,15 @@ nav {
 
 /* #endregion */
 
-/* #region top-buttons */
+/* #region top-info */
+
+h1 {
+    margin-top: 30px;
+}
+
+p {
+    margin: 10px 0 15px 0;
+}
 
 #top-buttons {
     display: flex;
@@ -241,12 +239,10 @@ nav {
     margin-right: 10px;
 }
 
-/* #endregion */
-
 #social-buttons {
     display: flex;
     align-items: center;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 40px 0;
 }
 
 .social-button {
@@ -258,3 +254,5 @@ nav {
     .social-button:hover {
         color: #959595;   
     }
+
+/* #endregion */
