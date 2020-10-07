@@ -152,7 +152,8 @@ nav {
     width: 2px;
     height: 50px;
     background: var(--color4);
-    padding: 0 4px;
+    margin: 0 -1px;
+    padding: 0 5px;
 }
 
     #vertical-line > div {
