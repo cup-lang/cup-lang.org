@@ -101,7 +101,7 @@ nav {
         flex-direction: column;
     }
 
-    #github-button {
+    #download-button {
         display: flex;
         margin-top: 10px;
     }
