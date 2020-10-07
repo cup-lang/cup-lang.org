@@ -147,7 +147,7 @@ nav {
     display: flex;
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 550px) {
     #top-buttons {
         flex-direction: column;
     }
