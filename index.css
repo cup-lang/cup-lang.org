@@ -164,9 +164,9 @@ nav {
     }
 
 #download-arrow {
+    width: 40px;
     position: relative;
     color: #fff;
-    padding: 0 4px 0 10px;
     border-radius: 0 5px 5px 0;
     border: 0;
 }
