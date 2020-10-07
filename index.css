@@ -177,7 +177,7 @@ nav {
     flex-direction: column;
     position: absolute;
     top: 52px;
-    right: -40px;
+    right: 0;
     width: 220px;
     background: var(--color4);
     border-radius: 5px;
