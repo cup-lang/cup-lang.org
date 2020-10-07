@@ -149,6 +149,7 @@ nav {
 }
 
 #vertical-line {
+    position: relative;
     width: 2px;
     height: 50px;
     background: var(--color4);
@@ -165,7 +166,6 @@ nav {
 
 #download-arrow {
     width: 40px;
-    position: relative;
     color: #fff;
     border-radius: 0 5px 5px 0;
     border: 0;
