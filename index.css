@@ -102,7 +102,6 @@ nav {
     }
 
     #download-button {
-        display: flex;
         margin-top: 10px;
     }
 }
@@ -150,6 +149,10 @@ nav {
     #star-count > svg {
         margin-right: 2px;
     }
+
+#download-button {
+    display: flex;
+}
 
 #download-button-link {
     flex-grow: 1;
