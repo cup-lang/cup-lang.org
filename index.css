@@ -142,27 +142,11 @@ nav {
     }
 
 #download-button {
-    color: #fff;
-    padding-right: 5px;
-    border-radius: 5px 0 0 5px;
-    z-index: 1;
-}
-
-#vertical-line {
     position: relative;
-    width: 2px;
-    height: 50px;
-    background: var(--color4);
-    margin: 0 -1px;
-    padding: 0 5px;
+    color: #fff;
+    padding-right: 10px;
+    border-radius: 5px 0 0 5px;
 }
-
-    #vertical-line > div {
-        margin-top: 5px;
-        height: 40px;
-        background: #fff;
-        border-radius: 1px;
-    }
 
 #download-arrow {
     width: 40px;
@@ -192,7 +176,7 @@ nav {
     flex-direction: column;
     position: absolute;
     top: 52px;
-    right: 0;
+    right: -40px;
     width: 220px;
     background: var(--color4);
     border-radius: 5px;
