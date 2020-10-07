@@ -169,7 +169,7 @@ nav {
     padding: 0 4px 0 10px;
     border-radius: 0 5px 5px 0;
     background: var(--color4hover);
-    cursor: pointer;
+    border: 0;
 }
 
     #download-arrow > svg {
