@@ -170,6 +170,9 @@ nav {
 }
 
 #download-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     box-sizing: border-box;
     color: #fff;
