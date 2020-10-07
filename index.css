@@ -96,6 +96,12 @@ nav {
     display: flex;
 }
 
+@media only screen and (max-width: 540px) {
+    #top-buttons {
+        flex-direction: row;
+    }
+}
+
 .top-button {
     padding: 0 12px;
     height: 50px;
