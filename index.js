@@ -4,10 +4,8 @@ function setDownload(system) {
     var button = document.getElementById("download-button");
     button.setAttribute("href", "https://github.com/cup-lang/cup/raw/master/bin/cup.exe");
     button.setAttribute("title", "Download for " + system);
-
     button.innerHTML = svg[0] + "<div class=\"top-button-info\"><span>Download for " + system + "<\/span><span id=\"file-size\" class=\"top-button-sub-info\"><\/span><\/div>";
 
-    document.getElementById("download-system").innerText = "Download for " + system;
     function makeDownloadItem(system) {
         return "<a class=\"download-item\" href=\"https:\/\/github.com\/cup-lang\/cup\/raw\/master\/bin\/cup.exe\" download><div>" + svg[1] + system + "<\/div>1.1 MB<\/a>";
     }
