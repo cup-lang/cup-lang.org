@@ -16,7 +16,10 @@ body, html {
     background: var(--color1);
 }
 
-p,
+p {
+    margin: 10px 0;
+}
+
 h1,
 h2,
 h3,
