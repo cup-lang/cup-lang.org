@@ -192,11 +192,11 @@ nav {
     color: var(--color3);
     background: var(--color4);
     text-decoration: none;
-    border-radius: 5px 0;
+    border-radius: 5px 5px 0 0;
 }
 
 .download-item:nth-child(2) {
-    border-radius: 0 5px;
+    border-radius: 0 0 5px 5px;
 }
 
 .download-item:hover {
