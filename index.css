@@ -154,6 +154,11 @@ nav {
 #download-button {
     color: #fff;
     background: var(--color4);
+    border-radius: 5px;
+}
+
+#download-button:hover {
+    background: var(--color4hover);
 }
 
 #download-button-link {
@@ -167,8 +172,6 @@ nav {
     box-sizing: border-box;
     color: #fff;
     margin-left: 2px;
-    border-radius: 0 5px 5px 0;
-    border: 0;
 }
 
     #download-arrow > svg {
@@ -180,10 +183,6 @@ nav {
     }
 
 .download-arrow-active {
-    background: var(--color4hover);
-}
-
-#download-button:hover, #download-arrow:hover {
     background: var(--color4hover);
 }
 
