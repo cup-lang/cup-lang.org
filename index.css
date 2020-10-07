@@ -205,7 +205,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 42px;
+    height: 40px;
     padding: 0 10px;
     margin-left: -1px;
     color: var(--color3);
@@ -222,7 +222,7 @@ nav {
     }
 
 .download-item-svg {
-    width: 24px;
+    width: 22px;
     margin-right: 10px;
 }
 
