@@ -115,7 +115,6 @@ nav {
     text-decoration: none;
     border-radius: 5px;
     font-size: 15px;
-    background: var(--color4);
 }
 
     .top-button > svg {
@@ -153,8 +152,13 @@ nav {
     }
 
 #download-button {
-    position: relative;
+    display: flex;
+    margin-top: 10px;
     color: #fff;
+    background: var(--color4);
+}
+
+#download-button-link {
     padding-right: 10px;
     border-radius: 5px 0 0 5px;
 }
