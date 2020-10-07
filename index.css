@@ -148,28 +148,6 @@ p {
     display: flex;
 }
 
-@media only screen and (max-width: 550px) {
-    h1 {
-        margin: 0;
-    }
-
-    #top-buttons {
-        flex-direction: column;
-    }
-
-    #github-button {
-        margin: 0;
-    }
-
-    #download-button {
-        margin-top: 8px;
-    }
-
-    #social-buttons {
-        margin-bottom: 0;
-    }
-}
-
 #download-button-link {
     flex-grow: 1;
     color: #fff;
@@ -262,5 +240,27 @@ p {
     .social-button:hover {
         color: #959595;   
     }
+
+@media only screen and (max-width: 550px) {
+    h1 {
+        margin: 0;
+    }
+
+    #top-buttons {
+        flex-direction: column;
+    }
+
+    #github-button {
+        margin: 0;
+    }
+
+    #download-button {
+        margin-top: 8px;
+    }
+
+    #social-buttons {
+        margin-bottom: 0;
+    }
+}
 
 /* #endregion */
