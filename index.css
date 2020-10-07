@@ -163,7 +163,6 @@ nav {
 
 #download-button-link {
     flex-grow: 1;
-    padding-right: 10px;
     color: #fff;
     background: var(--color4);
     border-radius: 5px 0 0 5px;
