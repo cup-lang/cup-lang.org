@@ -196,8 +196,6 @@ nav {
     width: 220px;
     background: var(--color4);
     border-radius: 5px;
-    border: 2px solid var(--color4hover);
-    box-sizing: border-box;
     z-index: 1;
 }
 
@@ -207,7 +205,6 @@ nav {
     justify-content: space-between;
     height: 40px;
     padding: 0 10px;
-    margin-left: -1px;
     color: var(--color3);
     text-decoration: none;
 }
