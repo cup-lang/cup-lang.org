@@ -157,6 +157,7 @@ nav {
 }
 
 #download-button-link {
+    flex-grow: 1;
     padding-right: 10px;
     border-radius: 5px 0 0 5px;
 }
@@ -191,7 +192,7 @@ nav {
     flex-direction: column;
     position: absolute;
     top: 52px;
-    right: 0;
+    right: -40px;
     width: 220px;
     z-index: 1;
 }
