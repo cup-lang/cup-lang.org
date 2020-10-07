@@ -151,27 +151,25 @@ nav {
         margin-right: 2px;
     }
 
-#download-button {
-    color: #fff;
-    background: var(--color4);
-    border-radius: 5px;
-}
-
-#download-button:hover {
-    background: var(--color4hover);
-}
-
 #download-button-link {
     flex-grow: 1;
     padding-right: 10px;
+    color: #fff;
     border-radius: 5px 0 0 5px;
+    background: var(--color4);
 }
 
 #download-arrow {
     width: 40px;
     box-sizing: border-box;
     color: #fff;
+    background: var(--color4);
     margin-left: 2px;
+    border-radius: 0 5px 5px 0;
+}
+
+#download-button-link:hover, #download-arrow:hover {
+    background: var(--color4hover);
 }
 
     #download-arrow > svg {
