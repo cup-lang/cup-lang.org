@@ -33,7 +33,7 @@ function autorun() {
     arrow.onclick = function () {
         function hide() {
             open = false;
-            arrow.classList.add("download-arrow-active");
+            arrow.classList.remove("download-arrow-active");
             menu.style.display = "none";
             window.onmousedown = null;
         }
@@ -41,7 +41,7 @@ function autorun() {
             hide();
         } else {
             open = true;
-            arrow.classList.remove("download-arrow-active");
+            arrow.classList.add("download-arrow-active");
             window.onmousedown = hide;
             menu.style.display = "";
         }
