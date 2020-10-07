@@ -152,8 +152,6 @@ nav {
     }
 
 #download-button {
-    display: flex;
-    margin-top: 10px;
     color: #fff;
     background: var(--color4);
 }
