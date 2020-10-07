@@ -11,7 +11,7 @@ function setDownload(index) {
     function makeDownloadItem(index) {
         return "<a class=\"download-item\" href=\"https:\/\/github.com\/cup-lang\/cup\/raw\/master\/bin\/cup.exe\" download><div>" + svg[index] + systems[index] + "<\/div>1.1 MB<\/a>";
     }
-    document.getElementById("download-menu").innerHTML = makeDownloadItem(index + 1 % 3) + makeDownloadItem(index + 2 % 3);
+    document.getElementById("download-menu").innerHTML = makeDownloadItem((index + 1) % 3) + makeDownloadItem((index + 2) % 3);
 }
 
 function setStars(stars) {
