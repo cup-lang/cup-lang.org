@@ -155,8 +155,8 @@ nav {
     flex-grow: 1;
     padding-right: 10px;
     color: #fff;
-    border-radius: 5px 0 0 5px;
     background: var(--color4);
+    border-radius: 5px 0 0 5px;
 }
 
 #download-arrow {
