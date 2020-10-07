@@ -101,8 +101,12 @@ nav {
         flex-direction: column;
     }
 
+    #github-button {
+        margin: 0;
+    }
+
     #download-button {
-        margin-top: 10px;
+        margin-top: 8px;
     }
 }
 
