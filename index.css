@@ -199,7 +199,7 @@ nav {
     flex-direction: column;
     position: absolute;
     top: 52px;
-    right: -40px;
+    right: -42px;
     width: 220px;
     z-index: 1;
 }
