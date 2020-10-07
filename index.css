@@ -223,5 +223,6 @@ nav {
 
 .social-button {
     width: 20px;
+    color: var(--color3);
     margin-right: 15px;
 }
