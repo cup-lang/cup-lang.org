@@ -98,7 +98,7 @@ nav {
 
 @media only screen and (max-width: 540px) {
     #top-buttons {
-        flex-direction: row;
+        flex-direction: column;
     }
 }
 
