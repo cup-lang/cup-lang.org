@@ -107,6 +107,7 @@ nav {
 }
 
     .top-button > svg {
+        width: 32px;
         height: 32px;
         flex-shrink: 0;
         margin-right: 10px;
