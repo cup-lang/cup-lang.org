@@ -149,6 +149,10 @@ p {
 }
 
 @media only screen and (max-width: 550px) {
+    h1 {
+        margin: 0;
+    }
+
     #top-buttons {
         flex-direction: column;
     }
@@ -159,6 +163,10 @@ p {
 
     #download-button {
         margin-top: 8px;
+    }
+
+    #social-buttons {
+        margin-bottom: 0;
     }
 }
 
