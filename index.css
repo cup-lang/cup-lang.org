@@ -219,3 +219,8 @@ nav {
 #social-buttons {
     display: flex;
 }
+
+.social-button {
+    height: 20px;
+    margin-right: 10px;
+}
