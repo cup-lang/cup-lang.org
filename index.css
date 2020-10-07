@@ -150,6 +150,7 @@ nav {
 
 #download-arrow {
     width: 40px;
+    box-sizing: border-box;
     color: #fff;
     margin-left: 2px;
     border-radius: 0 5px 5px 0;
