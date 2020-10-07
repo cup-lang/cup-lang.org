@@ -223,6 +223,10 @@ nav {
 
 .social-button {
     width: 20px;
-    color: var(--color3);
+    color: #c4c4c4;
     margin-right: 15px;
 }
+
+    .social-button:hover {
+        color: #959595;   
+    }
