@@ -168,7 +168,6 @@ nav {
     color: #fff;
     padding: 0 4px 0 10px;
     border-radius: 0 5px 5px 0;
-    background: var(--color4hover);
     border: 0;
 }
 
@@ -181,7 +180,7 @@ nav {
     }
 
 .download-arrow-active {
-    background: var(--color4);
+    background: var(--color4hover);
 }
 
 #download-button:hover, #download-arrow:hover {
