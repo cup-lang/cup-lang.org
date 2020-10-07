@@ -96,20 +96,6 @@ nav {
     display: flex;
 }
 
-@media only screen and (max-width: 540px) {
-    #top-buttons {
-        flex-direction: column;
-    }
-
-    #github-button {
-        margin: 0;
-    }
-
-    #download-button {
-        margin-top: 8px;
-    }
-}
-
 .top-button {
     padding: 0 12px;
     height: 50px;
@@ -156,6 +142,20 @@ nav {
 
 #download-button {
     display: flex;
+}
+
+@media only screen and (max-width: 540px) {
+    #top-buttons {
+        flex-direction: column;
+    }
+
+    #github-button {
+        margin: 0;
+    }
+
+    #download-button {
+        margin-top: 8px;
+    }
 }
 
 #download-button-link {
