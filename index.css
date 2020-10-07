@@ -174,14 +174,13 @@ nav {
 
     #download-arrow > svg {
         height: 20px;
+    }
+    
+    .download-arrow-active > svg {
         transform: rotateZ(180deg);
     }
 
-    #download-arrow[disabled] > svg {
-        transform: rotateZ(0);
-    }
-
-#download-arrow[disabled] {
+.download-arrow-active {
     background: var(--color4);
 }
 
@@ -232,5 +231,4 @@ nav {
 
 #social-buttons {
     display: flex;
-    
 }
