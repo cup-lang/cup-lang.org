@@ -9,7 +9,7 @@ function setDownload(index) {
     button.innerHTML = svg[0] + "<div class=\"top-button-info\"><span>Download for " + system + "<\/span><span id=\"file-size\" class=\"top-button-sub-info\"><\/span><\/div>";
 
     function makeDownloadItem(index) {
-        return "<a class=\"download-item\" href=\"https:\/\/github.com\/cup-lang\/cup\/raw\/master\/bin\/cup.exe\" download><div>" + svg[1] + systems[index] + "<\/div>1.1 MB<\/a>";
+        return "<a class=\"download-item\" href=\"https:\/\/github.com\/cup-lang\/cup\/raw\/master\/bin\/cup.exe\" download><div>" + svg[index] + systems[index] + "<\/div>1.1 MB<\/a>";
     }
     document.getElementById("download-menu").innerHTML = makeDownloadItem(index + 1 % 3) + makeDownloadItem(index + 2 % 3);
 }
