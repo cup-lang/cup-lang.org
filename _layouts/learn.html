@@ -5,10 +5,10 @@ layout: default
     <div id="learn-nav">
         {% for item in site.learn %}
         {% assign index = forloop.index %}
-        <a class="learn-link" href="/learn/{{ item.url }}"><b>{{forloop.index}}</b>{{ item.name }}</a>
+        <a class="learn-link" href="/learn/{{ item.url }}"><b>{{forloop.index}}.</b> {{ item.name }}</a>
         {% for sub in item.subs %}
         <a class="learn-link learn-link-sub"
-            href="/learn/{{ item.url }}/{{ sub.url }}"><b>{{ index }}.{{forloop.index}}</b>{{ sub.name }}</a>
+            href="/learn/{{ item.url }}/{{ sub.url }}"><b>{{ index }}.{{forloop.index}}.</b> {{ sub.name }}</a>
         {% endfor %}
         {% endfor %}
     </div>
