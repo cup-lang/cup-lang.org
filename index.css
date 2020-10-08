@@ -4,8 +4,10 @@
     --color2: #2f3136;
     --color3: #fff;
     --color3hover: #e6e6e6;
-    --color4: #8a4b38;
-    --color4hover: #774131;
+    --color4: #c4c4c4;
+    --color4hover: #c4c4c4;
+    --color5: #8a4b38;
+    --color5hover: #774131;
 }
 
 body, html {
@@ -151,7 +153,7 @@ p {
 #download-button-link {
     flex-grow: 1;
     color: var(--color3);
-    background: var(--color4);
+    background: var(--color5);
     border-radius: 5px 0 0 5px;
 }
 
@@ -162,13 +164,13 @@ p {
     width: 40px;
     box-sizing: border-box;
     color: var(--color3);
-    background: var(--color4);
+    background: var(--color5);
     margin-left: 2px;
     border-radius: 0 5px 5px 0;
 }
 
 #download-button-link:hover, #download-arrow:hover {
-    background: var(--color4hover);
+    background: var(--color5hover);
 }
 
     #download-arrow > svg {
@@ -180,7 +182,7 @@ p {
     }
 
 .download-arrow-active {
-    background: var(--color4hover);
+    background: var(--color5hover);
 }
 
 #download-menu {
@@ -200,7 +202,7 @@ p {
     height: 40px;
     padding: 0 10px;
     color: var(--color3);
-    background: var(--color4);
+    background: var(--color5);
     font-size: 15px;
     text-decoration: none;
     border-radius: 5px 5px 0 0;
@@ -211,7 +213,7 @@ p {
 }
 
 .download-item:hover {
-    background: var(--color4hover);
+    background: var(--color5hover);
 }
 
     .download-item > div {
@@ -233,7 +235,7 @@ p {
 
 .social-button {
     width: 20px;
-    color: #c4c4c4;
+    color: ;
     margin-right: 15px;
 }
 
@@ -278,10 +280,14 @@ p {
 }
 
 .learn-link {
-    color: var(--color3);
+    color: var(--color4);
     text-decoration: none;
     margin-bottom: 10px;
 }
+
+    .learn-link:hover {
+        color: var(--color4hover);
+    }
 
     .learn-link > .learn-link {
         margin-left: 15px;
