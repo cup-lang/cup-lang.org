@@ -289,7 +289,7 @@ p {
         color: var(--color4hover);
     }
 
-    .learn-link > .learn-link {
+    .learn-link-sub {
         margin-left: 15px;
     }
 
