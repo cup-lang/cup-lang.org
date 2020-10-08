@@ -6,7 +6,7 @@ layout: default
         {% for item in site.learn %}
         {% assign index = forloop.index0 %}
         <a class="learn-link" href="/learn/{{ item.url }}">
-            {% if index %}
+            {% if index > 0 %}
             <b>{{ index }}.</b>
             {% endif %}
         {{ item.name }}</a>
