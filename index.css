@@ -235,7 +235,7 @@ p {
 
 .social-button {
     width: 20px;
-    color: ;
+    color: var(--color4);
     margin-right: 15px;
 }
 
