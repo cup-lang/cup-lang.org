@@ -267,6 +267,11 @@ p {
 
 /* #region learn */
 
+#learn-nav {
+    display: flex;
+    flex-direction: column;
+}
+
 .learn-link {
     
 }
