@@ -267,6 +267,10 @@ p {
 
 /* #region learn */
 
+#learn {
+    display: flex;
+}
+
 #learn-nav {
     display: flex;
     flex-direction: column;

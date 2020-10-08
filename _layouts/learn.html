@@ -1,15 +1,17 @@
 ---
 layout: default
 ---
-<div id="learn-nav">
-    {% for item in site.learn %}
-    <a class="learn-link" href="/learn/{{ item.url }}">{{ item.name }}
-        {% for sub in item.subs %}
-        <a class="learn-link-sub" href="/learn/{{ item.url }}/{{ sub.url }}">{{ sub.name }}</a>
+<div id="learn">
+    <div id="learn-nav">
+        {% for item in site.learn %}
+        <a class="learn-link" href="/learn/{{ item.url }}">{{ item.name }}
+            {% for sub in item.subs %}
+            <a class="learn-link-sub" href="/learn/{{ item.url }}/{{ sub.url }}">{{ sub.name }}</a>
+            {% endfor %}
+        </a>
         {% endfor %}
-    </a>
-    {% endfor %}
-</div>
-<div>
-    {{ content }}
+    </div>
+    <div>
+        {{ content }}
+    </div>
 </div>
