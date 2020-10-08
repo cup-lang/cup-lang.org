@@ -18,8 +18,6 @@ learn:
         url: hello-world
       - name: Commands
         url: commands
-  - name: Test
-    url: test
 
 exclude:
   - CNAME
