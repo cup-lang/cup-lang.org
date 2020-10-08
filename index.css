@@ -282,7 +282,7 @@ p {
 .learn-link {
     color: var(--color4);
     text-decoration: none;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
     .learn-link:hover {
