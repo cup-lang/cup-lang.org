@@ -9,6 +9,8 @@ header:
     base: packages
 
 learn:
+  - name: Introduction
+    url: introduction
   - name: Getting Started
     url: getting-started
     subs:
