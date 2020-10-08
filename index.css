@@ -5,7 +5,7 @@
     --color3: #fff;
     --color3hover: #e6e6e6;
     --color4: #c4c4c4;
-    --color4hover: #c4c4c4;
+    --color4hover: #959595;
     --color5: #8a4b38;
     --color5hover: #774131;
 }
@@ -240,7 +240,7 @@ p {
 }
 
     .social-button:hover {
-        color: #959595;   
+        color: var(--color4hover);   
     }
 
 @media only screen and (max-width: 550px) {
