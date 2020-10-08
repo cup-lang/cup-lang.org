@@ -276,7 +276,7 @@ p {
 #learn-nav {
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+    margin: 30px 50px 0 0;
 }
 
 .learn-link {
