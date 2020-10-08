@@ -6,7 +6,7 @@ layout: default
         {% for item in site.learn %}
         <a class="learn-link" href="/learn/{{ item.url }}">{{ item.name }}
             {% for sub in item.subs %}
-            <a class="learn-link-sub" href="/learn/{{ item.url }}/{{ sub.url }}">{{ sub.name }}</a>
+            <a class="learn-link" href="/learn/{{ item.url }}/{{ sub.url }}">{{ sub.name }}</a>
             {% endfor %}
         </a>
         {% endfor %}

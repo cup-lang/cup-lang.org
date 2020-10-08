@@ -12,7 +12,7 @@ body, html {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: var(--color3);
     background: var(--color1);
 }
 
@@ -35,7 +35,7 @@ nav {
     align-items: center;
     height: 100%;
     padding: 0 15px;
-    color: #fff;
+    color: var(--color3);
     text-decoration: none;
     font-size: 20px;
     line-height: 1;
@@ -150,7 +150,7 @@ p {
 
 #download-button-link {
     flex-grow: 1;
-    color: #fff;
+    color: var(--color3);
     background: var(--color4);
     border-radius: 5px 0 0 5px;
 }
@@ -161,7 +161,7 @@ p {
     align-items: center;
     width: 40px;
     box-sizing: border-box;
-    color: #fff;
+    color: var(--color3);
     background: var(--color4);
     margin-left: 2px;
     border-radius: 0 5px 5px 0;
@@ -278,11 +278,11 @@ p {
 }
 
 .learn-link {
-    
+    color: var(--color3);
 }
 
-.learn-link-sub {
-    
-}
+    .learn-link > .learn-link {
+        
+    }
 
 /* #endregion */
