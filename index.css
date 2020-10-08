@@ -279,6 +279,8 @@ p {
 
 .learn-link {
     color: var(--color3);
+    text-decoration: none;
+    margin-bottom: 10px;
 }
 
     .learn-link > .learn-link {
