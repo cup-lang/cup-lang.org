@@ -276,6 +276,7 @@ p {
 #learn-nav {
     display: flex;
     flex-direction: column;
+    white-space: nowrap;
     margin: 30px 50px 0 0;
 }
 
