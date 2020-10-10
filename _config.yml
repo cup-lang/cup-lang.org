@@ -14,10 +14,10 @@ learn:
   - name: Getting Started
     url: getting-started
     subs:
-      - name: Installation
-        url: installation
       - name: Hello World
         url: hello-world
+      - name: Packages
+        url: packages
       - name: Commands
         url: commands
 
