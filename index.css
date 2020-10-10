@@ -22,6 +22,12 @@ h1, .nav-link {
     font-family: "Titillium Web";
 }
 
+code {
+    background: var(--color0);
+    padding: 3px 4px;
+    border-radius: 5px;
+}
+
 /* #region header */
 
 nav {
