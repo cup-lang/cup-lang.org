@@ -18,8 +18,8 @@ learn:
         url: first-program
       - name: Packages
         url: packages
-      - name: Commands
-        url: commands
+  - name: Commands
+    url: commands
 
 exclude:
   - CNAME
