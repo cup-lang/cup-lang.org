@@ -289,7 +289,7 @@ p {
 .learn-link {
     color: var(--color4);
     text-decoration: none;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
     .learn-link:hover {
