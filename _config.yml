@@ -16,8 +16,10 @@ learn:
     subs:
       - name: First program
         url: first-program
-      - name: Packages
-        url: packages
+      - name: Package manager
+        url: package-manager
+      - name: Build system
+        url: build-system
   - name: Commands
     url: commands
 
