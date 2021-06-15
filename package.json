@@ -1,0 +1,11 @@
+{
+    "name": "cup-lang.org",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "node build/build.js && node build/out/server.js"
+    },
+    "dependencies": {
+      "html-minifier": "^4.0.0",
+      "uWebSockets.js": "github:uNetworking/uWebSockets.js#v19.2.0"
+    }
+  }

@@ -1,13 +1,3 @@
-header:
-  - name: Features
-    base: features
-  - name: Learn
-    base: learn
-  - name: Documentation
-    base: documentation
-  - name: Packages
-    base: packages
-
 learn:
   - name: Introduction
     url: introduction
@@ -22,8 +12,3 @@ learn:
         url: build-system
   - name: Commands
     url: commands
-
-exclude:
-  - CNAME
-  - LICENSE
-  - README.md
