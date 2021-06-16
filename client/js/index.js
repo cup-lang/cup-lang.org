@@ -78,13 +78,17 @@ function autorun() {
         return false;
     };
 
-    fetch("https://api.github.com/repos/cup-lang/cup").then(res => res.json()).then(data => {
-        setStars(data.stargazers_count);
-    });
+    fetch("https://api.github.com/repos/cup-lang/cup")
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+            setStars(data.stargazers_count);
+        });
 
-    fetch("https://api.github.com/repos/cup-lang/cup/contents/bin").then(res => res.json()).then(data => {
-        setSize(Math.floor(data[0].size / 1000));
-    });
+    fetch("https://api.github.com/repos/cup-lang/cup/contents/bin")
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+            setSize(Math.floor(data[0].size / 1000));
+        });
 }
 
-function onload() {}
+function onload() { }
