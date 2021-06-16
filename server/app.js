@@ -16,7 +16,7 @@ const app = (() => {
     }
 })();
 
-app.listen('0.0.0.0', 443, token => {
+app.listen('0.0.0.0', 3001, token => {
     if (token) {
         console.log(`Listening...`);
     }
