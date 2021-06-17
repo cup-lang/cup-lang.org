@@ -30,7 +30,7 @@ code {
 
 /* #region header */
 
-nav {
+#header {
     height: 50px;
     background: var(--color0);
     position: relative;
@@ -88,6 +88,7 @@ nav {
 }
 
 .section-content {
+    position: relative;
     padding: 30px 15px;
 }
 
@@ -249,6 +250,14 @@ p {
         color: var(--color4hover);   
     }
 
+#cup {
+    position: absolute;
+    width: 150px;
+    right: 20%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
 @media only screen and (max-width: 550px) {
     h1 {
         margin: 0;
@@ -299,5 +308,9 @@ p {
     .learn-link-sub {
         margin-left: 20px;
     }
+
+.learn-link-active {
+    color: var(--color4hover);
+}
 
 /* #endregion */
