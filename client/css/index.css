@@ -16,6 +16,7 @@ body, html {
     padding: 0;
     color: var(--color3);
     background: var(--color1);
+    overflow-x: hidden;
 }
 
 h1, .nav-link {
@@ -66,6 +67,8 @@ code {
 }
 
 #logo {
+    width: 32px;
+    height: 32px;
     margin-right: 10px;
 }
 
@@ -88,13 +91,17 @@ code {
 }
 
 .section-content {
-    position: relative;
     padding: 30px 15px;
 }
 
 /* #endregion */
 
 /* #region top-info */
+
+#landing-top {
+    display: flex;
+    justify-content: space-between;
+}
 
 h1 {
     margin-top: 30px;
@@ -251,11 +258,31 @@ p {
     }
 
 #cup {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+    #cup > svg {
+        position: absolute;
+    }
+
+#cup-movable {
+    pointer-events: none;
     position: absolute;
     width: 150px;
-    right: 20%;
-    top: 50%;
-    transform: translate(0, -50%);
+    height: 150px;
+    transform-origin: 120px 22.5px;
+}
+
+#cup-handle {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    width: 40%;
+    height: 20%;
+    cursor: grab;
 }
 
 @media only screen and (max-width: 550px) {
