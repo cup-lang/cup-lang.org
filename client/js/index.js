@@ -128,7 +128,7 @@ function autorun() {
     var menu = document.getElementById('download-menu');
     arrow.onmousedown = menu.onmousedown = function (e) { e.stopPropagation(); }
     arrow.onclick = function () {
-        function hide() {
+        var hide = function() {
             open = false;
             arrow.classList.remove('download-arrow-active');
             menu.style.display = 'none';
@@ -161,19 +161,18 @@ function autorun() {
     document.getElementById('cup-handle').onmousedown = function (e) {
         e.stopPropagation();
         var movable = document.getElementById('cup-movable');
-        function stopMoving() {
-            e.target.style = '';
-            window.removeEventListener('mouseup', stopMoving);
-            document.getElementById('cup').append(movable);
-            document.body.style = movable.style = '';
+        var stopHolding = function() {
+            holding = false;
+            window.removeEventListener('mouseup', stopHolding);
+            document.body.style = '';
             window.onmousemove = null;
-            clearInterval(interval);
         }
-        window.addEventListener('mouseup', stopMoving);
+        window.addEventListener('mouseup', stopHolding);
         e.target.style = 'display:none';
         var rot = 0;
         var x = e.pageX;
         var y = e.pageY;
+        var holding = true;
         document.body.style = 'cursor:grabbing';
         window.onmousemove = function (e) {
             var newX = e.pageX;
@@ -191,14 +190,37 @@ function autorun() {
             var newTime = Date.now();
             var delta = (newTime - time) / 2;
 
-            var t = -25 - rot;
-            var d = Math.clamp(t - Math.floor(t / 360) * 360, 0, 360);
-            if (d > 180) {
-                d -= 360;
-            }
-            rot = rot + d * Math.clamp(delta / 50, 0, 1);
+            if (holding === false) {
+                y += delta * 2;
 
-            movable.style = 'left:' + (x - 120) + ';top:' + (y - 22.5) + ';transform:rotate(' + rot + 'deg)';
+                if (y > document.body.clientHeight + 150) {
+                    y = -200;
+                    holding = null;
+                    document.getElementById('cup').append(movable);
+                }
+            }
+
+            if (holding === null) {
+                y += delta * 2;
+
+                if (y >= 0) {
+                    e.target.style = movable.style = '';
+                    clearInterval(interval);
+                    return;
+                }
+
+                movable.style = 'top:' + y + 'px';
+            } else {
+                var t = -25 - rot;
+                var d = Math.clamp(t - Math.floor(t / 360) * 360, 0, 360);
+                if (d > 180) {
+                    d -= 360;
+                }
+                rot = rot + d * Math.clamp(delta / 50, 0, 1);
+
+                movable.style = 'left:' + (x - 120) + 'px;top:' + (y - 22.5) + 'px;transform:rotate(' + rot + 'deg)';
+            }
+
             time = newTime;
         }, 0);
         return false;
