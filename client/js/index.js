@@ -13,13 +13,13 @@ logo.split = function () {
 }
 
 function updatePage(href) {
-    var pages = document.querySelectorAll('body > div');
+    var pages = document.getElementsByClassName('page');
     for (let i = 0; i < pages.length; ++i) {
         pages[i].style = 'display:none';
     }
-    var learns = document.querySelectorAll('#learn > div');
-    for (let i = 0; i < learns.length; ++i) {
-        learns[i].style = 'display:none';
+    var lessons = document.getElementsByClassName('lesson');
+    for (let i = 0; i < lessons.length; ++i) {
+        lessons[i].style = 'display:none';
     }
 
     document.querySelectorAll('.nav-link, .learn-link').forEach(function (e) {

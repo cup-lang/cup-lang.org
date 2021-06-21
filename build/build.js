@@ -62,6 +62,7 @@ let client = load('client/html/index.html');
 let css = combineCSS([
     load('client/css/reset.css'),
     load('client/css/index.css'),
+    load('client/css/learn.css'),
 ]);
 let js = combineJS([
     load('client/js/index.js'),

@@ -1,0 +1,37 @@
+#learn {
+    display: flex;
+}
+
+#learn-nav {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    margin: 30px 50px 0 0;
+}
+
+.learn-link {
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+    .learn-link-sub {
+        margin-left: 20px;
+    }
+
+.learn-link-active {
+    color: var(--color4hover);
+}
+
+#learn-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#learn-left, #learn-right {
+
+}
+
+    #learn-left > svg, #learn-right > svg {
+        width: 30px;
+        height: 30px;
+    }

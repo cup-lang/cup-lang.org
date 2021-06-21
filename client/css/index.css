@@ -23,6 +23,14 @@ h1, .nav-link {
     font-family: "Titillium Web";
 }
 
+a, a:link, a:visited {
+    color: var(--color4);
+}
+
+    a:hover {
+        color: var(--color4hover);
+    }
+
 code {
     background: var(--color0);
     padding: 3px 4px;
@@ -50,10 +58,14 @@ code {
     line-height: 1;
 }
 
-.nav-link-active,
-.nav-link:hover {
-    background: var(--color2);
-}
+    .nav-link:link, .nav-link:visited {
+        color: var(--color3);
+    }
+
+    .nav-link-active,
+    .nav-link:hover {
+        background: var(--color2);
+    }
 
 .nav-content {
     display: flex;
@@ -77,7 +89,7 @@ code {
 /* #region sections */
 
 .content {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -285,9 +297,19 @@ p {
     cursor: grab;
 }
 
+@media only screen and (max-width: 750px) {
+    #cup {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 550px) {
     h1 {
         margin: 0;
+    }
+
+    #landing-top > div {
+        width: 100%;
     }
 
     #top-buttons {
@@ -305,39 +327,6 @@ p {
     #social-buttons {
         margin-bottom: 0;
     }
-}
-
-/* #endregion */
-
-/* #region learn */
-
-#learn {
-    display: flex;
-}
-
-#learn-nav {
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
-    margin: 30px 50px 0 0;
-}
-
-.learn-link {
-    color: var(--color4);
-    text-decoration: none;
-    margin-bottom: 12px;
-}
-
-    .learn-link:hover {
-        color: var(--color4hover);
-    }
-
-    .learn-link-sub {
-        margin-left: 20px;
-    }
-
-.learn-link-active {
-    color: var(--color4hover);
 }
 
 /* #endregion */
