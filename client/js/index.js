@@ -35,21 +35,41 @@ function updatePage(href) {
     }
     page.style = '';
     if (path[1] === 'learn') {
-        page = document.getElementById(path[path.length - 1]);
-        if (path.length < 3 || !page) {
-            page = document.getElementById('introduction');
+        var lesson = document.getElementById(path[path.length - 1]);
+        if (path.length < 3 || !lesson) {
+            lesson = document.getElementById('introduction');
             history.pushState(null, '', href = '/learn/introduction');
         }
-        page.style = '';
+        lesson.style = '';
     }
 
     if (href !== '/') {
-        page = document.querySelector('[href="/' + path[1] + '"]');
+        var page = document.querySelector('[href="/' + path[1] + '"]');
         page.classList.add('nav-link-active');
     }
     if (path[1] === 'learn') {
-        page = document.querySelector('[href="' + href + '"]');
-        page.classList.add('learn-link-active');
+        var lesson = document.querySelector('[href="' + href + '"]');
+        lesson.classList.add('learn-link-active');
+
+        var left = lesson.previousSibling;
+        var leftButton = document.getElementById('learn-left');
+        if (left) {
+            leftButton.style = '';
+            leftButton.setAttribute('href', left.getAttribute('href'));
+        } else {
+            leftButton.style = 'pointer-events:none;opacity: 0.5';
+            leftButton.removeAttribute('href');
+        }
+
+        var right = lesson.nextSibling;
+        var rightButton = document.getElementById('learn-right');
+        if (right) {
+            rightButton.style = '';
+            rightButton.setAttribute('href', right.getAttribute('href'));
+        } else {
+            rightButton.style = 'pointer-events:none;opacity: 0.5';
+            rightButton.removeAttribute('href');
+        }
     }
 }
 
@@ -97,7 +117,7 @@ function setSize(size) {
 function autorun() {
     document.querySelector('[href="/"]').innerHTML = logo.join('') + 'Cup';
 
-    document.querySelectorAll('.nav-link, .learn-link').forEach(function (e) {
+    document.querySelectorAll('.nav-link, .learn-link, #learn-left, #learn-right').forEach(function (e) {
         e.onclick = function () {
             history.pushState(null, '', e.href);
             updatePage(e.getAttribute('href'));
@@ -128,7 +148,7 @@ function autorun() {
     var menu = document.getElementById('download-menu');
     arrow.onmousedown = menu.onmousedown = function (e) { e.stopPropagation(); }
     arrow.onclick = function () {
-        var hide = function() {
+        var hide = function () {
             open = false;
             arrow.classList.remove('download-arrow-active');
             menu.style.display = 'none';
@@ -161,7 +181,7 @@ function autorun() {
     document.getElementById('cup-handle').onmousedown = function (e) {
         e.stopPropagation();
         var movable = document.getElementById('cup-movable');
-        var stopHolding = function() {
+        var stopHolding = function () {
             holding = false;
             window.removeEventListener('mouseup', stopHolding);
             document.body.style = '';

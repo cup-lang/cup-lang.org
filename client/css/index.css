@@ -8,6 +8,7 @@
     --color4hover: #959595;
     --color5: #8a4b38;
     --color5hover: #774131;
+    --color6: #d99e82;
 }
 
 body, html {
@@ -23,6 +24,10 @@ h1, .nav-link {
     font-family: "Titillium Web";
 }
 
+p {
+    line-height: 24px;
+}
+
 a, a:link, a:visited {
     color: var(--color4);
 }
@@ -33,7 +38,7 @@ a, a:link, a:visited {
 
 code {
     background: var(--color0);
-    padding: 3px 4px;
+    padding: 3px 6px;
     border-radius: 5px;
 }
 
@@ -104,229 +109,6 @@ code {
 
 .section-content {
     padding: 30px 15px;
-}
-
-/* #endregion */
-
-/* #region top-info */
-
-#landing-top {
-    display: flex;
-    justify-content: space-between;
-}
-
-h1 {
-    margin-top: 30px;
-}
-
-p {
-    margin: 10px 0 15px 0;
-}
-
-#top-buttons {
-    display: flex;
-}
-
-.top-button {
-    padding: 0 12px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 15px;
-}
-
-    .top-button > svg {
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        margin-right: 10px;
-    }
-
-.top-button-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.top-button-sub-info {
-    font-size: 13px;
-}
-
-#github-button {
-    color: #222;
-    background: var(--color3);
-    margin-right: 15px;
-}
-
-    #github-button:hover {
-        background: var(--color3hover);
-    }
-
-#star-count {
-    display: flex;
-    align-items: center;
-}
-
-    #star-count > svg {
-        margin-right: 2px;
-    }
-
-#download-button {
-    display: flex;
-}
-
-#download-button-link {
-    flex-grow: 1;
-    color: var(--color3);
-    background: var(--color5);
-    border-radius: 5px 0 0 5px;
-}
-
-#download-arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    box-sizing: border-box;
-    color: var(--color3);
-    background: var(--color5);
-    margin-left: 2px;
-    border-radius: 0 5px 5px 0;
-}
-
-#download-button-link:hover, #download-arrow:hover {
-    background: var(--color5hover);
-}
-
-    #download-arrow > svg {
-        height: 20px;
-    }
-    
-    .download-arrow-active > svg {
-        transform: rotateZ(180deg);
-    }
-
-.download-arrow-active {
-    background: var(--color5hover);
-}
-
-#download-menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 52px;
-    right: 0;
-    width: 220px;
-    z-index: 1;
-}
-
-.download-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 40px;
-    padding: 0 10px;
-    color: var(--color3);
-    background: var(--color5);
-    font-size: 15px;
-    text-decoration: none;
-    border-radius: 5px 5px 0 0;
-}
-
-.download-item:nth-child(2) {
-    border-radius: 0 0 5px 5px;
-}
-
-.download-item:hover {
-    background: var(--color5hover);
-}
-
-    .download-item > div {
-        display: flex;
-        align-items: center;
-    }
-
-.download-item-svg {
-    width: 20px;
-    height: 25px;
-    margin-right: 10px;
-}
-
-#social-buttons {
-    display: flex;
-    align-items: center;
-    margin: 20px 0 40px 0;
-}
-
-.social-button {
-    width: 20px;
-    color: var(--color4);
-    margin-right: 15px;
-}
-
-    .social-button:hover {
-        color: var(--color4hover);   
-    }
-
-#cup {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: auto;
-}
-
-    #cup > svg {
-        position: absolute;
-    }
-
-#cup-movable {
-    pointer-events: none;
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    transform-origin: 120px 22.5px;
-}
-
-#cup-handle {
-    position: absolute;
-    top: 5%;
-    right: 0;
-    width: 40%;
-    height: 20%;
-    cursor: grab;
-}
-
-@media only screen and (max-width: 750px) {
-    #cup {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 550px) {
-    h1 {
-        margin: 0;
-    }
-
-    #landing-top > div {
-        width: 100%;
-    }
-
-    #top-buttons {
-        flex-direction: column;
-    }
-
-    #github-button {
-        margin: 0;
-    }
-
-    #download-button {
-        margin-top: 8px;
-    }
-
-    #social-buttons {
-        margin-bottom: 0;
-    }
 }
 
 /* #endregion */

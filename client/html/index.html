@@ -196,33 +196,85 @@
             <a class="learn-link" href="/learn/commands">
                 <b>2.</b> Commands
             </a>
+                <a class="learn-link learn-link-sub" href="/learn/commands/compilation">
+                    <b>2.1.</b> Compilation
+                </a>
+                <a class="learn-link learn-link-sub" href="/learn/commands/package">
+                    <b>2.2.</b> Package
+                </a>
+                <a class="learn-link learn-link-sub" href="/learn/commands/generation">
+                    <b>2.3.</b> Generation
+                </a>
+                <a class="learn-link learn-link-sub" href="/learn/commands/self">
+                    <b>2.4.</b> Self
+                </a>
         </nav>
         <div>
             <div id="introduction" class="lesson" style="display:none">
                 <h1>Introduction</h1>
-                <p>Cup is a free and open source project consisting of a compiler, build system and a package manager. It bring back the simple C-style memory management while having a modern and expressive syntax.</p>
-                <p>This tutorial should teach you basics of Cup and how to use it. If you encounter any problems you can reach out for help on our <a href="https://discord.gg/cup">Discord server</a> in the #begginers channel.</p>
+                <p>Your Cup journey begins here!</p>
+                <p>Cup is a free and open source project consisting of a compiler, build system and a package manager. It brings back the simple C-style memory management while having a modern and expressive syntax.</p>
+                <p>This tutorial should teach you basics of Cup and how to use it. If you encounter any problems or have any questions you can reach out on our <a href="https://discord.gg/cup" target="_blank">Discord Server</a> in the #begginers channel.</p>
             </div>
             <div id="getting-started" class="lesson" style="display:none">
                 <h1>Getting Started</h1>
-                <p>Let's begin your Cup journey! In this chapter, you'll learn how to:
-                    <ul>
-                        <li>Make a program that prints "Hello, world!"</li>
-                        <li>Utilize Cup’s build system</li>
-                        <li>Utilize Cup’s package manager</li>
-                    </ul>
-                </p>
-                <p>Cup is conveniently distributed as a single binary file which means it's portable in it's nature. Cup still can be installed using the <code>cup self install</code> command.</p>
+                <p>Cup is conveniently distributed as a single executable file which means it's portable in it's nature. Cup still can be installed using the <code>cup self install</code> command. You can learn more about commands <a href="/learn/commands">here</a>.</p>
+                <p>To be able to use Cup you will also need a C compiler of some kind. You can use either <a href="https://gcc.gnu.org/install/binaries.html" target="_blank">GCC</a>, <a href="https://releases.llvm.org/download.html" target="_blank">Clang</a> or <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools" target="_blank">MSVC</a>. Refer to your platform’s documentation on how to install a given compiler.</p>
+                <h3>Check the installation</h3>
+                <p>To check whether you have installed Cup and a C compiler correctly, open a shell and run <code>cup version</code>. You should see something similar to this:</p>
+                <code style="display:block">
+                    XXXXXXXXXXXX
+                    <br>
+                    XXXXXXXXXXXX
+                    <br>
+                    XXXXXXXXXXXX
+                </code>
+                <h3>Troubleshooting</h3>
+                <p>If you see the <code>No C compiler detected!</code> error it means you did something wrong installing the C compiler. You can try a different compiler or ask for help on our <a href="https://discord.gg/cup" target="_blank">Discord Server</a> in the #begginers channel.</p>
             </div>
             <div id="first-program" class="lesson" style="display:none">
                 <h1>First Program</h1>
-                <p></p>
+                <p>Now that everything is installed, let’s write your first Cup program. It’s traditional when learning a new language to write a little program that shows the text <code>Hello, world!</code> to the screen, so we’ll do just this here!</p>
+                <h3>Creating a new project</h3>
+                <p>Creating a empty project with Cup is very simple. All you need to do is run <code>cup new</code> followed by the name of the project, for example <code>cup new hello-world</code>. This will create a folder with a name <code>hello-world</code> and a file called <code>main.cp</code> inside it.</p>
+                <h3>Writing and running a Cup Program</h3>
+                <p>Now open the <code>main.cp</code> file that just got created in the editor of your choice and type in this code:</p>
+                <code style="display:block">
+                    <span style="color:#b294bb">sub</span> <span style="color:#8abeb7">main</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#de935f">std:fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);
+                    <br>
+                    };
+                </code>
+                <p>Save the file and run <code>cup run</code>. This will compile and run the code for you. You should see this on your screen:</p>
+                <code style="display:block">
+                    Hello, world!
+                </code>
+                <p>If you can see that on your screen, congratulations! You're officialy a Cup programmer!</p>
+                <h3>What just happened?</h3>
+                <p>Let’s review in detail what just happened in your “Hello, world!” program. Here’s the first piece of the puzzle:</p>
+                <code style="display:block">
+                    <span style="color:#b294bb">sub</span> <span style="color:#8abeb7">main</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="opacity:0.2"><span style="color:#de935f">std:fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);</span>
+                    <br>
+                    };
+                </code>
+            </div>
+            <div id="package-manager" class="lesson" style="display:none">
+                <h1>Package Manager</h1>
+            </div>
+            <div id="build-system" class="lesson" style="display:none">
+                <h1>Build System</h1>
+            </div>
+            <div id="commands" class="lesson" style="display:none">
+                <h1>Commands</h1>
             </div>
             <div id="learn-buttons">
-                <button id="learn-left">
+                <a id="learn-left">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
                 </button>
-                <button id="learn-right">
+                <a id="learn-right">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
                 </button>
             </div>

@@ -19,19 +19,28 @@
     }
 
 .learn-link-active {
-    color: var(--color4hover);
+    color: var(--color3) !important;
 }
 
 #learn-buttons {
     display: flex;
     justify-content: space-between;
+    margin-top: 40px;
 }
 
 #learn-left, #learn-right {
-
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color5);
+    border: none;
+    border-radius: 5px;
 }
 
     #learn-left > svg, #learn-right > svg {
         width: 30px;
         height: 30px;
+        color: var(--color6);
     }
