@@ -42,6 +42,11 @@ code {
     border-radius: 5px;
 }
 
+    code > .hidden {
+        opacity: 0.2;
+        user-select: none;
+    }
+
 /* #region header */
 
 #header {
