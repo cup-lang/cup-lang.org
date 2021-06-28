@@ -1,7 +1,7 @@
 FROM ubuntu
 
-WORKDIR /app
+WORKDIR /playground
 
-COPY ./cup .
+COPY playground .
 
-RUN ./cup help
+CMD ./cup build -i prog
