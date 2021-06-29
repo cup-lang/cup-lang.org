@@ -10,6 +10,7 @@ app.ws('/', {
         data = Buffer.from(data).toString();
         const type = data.charCodeAt();
         data = data.substr(1);
+        console.log(type, data);
         switch (type) {
             case 0:
                 fs.writeFileSync('playground/main.cp', data);
