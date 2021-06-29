@@ -290,7 +290,28 @@
             </div>
         </div>
     </div>
-    <div id="playground" class="page" style="display:none"></div>
+    <div id="playground" class="page section-content content" style="display:none">
+        <div>
+            <button>RUN</button>
+        </div>
+        <div id="playground-content">
+            <textarea id="playground-code" class="code" spellcheck="false"></textarea>
+            <div id="playground-output">   Compiling playground v0.0.1 (/playground)
+            error: expected one of `!`, `.`, `::`, `;`, `?`, `{`, `}`, or an operator, found `Ok`
+             --> src/main.rs:7:5
+              |
+            6 |     println!("The current directory is {}", path.display()); aaasadasdasdasdasdasdasdass
+              |                                                                                         - expected one of 8 possible tokens
+            7 |     Ok(())
+              |     ^^ unexpected token
+            
+            error: aborting due to previous error
+            
+            error: could not compile `playground`
+            
+            To learn more, run the command again with --verbose.</div>
+            </div>
+        </div>
     <div id="packages" class="page" style="display:none"></div>
 </body>
 

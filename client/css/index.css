@@ -36,7 +36,8 @@ a, a:link, a:visited {
         color: var(--color4hover);
     }
 
-code {
+code, .code {
+    color: var(--color3);
     background: var(--color0);
     padding: 3px 6px;
     border-radius: 5px;

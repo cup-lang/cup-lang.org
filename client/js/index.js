@@ -245,6 +245,12 @@ function autorun() {
         }, 0);
         return false;
     };
+
+    var playgroundCode = document.getElementById('playground-code');
+    playgroundCode.value = localStorage.code;
+    playgroundCode.oninput = function (e) {
+        localStorage.code = e.target.value;
+    };
 }
 
 function onload() { }

@@ -64,6 +64,7 @@ let css = combineCSS([
     load('client/css/index.css'),
     load('client/css/landing.css'),
     load('client/css/learn.css'),
+    load('client/css/playground.css'),
 ]);
 let js = combineJS([
     load('client/js/index.js'),
