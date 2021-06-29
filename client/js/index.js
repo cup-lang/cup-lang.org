@@ -253,8 +253,7 @@ function autorun() {
         data = data.substr(1).split('\u0000');
         switch (type) {
             case 0:
-                console.log('stdout:');
-                console.log(data);
+                document.getElementById('playground-output').innerText = data;
                 break;
             case 1:
                 console.log('stderr:');
