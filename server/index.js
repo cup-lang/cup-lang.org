@@ -15,7 +15,7 @@ app.ws('/', {
             case 0:
                 fs.writeFileSync('playground/main.cp', data);
                 fs.writeFileSync('Dockerfile', 'FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nCMD ./cup build -i prog');
-                exec('docker build -t main . && docker run -i -t main', (err, stdout, stderr) => {
+                exec('docker build -t main . && docker run -t main', (err, stdout, stderr) => {
                     if (err) {
                         console.log(err);
                         return;
