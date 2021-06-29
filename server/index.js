@@ -23,6 +23,9 @@ app.ws('/', {
                     ws.send('\u0001' + stderr);
                 });
                 break;
+            default:
+                ws.close();
+                break;
         }
     }
 });

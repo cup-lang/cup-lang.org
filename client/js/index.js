@@ -264,7 +264,7 @@ function autorun() {
     };
 
     document.getElementById('playground-action').onclick = function () {
-        ws.send(playgroundCode.value);
+        ws.send('\u0000' + playgroundCode.value);
         console.log(ws);
     };
 
