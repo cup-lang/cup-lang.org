@@ -13,7 +13,6 @@ app.ws('/', {
         console.log(type, data);
         switch (type) {
             case 0:
-                fs.mkdirSync('playground/prog');
                 fs.writeFileSync('playground/prog/main.cp', data);
                 fs.writeFileSync('Dockerfile', 'FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog');
                 exec('docker build -t main . > /dev/null && echo && docker run -t main', (err, stdout, stderr) => {
