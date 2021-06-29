@@ -7,15 +7,22 @@ const { exec } = require('child_process');
 
 app.ws('/', {
     message: (ws, data) => {
-        exec('docker', (err, stdout, stderr) => {
-            if (err) {
-                // node couldn't execute the command
-                return;
-            }
+        data = Buffer.from(data).toString();
+        const type = data.charCodeAt();
+        data = data.substr(1);
+        switch (type) {
+            case 0:
+                fs.writeFileSync('playground/main.cp', data);
+                fs.writeFileSync('Dockerfile', 'FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nCMD ./cup build -i prog');
+                exec('docker build -t main . && docker run -it main', (err, stdout, stderr) => {
+                    if (err) {
+                        return;
+                    }
 
-            // the *entire* stdout and stderr (buffered)
-            console.log(`stdout: ${stdout}`);
-            console.log(`stderr: ${stderr}`);
-        });
+                    ws.send('\u0000' + stdout);
+                    ws.send('\u0001' + stderr);
+                });
+                break;
+        }
     }
 });

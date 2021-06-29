@@ -246,6 +246,27 @@ function autorun() {
         return false;
     };
 
+    var ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.host);
+    ws.onmessage = function (data) {
+        data = data.data;
+        var type = data.charCodeAt();
+        data = data.substr(1).split('\u0000');
+        switch (type) {
+            case 0:
+                console.log('stdout:');
+                console.log(data);
+                break;
+            case 1:
+                console.log('stderr:');
+                console.log(data);
+                break;
+        }
+    };
+
+    document.getElementById('playground-action').onclick = function() {
+        ws.send(playgroundCode.value);
+    };
+
     var playgroundCode = document.getElementById('playground-code');
     playgroundCode.value = localStorage.code;
     playgroundCode.oninput = function (e) {
