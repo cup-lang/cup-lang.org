@@ -263,12 +263,15 @@ function autorun() {
         }
     };
 
-    document.getElementById('playground-action').onclick = function() {
+    document.getElementById('playground-action').onclick = function () {
         ws.send(playgroundCode.value);
+        console.log(ws);
     };
 
     var playgroundCode = document.getElementById('playground-code');
-    playgroundCode.value = localStorage.code;
+    if (localStorage.code) {
+        playgroundCode.value = localStorage.code;
+    }
     playgroundCode.oninput = function (e) {
         localStorage.code = e.target.value;
     };
