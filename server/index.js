@@ -16,7 +16,6 @@ app.ws('/', {
                 fs.writeFileSync('Dockerfile', 'FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog');
                 exec('docker build -t main . > /dev/null && echo && docker run -t main', (err, stdout, stderr) => {
                     if (err && err.code > 1) {
-                        console.log(err);
                         return;
                     }
 
