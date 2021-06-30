@@ -15,5 +15,6 @@
 
 #playground-output {
     flex-basis: 50%;
+    white-space: break-spaces;
     margin-left: 5px;
 }
