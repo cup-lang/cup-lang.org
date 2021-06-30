@@ -253,11 +253,11 @@ function autorun() {
         data = data.substr(1).split('\u0000');
         switch (type) {
             case 0:
-                data.replaceAll('\033[0m', '</span>');
-                data.replaceAll('\033[35m', '<span style="color:magenta">');
-                data.replaceAll('\033[32m', '<span style="color:green">');
-                data.replaceAll('\033[0;31m', '<span style="color:red">');
-                document.getElementById('playground-output').innerText = data;
+                data = data.replaceAll('\033[0m', '</span>');
+                data = data.replaceAll('\033[35m', '<span style="color:magenta">');
+                data = data.replaceAll('\033[32m', '<span style="color:green">');
+                data = data.replaceAll('\033[0;31m', '<span style="color:red">');
+                document.getElementById('playground-output').innerHTML = data;
                 break;
             case 1:
                 console.log('stderr:');
