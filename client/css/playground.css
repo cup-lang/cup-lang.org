@@ -26,10 +26,6 @@
     margin: 10px 0;
 }
 
-    .output-divider:first-child {
-        margin-top: 5px;
-    }
-
     .output-divider::before {
         flex: 1;
         margin-right: 10px;
