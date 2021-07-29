@@ -13,11 +13,12 @@ app.ws('/', {
         switch (type) {
             case 0:
                 fs.writeFileSync('playground/prog/main.cp', data);
-                const proc = spawn('docker', ['run', '--rm', '-it', '$(docker build -q -)']);
+                const proc = spawn('docker', ['run', '--rm', '-t', '$(docker build -q -)']);
                 proc.stdout.on('data', function (data) {
                     console.log(data);
                 });
                 proc.stdin.write('FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog');
+                proc.stdin.end();
                 // exec('docker build -t main . > /dev/null && echo && docker run -t main', (err, stdout, stderr) => {
                 //     if (err && err.code > 1) {
                 //         return;
