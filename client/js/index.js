@@ -259,8 +259,8 @@ function autorun() {
                 data[1] = data[1].replaceAll('\033[0;31m', '<span style="color:red">');
                 data = data[1].split(data[0]);
                 document.getElementById('playground-output').innerHTML = 
-                    '<div>Compilation output</div>' + data[0] +
-                    '<div>Program output</div>' + data[1];
+                    '<div class="output-divider">Compilation output</div>' + data[0] +
+                    '<div class="output-divider">Program output</div>' + data[1];
                 break;
         }
     };
