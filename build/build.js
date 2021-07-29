@@ -83,4 +83,5 @@ fs.writeFileSync('build/out/client.html', client);
 let server = load('server/index.js');
 server = server.replace(`embed('app.js');`, load('server/app.js'));
 server = server.replace(`embed('static.js');`, load('server/static.js'));
+server = server.replace(`embed('sha256.js');`, load('server/sha256.js'));
 fs.writeFileSync('build/out/server.js', server);
