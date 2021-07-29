@@ -53,7 +53,7 @@ function checkQueue() {
         }
         // make async
         fs.writeFileSync('playground/prog/main.cp', req.files[0]);
-        exec('echo "FROM ubuntu\nCOPY playground/ .\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -q -', (err, stdout, stderr) => {
+        exec('echo "FROM ubuntu\nWORKDIR .\nCOPY playground/ .\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -q -', (err, stdout, stderr) => {
             if (err && err.code > 1) {
                 return;
             }
