@@ -10,6 +10,11 @@ let queue = [];
 let running = 0;
 let cache = [];
 
+const progs = fs.readdirSync('playground/', { withFileTypes: true }).filter(dirent => dirent.isDirectory());
+for (let i = 0; i < progs.length; ++i) {
+    fs.rmdirSync(`playground/${progs[i].name}`);    
+}
+
 app.ws('/', {
     message: (ws, data) => {
         data = Buffer.from(data).toString();
