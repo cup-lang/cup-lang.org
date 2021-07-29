@@ -53,14 +53,12 @@ function checkQueue() {
         }
         // make async
         fs.writeFileSync('playground/prog/main.cp', req.files[0]);
-        exec('echo "FROM ubuntu\nCOPY playground/ .\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -q -f - .', (err, stdout, stderr) => {
+        exec('echo "FROM ubuntu\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -q -f - .', (err, stdout, stderr) => {
             if (err && err.code > 1) {
                 return;
             }
 
-            console.log(stderr);
             const name = stdout;
-            console.log('name: ' + name);
             runProg(name);
         });
         // CLEANUP: clean if too many folders
@@ -71,6 +69,7 @@ function checkQueue() {
 }
 
 function runProg(name) {
+    console.log(name, name.length);
     const proc = spawn('docker', ['run', '-t', name]);
     proc.stdout.on('data', function (data) {
         console.log(data.toString().trim());
