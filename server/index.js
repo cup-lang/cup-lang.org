@@ -39,11 +39,7 @@ function checkQueue() {
         for (let i = 0; i < cache.length; ++i) {
             if (cache[i].length == length) {
                 if (hash == null) {
-                    let sum = '';
-                    for (let ii = 0; ii < req.files.length; ++ii) {
-                        sum += req.files[ii];                        
-                    }
-                    hash = sha256(sum);
+                    hash = hashFiles(req.files);
                 }
                 if (cache[i].hash == hash) {
                     runProg(req.ws, hash);
@@ -51,6 +47,10 @@ function checkQueue() {
                 }
             }
         }
+        if (hash == null) {
+            hash = hashFiles(req.files);
+        }
+        cache.push({ length: length, hash: hash });
         // CLEANUP: clean if too many folders
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
         exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -t ${hash} -f - .`, err => {
@@ -60,6 +60,14 @@ function checkQueue() {
             runProg(req.ws, hash);
         });
     }
+}
+
+function hashFiles(files) {
+    let sum = '';
+    for (let ii = 0; ii < files.length; ++ii) {
+        sum += files[ii];
+    }
+    return sha256(sum);
 }
 
 function runProg(ws, name) {
