@@ -16,6 +16,9 @@ for (let i = 0; i < progs.length; ++i) {
 }
 
 app.ws('/', {
+    open: ws => {
+        ws.open = true;
+    },
     message: (ws, data) => {
         data = Buffer.from(data).toString();
         const type = data.charCodeAt();
@@ -34,7 +37,10 @@ app.ws('/', {
                 ws.close();
                 break;
         }
-    }
+    },
+    close: ws => {
+        delete ws.open;
+    },
 });
 
 function checkQueue() {
@@ -90,7 +96,9 @@ function runProg(ws, hash, name) {
         out += data.toString();
     });
     proc.stdout.on('end', function () {
-        ws.send(`\u0000${hash}\u0000${out}`);
+        if (ws.open) {
+            ws.send(`\u0000${hash}\u0000${out}`);
+        }
         ws.using = false;
         running -= 1;
         checkQueue();
