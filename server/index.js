@@ -50,16 +50,16 @@ function checkQueue() {
         if (hash == null) {
             hash = hashFiles(req.files);
         }
-        cache.push({ length: length, hash: hash });
         // CLEANUP: clean if too many folders
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
-        console.log(hash);
-        exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -t ${hash} -f - .`, (err, stdout, stderr) => {
+        exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -q -f - .`, (err, stdout) => {
             if (err) {
                 return;
             }
-            runProg(req.ws, hash);
+            const name = stdout.trim();
+            cache.push({ length: length, hash: hash, name: name });
+            runProg(req.ws, name);
         });
     }
 }
