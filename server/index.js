@@ -46,7 +46,7 @@ function checkQueue() {
                     hash = sha256(sum);
                 }
                 if (cache[i].hash == hash) {
-                    runProg(cache[i].name);
+                    runProg(req.ws, cache[i].name);
                     return;
                 }
             }
@@ -59,7 +59,7 @@ function checkQueue() {
             }
 
             const name = stdout.trim();
-            runProg(name);
+            runProg(req.ws, name);
         });
         // CLEANUP: clean if too many folders
         // INIT: create a folder, create all files user send to us
@@ -68,7 +68,7 @@ function checkQueue() {
     }
 }
 
-function runProg(name) {
+function runProg(ws, name) {
     const proc = spawn('docker', ['run', '-t', name]);
     let stdout = '';
     proc.stdout.on('data', function (data) {

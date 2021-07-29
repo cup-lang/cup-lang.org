@@ -259,10 +259,6 @@ function autorun() {
                 data[0] = data[0].replaceAll('\033[0;31m', '<span style="color:red">');
                 document.getElementById('playground-output').innerHTML = data[0].substr(1);
                 break;
-            case 1:
-                console.log('stderr:');
-                console.log(data);
-                break;
         }
     };
 
