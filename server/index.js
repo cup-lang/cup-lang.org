@@ -22,6 +22,11 @@ app.ws('/', {
         data = data.substr(1);
         switch (type) {
             case 0:
+                if (ws.using) {
+                    ws.close();
+                    return;
+                }
+                ws.using = true;
                 queue.push({ ws: ws, files: [data] });
                 checkQueue();
                 break;
@@ -47,7 +52,7 @@ function checkQueue() {
                     hash = hashFiles(req.files);
                 }
                 if (cache[i].hash == hash) {
-                    runProg(req.ws, cache[i].name);
+                    runProg(req.ws, hash, cache[i].name);
                     return;
                 }
             }
@@ -58,13 +63,14 @@ function checkQueue() {
         // CLEANUP: clean cache if too big
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
-        exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && ./out" | docker build -q -f - .`, (err, stdout) => {
+        exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out > /dev/null && echo ${hash} && ./out" | docker build -q -f - .`, (err, stdout) => {
             if (err) {
+                ws.using = false;
                 return;
             }
             const name = stdout.trim();
             cache.push({ length: length, hash: hash, name: name });
-            runProg(req.ws, name);
+            runProg(req.ws, hash, name);
         });
     }
 }
@@ -77,16 +83,16 @@ function hashFiles(files) {
     return sha256(sum);
 }
 
-function runProg(ws, name) {
+function runProg(ws, hash, name) {
     const proc = spawn('docker', ['run', '-t', name]);
     let out = '';
     proc.stdout.on('data', function (data) {
         out += data.toString();
     });
-    proc.stderr.on('data', function (data) {
-        console.log(data.toString().trim());
-    });
     proc.stdout.on('end', function () {
-        ws.send(`\u0000${out}`);
+        ws.send(`\u0000${hash}\u0000${out}`);
+        ws.using = false;
+        running -= 1;
+        checkQueue();
     });
 }
