@@ -22,19 +22,20 @@
 .output-divider {
     display: flex;
     align-items: center;
-    color: var(--color4);
+    color: var(--color6);
+    margin: 10px 0;
 }
 
     .output-divider::before {
         flex: 1;
-        margin-right: 5px;
-        border-top: 1px solid var(--color4);
+        margin-right: 10px;
+        border-top: 1px solid var(--color5);
         content: '';
     }
     
     .output-divider::after {
         flex: 1;
-        margin-left: 5px;
-        border-top: 1px solid var(--color4);
+        margin-left: 10px;
+        border-top: 1px solid var(--color5);
         content: '';
     }
