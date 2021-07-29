@@ -58,7 +58,7 @@ function checkQueue() {
         // CLEANUP: clean cache if too big
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
-        exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && ./out" | docker build -q -f - .`, (err, stdout) => {
+        exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && ./out" | docker build -q -f - .`, (err, stdout) => {
             if (err) {
                 return;
             }
