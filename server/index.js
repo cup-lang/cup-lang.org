@@ -13,7 +13,7 @@ app.ws('/', {
         switch (type) {
             case 0:
                 fs.writeFileSync('playground/prog/main.cp', data);
-                const proc = spawn('docker', ['run', '--rm', '-t', '$(docker build -q -)']);
+                const proc = spawn('docker', ['run', '--rm', '-t', 'main']);
                 proc.stdout.on('data', function (data) {
                     console.log(data.toString().trim());
                 });
