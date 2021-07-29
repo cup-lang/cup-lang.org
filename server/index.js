@@ -12,7 +12,7 @@ let cache = [];
 
 const progs = fs.readdirSync('playground/', { withFileTypes: true }).filter(dirent => dirent.isDirectory());
 for (let i = 0; i < progs.length; ++i) {
-    fs.rmdirSync(`playground/${progs[i].name}`);    
+    fs.rmSync(`playground/${progs[i].name}`, { recursive: true, force: true });
 }
 
 app.ws('/', {
