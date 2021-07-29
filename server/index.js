@@ -8,6 +8,7 @@ embed('sha256.js');
 const MAX_RUNNING = 8;
 let queue = [];
 let running = 0;
+const MAX_CACHE = 2;
 let cache = [];
 
 const progs = fs.readdirSync('playground/', { withFileTypes: true }).filter(dirent => dirent.isDirectory());
@@ -66,7 +67,9 @@ function checkQueue() {
         if (hash == null) {
             hash = hashFiles(req.files);
         }
-        // CLEANUP: clean cache if too big
+        while (cache.length > MAX_CACHE) {
+            fs.rmSync(`playground/${cache.shift().hash}`, { recursive: true, force: true });
+        }
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
         exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -q -f - .`, (err, stdout) => {
