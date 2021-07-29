@@ -42,7 +42,7 @@ function checkQueue() {
                     hash = hashFiles(req.files);
                 }
                 if (cache[i].hash == hash) {
-                    runProg(req.ws, hash);
+                    runProg(req.ws, cache[i].name);
                     return;
                 }
             }
