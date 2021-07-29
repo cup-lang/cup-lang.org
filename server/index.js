@@ -52,6 +52,7 @@ function checkQueue() {
         }
         cache.push({ length: length, hash: hash });
         // CLEANUP: clean if too many folders
+        fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
         exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -t ${hash} -f - .`, err => {
             if (err) {
