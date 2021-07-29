@@ -247,6 +247,9 @@ function autorun() {
     };
 
     var ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.host);
+    ws.onopen = function() {
+        playgroundAction.removeAttribute('disabled');
+    };
     ws.onmessage = function (data) {
         data = data.data;
         var type = data.charCodeAt();
@@ -264,6 +267,9 @@ function autorun() {
                     (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '');
                 break;
         }
+    };
+    ws.onclose = function() {
+        playgroundAction.setAttribute('disabled', true);
     };
 
     var playgroundAction = document.getElementById('playground-action');
