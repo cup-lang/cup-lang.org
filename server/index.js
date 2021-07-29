@@ -8,7 +8,7 @@ embed('sha256.js');
 const MAX_RUNNING = 8;
 let queue = [];
 let running = 0;
-const MAX_CACHE = 2;
+const MAX_CACHE = 1024;
 let cache = [];
 
 const progs = fs.readdirSync('playground/', { withFileTypes: true }).filter(dirent => dirent.isDirectory());
@@ -67,7 +67,7 @@ function checkQueue() {
         if (hash == null) {
             hash = hashFiles(req.files);
         }
-        while (cache.length > MAX_CACHE) {
+        while (cache.length >= MAX_CACHE) {
             fs.rmSync(`playground/${cache.shift().hash}`, { recursive: true, force: true });
         }
         fs.mkdirSync(`playground/${hash}`);

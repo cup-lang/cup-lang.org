@@ -253,6 +253,7 @@ function autorun() {
         data = data.substr(1).split('\u0000');
         switch (type) {
             case 0:
+                playgroundAction.removeAttribute('disabled');
                 data[1] = data[1].replaceAll('\033[0m', '</span>');
                 data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');
                 data[1] = data[1].replaceAll('\033[32m', '<span style="color:green">');
@@ -265,7 +266,9 @@ function autorun() {
         }
     };
 
-    document.getElementById('playground-action').onclick = function () {
+    var playgroundAction = document.getElementById('playground-action');
+    playgroundAction.onclick = function () {
+        playgroundAction.setAttribute('disabled', true);
         ws.send('\u0000' + playgroundCode.value);
     };
 
