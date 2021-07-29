@@ -70,12 +70,11 @@ function checkQueue() {
 
 function runProg(name) {
     const proc = spawn('docker', ['run', '-t', name]);
+    let stdout = '';
     proc.stdout.on('data', function (data) {
-        console.log(data.toString().trim());
+        stdout += data.toString();
     });
-    proc.stderr.on('data', function (data) {
-        console.log(data.toString().trim());
+    proc.stdout.on('end', function (data) {
+        ws.send(`\u0000${stdout}`);
     });
-    // ws.send('\u0000' + stdout);
-    // ws.send('\u0001' + stderr);
 }
