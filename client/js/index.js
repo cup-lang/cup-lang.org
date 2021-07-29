@@ -253,7 +253,7 @@ function autorun() {
         data = data.substr(1).split('\u0000');
         switch (type) {
             case 0:
-                // playgroundAction.removeAttribute('disabled');
+                playgroundAction.removeAttribute('disabled');
                 data[1] = data[1].replaceAll('\033[0m', '</span>');
                 data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');
                 data[1] = data[1].replaceAll('\033[32m', '<span style="color:green">');
@@ -261,14 +261,14 @@ function autorun() {
                 data = data[1].split(data[0]);
                 document.getElementById('playground-output').innerHTML = 
                     '<div class="output-divider">Compilation output</div>' + data[0] +
-                    '<div class="output-divider">Program output</div>' + (data.length > 1 ? data[1] : '');
+                    (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '');
                 break;
         }
     };
 
     var playgroundAction = document.getElementById('playground-action');
     playgroundAction.onclick = function () {
-        // playgroundAction.setAttribute('disabled', true);
+        playgroundAction.setAttribute('disabled', true);
         ws.send('\u0000' + playgroundCode.value);
     };
 
