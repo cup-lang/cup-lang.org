@@ -58,7 +58,7 @@ function checkQueue() {
                 return;
             }
 
-            const name = stdout;
+            const name = stdout.trim();
             runProg(name);
         });
         // CLEANUP: clean if too many folders
@@ -69,7 +69,6 @@ function checkQueue() {
 }
 
 function runProg(name) {
-    console.log(name, name.length);
     const proc = spawn('docker', ['run', '-t', name]);
     proc.stdout.on('data', function (data) {
         console.log(data.toString().trim());
