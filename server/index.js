@@ -54,10 +54,11 @@ function checkQueue() {
         // CLEANUP: clean if too many folders
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
-        exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -t ${hash} -f - .`, err => {
+        exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -t ${hash} -f - .`, (err, _, stderr) => {
             if (err) {
                 return;
             }
+            console.log(stderr);
             runProg(req.ws, hash);
         });
     }
