@@ -29,10 +29,12 @@
         flex: 1;
         margin-right: 5px;
         border-top: var(--color4);
+        content: '';
     }
     
     .output-divider::after {
         flex: 1;
         margin-left: 5px;
         border-top: var(--color4);
+        content: '';
     }
