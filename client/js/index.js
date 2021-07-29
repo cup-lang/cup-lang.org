@@ -257,7 +257,7 @@ function autorun() {
                 data[0] = data[0].replaceAll('\033[35m', '<span style="color:magenta">');
                 data[0] = data[0].replaceAll('\033[32m', '<span style="color:green">');
                 data[0] = data[0].replaceAll('\033[0;31m', '<span style="color:red">');
-                document.getElementById('playground-output').innerHTML = data[0].substr(1);
+                document.getElementById('playground-output').innerHTML = data[0];
                 break;
         }
     };

@@ -74,7 +74,7 @@ function runProg(ws, name) {
     proc.stdout.on('data', function (data) {
         stdout += data.toString();
     });
-    proc.stdout.on('end', function (data) {
+    proc.stdout.on('end', function () {
         ws.send(`\u0000${stdout}`);
     });
 }
