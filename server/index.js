@@ -15,10 +15,10 @@ app.ws('/', {
                 fs.writeFileSync('playground/prog/main.cp', data);
                 const proc = spawn('docker', ['run', '--rm', '-t', '$(docker build -q -)']);
                 proc.stdout.on('data', function (data) {
-                    console.log(data);
+                    console.log(data.toString().trim());
                 });
                 proc.stderr.on('data', function (data) {
-                    console.log(data);
+                    console.log(data.toString().trim());
                 });
                 proc.stdin.write('FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog');
                 proc.stdin.end();
