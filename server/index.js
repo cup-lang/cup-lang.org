@@ -17,7 +17,7 @@ app.ws('/', {
                 proc.stdout.on('data', function (data) {
                     console.log(data);
                 });
-                proc.stdin.write('FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog');
+                proc.stdin.write('FROM ubuntu\nWORKDIR /playground\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog\n');
                 proc.stdin.end();
                 // exec('docker build -t main . > /dev/null && echo && docker run -t main', (err, stdout, stderr) => {
                 //     if (err && err.code > 1) {
