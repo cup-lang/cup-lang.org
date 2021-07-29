@@ -30,7 +30,7 @@ app.ws('/', {
 function checkQueue() {
     if (running < MAX_RUNNING && queue.length > 0) {
         running += 1;
-        const req = queue.pop();
+        const req = queue.shift();
         let length = 0;
         for (let i = 0; i < req.files.length; ++i) {
             length += req.files[i].length;
@@ -46,35 +46,29 @@ function checkQueue() {
                     hash = sha256(sum);
                 }
                 if (cache[i].hash == hash) {
-                    runProg(req.ws, cache[i].name);
+                    runProg(req.ws, hash);
                     return;
                 }
             }
         }
-        // make async
-        fs.writeFileSync('playground/prog/main.cp', req.files[0]);
-        exec('echo "FROM ubuntu\nCOPY playground .\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -q -f - .', (err, stdout, stderr) => {
-            if (err && err.code > 1) {
+        // CLEANUP: clean if too many folders
+        fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
+        exec(`echo "FROM ubuntu\nCOPY playground/cup .\nCOPY playground/${hash} prog\nRUN chmod +x cup\nCMD ./cup build -i prog" | docker build -t ${hash} -f - .`, err => {
+            if (err) {
                 return;
             }
-
-            const name = stdout.trim();
-            runProg(req.ws, name);
+            runProg(req.ws, hash);
         });
-        // CLEANUP: clean if too many folders
-        // INIT: create a folder, create all files user send to us
-        // docker build
-        // docker run
     }
 }
 
 function runProg(ws, name) {
     const proc = spawn('docker', ['run', '-t', name]);
-    let stdout = '';
+    let out = '';
     proc.stdout.on('data', function (data) {
-        stdout += data.toString();
+        out += data.toString();
     });
     proc.stdout.on('end', function () {
-        ws.send(`\u0000${stdout}`);
+        ws.send(`\u0000${out}`);
     });
 }
