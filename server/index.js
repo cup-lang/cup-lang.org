@@ -110,13 +110,10 @@ function runProg(ws, hash, name) {
     }, 4000);
     let out = '';
     proc.stdout.on('data', data => {
-        if (out.length > 1024) {
-            if (ws.open) {
-                ws.send(`\u0002${hash}\u0000${out}`);
-            }
-            return endProg(ws);
+        console.log(data.toString().length);
+        if (out.length < 4096) {
+            out += data.toString();
         }
-        out += data.toString();
     });
     proc.on('exit', () => {
         if (ws.open) {
