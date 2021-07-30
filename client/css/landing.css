@@ -196,10 +196,6 @@
         width: 100%;
     }
 
-    #top-header {
-        margin-top: 0;
-    }
-
     #top-buttons {
         flex-direction: column;
     }
@@ -210,9 +206,5 @@
 
     #download-button {
         margin-top: 8px;
-    }
-
-    #social-buttons {
-        margin-bottom: 0;
     }
 }
