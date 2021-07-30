@@ -102,9 +102,7 @@ function runProg(ws, hash, name) {
     } else {
         return endProg();
     }
-    //'--stop-timeout="5"'
-    //'-m', '500m'
-    const proc = spawn('docker', ['run', '--cpus=.5', '-t', name]);
+    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '--stop-timeout=5', '-t', name]);
     let out = '';
     proc.stderr.on('data', function (data) {
         console.log(data.toString().trim());
