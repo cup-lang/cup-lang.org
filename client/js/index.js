@@ -250,25 +250,25 @@ function autorun() {
     ws.onopen = function() {
         playgroundAction.removeAttribute('disabled');
     };
+    var playgroundOutput = document.getElementById('playground-output');
     ws.onmessage = function (data) {
         data = data.data;
         var type = data.charCodeAt();
         data = data.substr(1).split('\u0000');
         switch (type) {
             case 0: // Queue position update
-                document.getElementById('playground-output').innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
+                playgroundOutput.innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
                 break;
             case 1: // Compilation start
-                document.getElementById('playground-output').innerHTML =
-                    '<div class="output-divider">Compiling...' + data[0] +
-                    '</div><div id="playground-timer"></div>';
+                playgroundOutput.innerHTML = '<div class="output-divider">Compiling...' + data[0] + '</div><div id="playground-timer"></div>';
                 var startTime = Date.now();
                 var interval = setInterval(function() {
                     var delta = (Date.now() - startTime) / 1000;
-                    document.getElementById('playground-timer').style = 'width:' + (1 - delta / 5) * 100 + '%';
-                    if (delta >= 5) {
-                        clearInterval(interval);
+                    var timer = document.getElementById('playground-timer');
+                    if (timer == null || delta >= 10) {
+                        return clearInterval(interval);
                     }
+                    document.getElementById('playground-timer').style = 'width:' + (1 - delta / 10) * 100 + '%';
                 }, 0);
                 break;
             case 2: // Compilation result
@@ -278,7 +278,7 @@ function autorun() {
                 data[1] = data[1].replaceAll('\033[32m', '<span style="color:green">');
                 data[1] = data[1].replaceAll('\033[0;31m', '<span style="color:red">');
                 data = data[1].split(data[0]);
-                document.getElementById('playground-output').innerHTML = 
+                playgroundOutput.innerHTML =
                     '<div class="output-divider">Compilation output</div>' + data[0] +
                     (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '');
                 break;
