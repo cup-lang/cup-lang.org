@@ -105,7 +105,7 @@ function runProg(ws, hash, name) {
         return endProg();
     }
     const id = lastProgID++;
-    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '-t', name, '--name', `c${id}`]);
+    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '--name', `c${id}`, name]);
     // setTimeout(() => {
     //     execSync(`docker stop -t 1 c${id}`);
     // }, 4000);
