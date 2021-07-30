@@ -5,7 +5,7 @@ embed('app.js');
 embed('static.js');
 embed('sha256.js');
 
-const MAX_RUNNING = 8;
+const MAX_RUNNING = 4;
 let queue = [];
 let running = 0;
 const MAX_CACHE = 1024;
@@ -32,6 +32,7 @@ app.ws('/', {
                 }
                 ws.using = true;
                 queue.push({ ws: ws, files: [data] });
+                ws.send(`\u0000${queue.length - 1}`);
                 checkQueue();
                 break;
             default:
@@ -48,6 +49,11 @@ function checkQueue() {
     if (running < MAX_RUNNING && queue.length > 0) {
         running += 1;
         const req = queue.shift();
+        for (let i = 0; i < queue.length; ++i) {
+            if (ws.open) {
+                queue[i].ws.send(`\u0000${i}`);            
+            }
+        }
         let length = 0;
         for (let i = 0; i < req.files.length; ++i) {
             length += req.files[i].length;
@@ -59,8 +65,7 @@ function checkQueue() {
                     hash = hashFiles(req.files);
                 }
                 if (cache[i].hash == hash) {
-                    runProg(req.ws, hash, cache[i].name);
-                    return;
+                    return runProg(req.ws, hash, cache[i].name);
                 }
             }
         }
@@ -74,8 +79,7 @@ function checkQueue() {
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
         exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -q -f - .`, (err, stdout) => {
             if (err) {
-                ws.using = false;
-                return;
+                return endProg();
             }
             const name = stdout.trim();
             cache.push({ length: length, hash: hash, name: name });
@@ -93,17 +97,26 @@ function hashFiles(files) {
 }
 
 function runProg(ws, hash, name) {
-    const proc = spawn('docker', ['run', '-t', name]);
+    if (ws.open) {
+        ws.send('\u0001');
+    } else {
+        return endProg();
+    }
+    const proc = spawn('docker', ['run', '-m', '500m', '--cpus=".5"', '--stop-timeout="5"', '-t', name]);
     let out = '';
     proc.stdout.on('data', function (data) {
         out += data.toString();
     });
     proc.stdout.on('end', function () {
         if (ws.open) {
-            ws.send(`\u0000${hash}\u0000${out}`);
+            ws.send(`\u0002${hash}\u0000${out}`);
         }
-        ws.using = false;
-        running -= 1;
-        checkQueue();
+        endProg(ws);
     });
+}
+
+function endProg(ws) {
+    ws.using = false;
+    running -= 1;
+    checkQueue();
 }

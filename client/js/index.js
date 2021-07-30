@@ -255,7 +255,13 @@ function autorun() {
         var type = data.charCodeAt();
         data = data.substr(1).split('\u0000');
         switch (type) {
-            case 0:
+            case 0: // Queue position update
+                document.getElementById('playground-output').innerHTML = '<div class="output-divider">Queue position: </div>' + data[0];
+                break;
+            case 1: // Compilation start
+
+                break;
+            case 2: // Compilation result
                 playgroundAction.removeAttribute('disabled');
                 data[1] = data[1].replaceAll('\033[0m', '</span>');
                 data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');

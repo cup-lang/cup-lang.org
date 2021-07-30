@@ -15,8 +15,16 @@
 
 #playground-output {
     flex-basis: 50%;
+    position: relative;
     white-space: break-spaces;
     margin-left: 5px;
+}
+
+#playground-timer {
+    position: absolute;
+    border-bottom: 5px solid var(--color5);
+    left: 0;
+    right: 20%;
 }
 
 .output-divider {
