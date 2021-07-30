@@ -115,6 +115,10 @@ function setSize(size) {
 }
 
 function autorun() {
+    window.onpopstate = function() {
+        updatePage(location.pathname);
+    };
+
     document.querySelector('[href="/"]').innerHTML = logo.join('') + 'Cup';
 
     document.querySelectorAll('.nav-link, .learn-link, #learn-left, #learn-right').forEach(function (e) {
