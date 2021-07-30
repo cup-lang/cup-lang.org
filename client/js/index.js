@@ -265,7 +265,7 @@ function autorun() {
                 var startTime = Date.now();
                 var interval = setInterval(function() {
                     var delta = Date.now() - startTime;
-                    document.getElementById('playground-timer').style = 'width:' + (delta / 5) + '%';
+                    document.getElementById('playground-timer').style = 'width:' + (5 - delta / 5) + '%';
                     if (delta >= 5) {
                         clearInterval(interval);
                     }
