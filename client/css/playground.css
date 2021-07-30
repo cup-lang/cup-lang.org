@@ -4,14 +4,12 @@
 }
 
 #playground-code, #playground-output {
-    height: 600px;
+    min-height: 600px;
     flex-basis: 50%;
 }
 
 #playground-code {
     white-space: nowrap;
-    resize: none;
-    box-sizing: border-box;
     font-family: monospace, monospace;
     margin-right: 5px;
 }
