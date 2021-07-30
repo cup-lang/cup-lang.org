@@ -289,7 +289,7 @@ function autorun() {
                 playgroundOutput.innerHTML =
                     '<div class="output-divider">Compilation output</div>' + data[0] +
                     (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '') +
-                    (data.length > 2 ? '<div class="output-divider">Output max length exceeded</div>' : '');
+                    (data.length > 2 ? '<div class="output-divider">Max output length exceeded</div>' : '');
                 break;
         }
     };
