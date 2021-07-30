@@ -49,4 +49,8 @@
     #learn-nav {
         display: none;
     }
+
+    .class > h1 {
+        margin-top: 0;
+    }
 }
