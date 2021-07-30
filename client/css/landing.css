@@ -3,11 +3,11 @@
     justify-content: space-between;
 }
 
-h1 {
+#top-header {
     margin-top: 30px;
 }
 
-p {
+#top-description {
     margin: 10px 0 15px 0;
 }
 
@@ -192,10 +192,6 @@ p {
 }
 
 @media only screen and (max-width: 550px) {
-    h1 {
-        margin: 0;
-    }
-
     #landing-top > div {
         width: 100%;
     }
