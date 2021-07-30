@@ -109,11 +109,11 @@ function runProg(ws, hash, name) {
         exec(`docker stop -t 1 c${id}`);
     }, 4000);
     let out = '';
-    // proc.stdout.on('data', data => {
-    //     if (out.length < 4096) {
-    //         out += data.toString();
-    //     }
-    // });
+    proc.stdout.on('data', data => {
+        if (out.length < 4096) {
+            out += data.toString();
+        }
+    });
     proc.on('exit', () => {
         if (ws.open) {
             ws.send(`\u0002${hash}\u0000${out}`);
