@@ -1,6 +1,6 @@
 #playground-content {
     display: flex;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #playground-code, #playground-output {
@@ -58,7 +58,7 @@
     }
 
     #playground-output {
-        margin-top: 5px;
+        margin-top: 10px;
     }
 
     #playground-code, #playground-output {
