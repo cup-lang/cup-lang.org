@@ -259,7 +259,9 @@ function autorun() {
                 document.getElementById('playground-output').innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
                 break;
             case 1: // Compilation start
-                document.getElementById('playground-output').innerHTML = '<div class="output-divider">Compiling...' + data[0] + '</div>';
+                document.getElementById('playground-output').innerHTML =
+                    '<div class="output-divider">Compiling...' + data[0] +
+                    '</div><div id="playground-timer"></div>';
                 var startTime = Date.now();
                 var interval = setInterval(function() {
                     var delta = Date.now() - startTime;
