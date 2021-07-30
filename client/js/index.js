@@ -38,7 +38,7 @@ function updatePage(href) {
         var lesson = document.getElementById(path[path.length - 1]);
         if (path.length < 3 || !lesson) {
             lesson = document.getElementById('introduction');
-            history.pushState(null, '', href = '/learn/introduction');
+            history.replaceState(null, '', href = '/learn/introduction');
         }
         lesson.style = '';
     }
