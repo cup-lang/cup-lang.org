@@ -110,7 +110,7 @@ function runProg(ws, hash, name) {
     proc.stdout.on('data', function (data) {
         out += data.toString();
     });
-    proc.stdout.on('end', function () {
+    proc.on('exit', function (code) {
         if (ws.open) {
             ws.send(`\u0002${hash}\u0000${out}`);
         }
