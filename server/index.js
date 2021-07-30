@@ -110,7 +110,6 @@ function runProg(ws, hash, name) {
     }, 4000);
     let out = '';
     proc.stdout.on('data', data => {
-        console.log(data.toString().length);
         if (out.length < 4096) {
             out += data.toString();
         }
