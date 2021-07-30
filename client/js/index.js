@@ -263,7 +263,8 @@ function autorun() {
             data = data.substr(1).split('\u0000');
             switch (type) {
                 case 0: // Queue position update
-                    playgroundOutput.innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
+                    var position = parseInt(data[0]) + 1;
+                    playgroundOutput.innerHTML = '<div class="output-divider">Queue position: ' + position + '</div>';
                     break;
                 case 1: // Compilation start
                     playgroundOutput.innerHTML = '<div class="output-divider">Compiling...</div><div id="playground-timer"></div>';
