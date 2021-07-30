@@ -1,22 +1,25 @@
 #playground-content {
     display: flex;
+    margin-top: 10px;
+}
+
+#playground-code, #playground-output {
+    height: 600px;
+    flex-basis: 50%;
 }
 
 #playground-code {
-    height: 500px;
-    flex-basis: 50%;
-    flex-grow: 1;
     white-space: nowrap;
     resize: none;
     box-sizing: border-box;
-    font-family: monospace,monospace;
+    font-family: monospace, monospace;
     margin-right: 5px;
 }
 
 #playground-output {
-    flex-basis: 50%;
     position: relative;
     white-space: break-spaces;
+    overflow-y: scroll;
     margin-left: 5px;
 }
 
@@ -54,7 +57,12 @@
         flex-direction: column;
     }
 
+    #playground-code {
+        margin-top: 10px;
+    }
+
     #playground-code, #playground-output {
+        height: 400px;
         flex: initial;
     }
 }
