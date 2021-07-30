@@ -66,7 +66,7 @@ function checkQueue() {
                     hash = hashFiles(req.files);
                 }
                 if (cache[i].hash == hash) {
-                    return runProg(req.ws, hash, cache[i].id);
+                    return runProg(req.ws, hash, cache[i].name);
                 }
             }
         }
@@ -78,13 +78,13 @@ function checkQueue() {
         }
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
-        const id = lastProgID++;
-        exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -t ${id} -q -f - .`, err => {
+        exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -q -f - .`, (err, stdout) => {
             if (err) {
-                return endProg();
+                return endProg(req.ws);
             }
-            cache.push({ length: length, hash: hash, id: id });
-            runProg(req.ws, hash, id);
+            const name = stdout.toString().trim();
+            cache.push({ length: length, hash: hash, name: name });
+            runProg(req.ws, hash, name);
         });
     }
 }
@@ -97,13 +97,14 @@ function hashFiles(files) {
     return sha256(sum);
 }
 
-function runProg(ws, hash, id) {
+function runProg(ws, hash, name) {
     if (ws.open) {
         ws.send('\u0001');
     } else {
         return endProg();
     }
-    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '-t', id, '--name', id]);
+    const id = lastProgID++;
+    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '-t', name, '--name', id]);
     setTimeout(() => {
         execSync(`docker stop -t 1 ${id}`);
     }, 4000);
