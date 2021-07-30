@@ -106,15 +106,11 @@ function runProg(ws, hash, name) {
     const id = lastProgID++;
     const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '--name', `c${id}`, name]);
     setTimeout(() => {
-        exec(`docker stop -t 1 c${id}`);
-    }, 4000);
+        exec(`docker stop -t 2 c${id}`);
+    }, 8000);
     let out = '';
     proc.stdout.on('data', data => {
         out += data.toString();
-        // if (out.length < 4096) {
-        // } else {
-        //     out += ' (...)';
-        // }
     });
     proc.on('exit', () => {
         if (ws.open) {

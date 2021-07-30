@@ -22,7 +22,7 @@
 
 #playground-timer {
     position: absolute;
-    border-bottom: 5px solid var(--color5);
+    border-bottom: 2px solid var(--color5);
     left: 0;
     bottom: 0;
     border-radius: 0 0 5px 5px;
