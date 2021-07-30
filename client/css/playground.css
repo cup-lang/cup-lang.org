@@ -50,5 +50,11 @@
     }
 
 @media only screen and (max-width: 750px) {
-    
+    #playground-content {
+        flex-direction: column;
+    }
+
+    #playground-code, #playground-output {
+        flex: initial;
+    }
 }
