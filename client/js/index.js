@@ -260,12 +260,16 @@ function autorun() {
                 playgroundOutput.innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
                 break;
             case 1: // Compilation start
-                playgroundOutput.innerHTML = '<div class="output-divider">Compiling...' + data[0] + '</div><div id="playground-timer"></div>';
+                playgroundOutput.innerHTML = '<div class="output-divider">Compiling...</div><div id="playground-timer"></div>';
                 var startTime = Date.now();
                 var interval = setInterval(function() {
                     var delta = (Date.now() - startTime) / 1000;
                     var timer = document.getElementById('playground-timer');
-                    if (timer == null || delta >= 10) {
+                    if (timer == null) {
+                        return clearInterval(interval);
+                    }
+                    if (delta >= 10) {
+                        playgroundOutput.innerHTML = '<div class="output-divider">Loading output...</div>';
                         return clearInterval(interval);
                     }
                     document.getElementById('playground-timer').style = 'width:' + (1 - delta / 10) * 100 + '%';
