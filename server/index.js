@@ -78,8 +78,7 @@ function checkQueue() {
         }
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
-        exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -q -f - .`, (err, stdout, stderr) => {
-            console.log(stderr);
+        exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -q -f - .`, (err, stdout) => {
             if (err) {
                 return endProg(req.ws);
             }
@@ -110,13 +109,16 @@ function runProg(ws, hash, name) {
         execSync(`docker stop -t 1 c${id}`);
     }, 4000);
     let out = '';
-    proc.stderr.on('data', function (data) {
-        console.log(data.toString().trim());
-    });
-    proc.stdout.on('data', function (data) {
+    proc.stdout.on('data', data => {
+        if (out.length > 1024 * 1024) {
+            if (ws.open) {
+                ws.send(`\u0002${hash}\u0000${out}`);
+            }
+            return endProg(ws);
+        }
         out += data.toString();
     });
-    proc.on('exit', function (code) {
+    proc.on('exit', () => {
         if (ws.open) {
             ws.send(`\u0002${hash}\u0000${out}`);
         }
