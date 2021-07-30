@@ -30,7 +30,7 @@ function updatePage(href) {
     var page = document.getElementById(path[1]);
     if (!page) {
         document.getElementById('landing').style = '';
-        history.pushState(null, '', href = '/');
+        history.replaceState(null, '', href = '/');
         return;
     }
     page.style = '';
