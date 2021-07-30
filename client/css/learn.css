@@ -44,3 +44,9 @@
         height: 30px;
         color: var(--color6);
     }
+
+@media only screen and (max-width: 750px) {
+    #learn-nav {
+        display: none;
+    }
+}
