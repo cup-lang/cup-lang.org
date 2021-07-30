@@ -259,10 +259,11 @@ function autorun() {
                 document.getElementById('playground-output').innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
                 break;
             case 1: // Compilation start
-
+                document.getElementById('playground-output').innerHTML = '<div class="output-divider">Compiling...' + data[0] + '</div>';
                 break;
             case 2: // Compilation result
                 playgroundAction.removeAttribute('disabled');
+                console.log(data);
                 data[1] = data[1].replaceAll('\033[0m', '</span>');
                 data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');
                 data[1] = data[1].replaceAll('\033[32m', '<span style="color:green">');
