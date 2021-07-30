@@ -253,54 +253,54 @@ function autorun() {
     var ws;
     function connect() {
         ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.host);
+        ws.onopen = function() {
+            playgroundAction.removeAttribute('disabled');
+        };
+        var playgroundOutput = document.getElementById('playground-output');
+        ws.onmessage = function (data) {
+            data = data.data;
+            var type = data.charCodeAt();
+            data = data.substr(1).split('\u0000');
+            switch (type) {
+                case 0: // Queue position update
+                    playgroundOutput.innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
+                    break;
+                case 1: // Compilation start
+                    playgroundOutput.innerHTML = '<div class="output-divider">Compiling...</div><div id="playground-timer"></div>';
+                    var startTime = Date.now();
+                    var interval = setInterval(function() {
+                        var delta = (Date.now() - startTime) / 1000;
+                        var timer = document.getElementById('playground-timer');
+                        if (timer == null) {
+                            return clearInterval(interval);
+                        }
+                        if (delta >= 10) {
+                            playgroundOutput.innerHTML = '<div class="output-divider">Loading output...</div>';
+                            return clearInterval(interval);
+                        }
+                        document.getElementById('playground-timer').style = 'width:' + (1 - delta / 10) * 100 + '%';
+                    }, 0);
+                    break;
+                case 2: // Compilation result
+                    playgroundAction.removeAttribute('disabled');
+                    data[1] = data[1].replaceAll('\033[0m', '</span>');
+                    data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');
+                    data[1] = data[1].replaceAll('\033[32m', '<span style="color:green">');
+                    data[1] = data[1].replaceAll('\033[0;31m', '<span style="color:red">');
+                    data = data[1].split(data[0]);
+                    playgroundOutput.innerHTML =
+                        '<div class="output-divider">Compilation output</div>' + data[0] +
+                        (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '') +
+                        (data.length > 2 ? '<div class="output-divider">Max output length exceeded</div>' : '');
+                    break;
+            }
+        };
+        ws.onclose = function() {
+            playgroundAction.setAttribute('disabled', true);
+            setTimeout(connect, 1000);
+        };
     }
     connect();
-    ws.onopen = function() {
-        playgroundAction.removeAttribute('disabled');
-    };
-    var playgroundOutput = document.getElementById('playground-output');
-    ws.onmessage = function (data) {
-        data = data.data;
-        var type = data.charCodeAt();
-        data = data.substr(1).split('\u0000');
-        switch (type) {
-            case 0: // Queue position update
-                playgroundOutput.innerHTML = '<div class="output-divider">Queue position: ' + data[0] + '</div>';
-                break;
-            case 1: // Compilation start
-                playgroundOutput.innerHTML = '<div class="output-divider">Compiling...</div><div id="playground-timer"></div>';
-                var startTime = Date.now();
-                var interval = setInterval(function() {
-                    var delta = (Date.now() - startTime) / 1000;
-                    var timer = document.getElementById('playground-timer');
-                    if (timer == null) {
-                        return clearInterval(interval);
-                    }
-                    if (delta >= 10) {
-                        playgroundOutput.innerHTML = '<div class="output-divider">Loading output...</div>';
-                        return clearInterval(interval);
-                    }
-                    document.getElementById('playground-timer').style = 'width:' + (1 - delta / 10) * 100 + '%';
-                }, 0);
-                break;
-            case 2: // Compilation result
-                playgroundAction.removeAttribute('disabled');
-                data[1] = data[1].replaceAll('\033[0m', '</span>');
-                data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');
-                data[1] = data[1].replaceAll('\033[32m', '<span style="color:green">');
-                data[1] = data[1].replaceAll('\033[0;31m', '<span style="color:red">');
-                data = data[1].split(data[0]);
-                playgroundOutput.innerHTML =
-                    '<div class="output-divider">Compilation output</div>' + data[0] +
-                    (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '') +
-                    (data.length > 2 ? '<div class="output-divider">Max output length exceeded</div>' : '');
-                break;
-        }
-    };
-    ws.onclose = function() {
-        playgroundAction.setAttribute('disabled', true);
-        setTimeout(connect, 1000);
-    };
 
     var playgroundAction = document.getElementById('playground-action');
     playgroundAction.onclick = function () {
