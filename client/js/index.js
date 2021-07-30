@@ -250,7 +250,11 @@ function autorun() {
         return false;
     };
 
-    var ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.host);
+    var ws;
+    function connect() {
+        ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.host);
+    }
+    connect();
     ws.onopen = function() {
         playgroundAction.removeAttribute('disabled');
     };
@@ -295,6 +299,7 @@ function autorun() {
     };
     ws.onclose = function() {
         playgroundAction.setAttribute('disabled', true);
+        setTimeout(connect, 1000);
     };
 
     var playgroundAction = document.getElementById('playground-action');
