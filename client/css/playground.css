@@ -19,7 +19,7 @@
 #playground-output {
     position: relative;
     white-space: break-spaces;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-left: 5px;
 }
 
