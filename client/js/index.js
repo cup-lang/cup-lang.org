@@ -260,6 +260,11 @@ function autorun() {
                 break;
             case 1: // Compilation start
                 document.getElementById('playground-output').innerHTML = '<div class="output-divider">Compiling...' + data[0] + '</div>';
+                var startTime = Date.now();
+                var interval = setInterval(function() {
+                    var delta = Date.now() - startTime;
+                    document.getElementById('playground-timer').style = 'width:' + (delta / 5) + '%';
+                }, 0);
                 break;
             case 2: // Compilation result
                 playgroundAction.removeAttribute('disabled');
