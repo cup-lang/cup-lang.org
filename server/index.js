@@ -51,7 +51,7 @@ function checkQueue() {
         running += 1;
         const req = queue.shift();
         for (let i = 0; i < queue.length; ++i) {
-            if (ws.open) {
+            if (queue[i].ws.open) {
                 queue[i].ws.send(`\u0000${i}`);
             }
         }
