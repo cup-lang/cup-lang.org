@@ -82,7 +82,7 @@ function checkQueue() {
             if (err) {
                 return endProg(req.ws);
             }
-            const name = stdout.toString().trim();
+            const name = stdout.trim();
             cache.push({ length: length, hash: hash, name: name });
             runProg(req.ws, hash, name);
         });
@@ -105,9 +105,9 @@ function runProg(ws, hash, name) {
     }
     const id = lastProgID++;
     const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '-t', name, '--name', `c${id}`]);
-    // setTimeout(() => {
-    //     execSync(`docker stop -t 1 c${id}`);
-    // }, 4000);
+    setTimeout(() => {
+        execSync(`docker stop -t 1 c${id}`);
+    }, 4000);
     let out = '';
     proc.stderr.on('data', function (data) {
         console.log(data.toString().trim());
