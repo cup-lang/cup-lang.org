@@ -110,7 +110,7 @@ function runProg(ws, hash, name) {
     }, 4000);
     let out = '';
     proc.stdout.on('data', data => {
-        if (out.length > 1024 * 1024) {
+        if (out.length > 1024) {
             if (ws.open) {
                 ws.send(`\u0002${hash}\u0000${out}`);
             }
