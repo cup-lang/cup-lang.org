@@ -10,6 +10,7 @@
 
 #playground-code {
     white-space: nowrap;
+    resize: vertical;
     font-family: monospace, monospace;
     margin-right: 5px;
 }
@@ -58,5 +59,9 @@
 
     #playground-output {
         margin-top: 10px;
+    }
+
+    #playground-code, #playground-output {
+        min-height: initial;
     }
 }
