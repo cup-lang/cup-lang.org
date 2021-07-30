@@ -110,7 +110,9 @@ function runProg(ws, hash, name) {
     }, 8000);
     let out = '';
     proc.stdout.on('data', data => {
-        out += data.toString();
+        if (out.length < 65536) {
+            out += data.toString();
+        }
     });
     proc.on('exit', () => {
         if (ws.open) {
