@@ -27,7 +27,6 @@ function cutout(file, name) {
 function combineCSS(sheets) {
     let css = '';
     let root = '';
-    let mobile = '';
     for (let i = 0; i < sheets.length; ++i) {
         const sheet = sheets[i];
         const rootStart = sheet.indexOf(':root');
@@ -36,11 +35,9 @@ function combineCSS(sheets) {
             rootEnd = sheet.substr(rootStart).indexOf('}');
             root += sheet.substring(rootStart + 7, rootEnd);
         }
-        const mobileCutout = cutout(sheet, '@mobile');
-        mobile += mobileCutout[0];
-        css += sheet.substring(rootEnd + 1, mobileCutout[1] === -1 ? sheet.length : mobileCutout[1]);
+        css += sheet.substring(rootEnd + 1, sheet.length);
     }
-    return `:root{${root}}${css}@media only screen and (max-width: 700px), screen and (max-height: 700px){${mobile}}`;
+    return `:root{${root}}${css}`;
 }
 
 function combineJS(scripts) {
