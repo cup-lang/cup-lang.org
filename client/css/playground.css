@@ -54,15 +54,11 @@
 
 @media only screen and (max-width: 750px) {
     #playground-content {
+        height: calc(100vh - 144px);
         flex-direction: column;
     }
 
     #playground-output {
         margin-top: 10px;
-    }
-
-    #playground-code, #playground-output {
-        height: 400px;
-        flex: initial;
     }
 }
