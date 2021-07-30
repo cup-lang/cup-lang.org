@@ -55,6 +55,11 @@ function checkQueue() {
                 queue[i].ws.send(`\u0000${i}`);
             }
         }
+        if (req.ws.open) {
+            req.ws.send('\u0001');
+        } else {
+            return endProg(req.ws);
+        }
         let length = 0;
         for (let i = 0; i < req.files.length; ++i) {
             length += req.files[i].length;
@@ -98,11 +103,6 @@ function hashFiles(files) {
 }
 
 function runProg(ws, hash, name) {
-    if (ws.open) {
-        ws.send('\u0001');
-    } else {
-        return endProg();
-    }
     const id = lastProgID++;
     const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '--name', `c${id}`, name]);
     let capped = false;
