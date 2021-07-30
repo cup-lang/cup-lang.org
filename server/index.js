@@ -102,9 +102,9 @@ function runProg(ws, hash, name) {
     } else {
         return endProg();
     }
-    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '-t', name]);
+    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '-t', name, '--name', name]);
     setTimeout(() => {
-        // execSync(`docker stop ${name} -t 1`);
+        execSync(`docker stop ${name} -t 1`);
     }, 4000);
     let out = '';
     proc.stdout.on('data', function (data) {
