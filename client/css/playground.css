@@ -24,7 +24,8 @@
     position: absolute;
     border-bottom: 5px solid var(--color5);
     left: 0;
-    right: 20%;
+    bottom: 0;
+    border-radius: 0 0 5px 5px;
 }
 
 .output-divider {
