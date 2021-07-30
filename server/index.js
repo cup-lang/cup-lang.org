@@ -1,6 +1,6 @@
 const fs = require('fs');
 const uws = require('uWebSockets.js');
-const { exec, spawn } = require('child_process');
+const { exec, spawn, execSync } = require('child_process');
 embed('app.js');
 embed('static.js');
 embed('sha256.js');
@@ -102,11 +102,11 @@ function runProg(ws, hash, name) {
     } else {
         return endProg();
     }
-    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '--stop-timeout=5', '-t', name]);
+    const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '-t', name]);
+    setTimeout(() => {
+        execSync(`docker stop ${name} -t 1`);
+    }, 4000);
     let out = '';
-    proc.stderr.on('data', function (data) {
-        console.log(data.toString().trim());
-    });
     proc.stdout.on('data', function (data) {
         out += data.toString();
     });
