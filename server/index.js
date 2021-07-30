@@ -52,7 +52,7 @@ function checkQueue() {
         const req = queue.shift();
         for (let i = 0; i < queue.length; ++i) {
             if (ws.open) {
-                queue[i].ws.send(`\u0000${i}`);            
+                queue[i].ws.send(`\u0000${i}`);
             }
         }
         let length = 0;
@@ -105,13 +105,24 @@ function runProg(ws, hash, name) {
     }
     const id = lastProgID++;
     const proc = spawn('docker', ['run', '-m=500m', '--cpus=.5', '--name', `c${id}`, name]);
+    let capped = false;
     setTimeout(() => {
+        if (capped) {
+            return;
+        }
         exec(`docker stop -t 2 c${id}`);
     }, 8000);
     let out = '';
     proc.stdout.on('data', data => {
+        if (capped) {
+            return;
+        }
         if (out.length < 65536) {
             out += data.toString();
+        } else {
+            capped = true;
+            out += hash;
+            exec(`docker stop -t 2 c${id}`);
         }
     });
     proc.on('exit', () => {

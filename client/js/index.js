@@ -288,7 +288,8 @@ function autorun() {
                 data = data[1].split(data[0]);
                 playgroundOutput.innerHTML =
                     '<div class="output-divider">Compilation output</div>' + data[0] +
-                    (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '');
+                    (data.length > 1 ? '<div class="output-divider">Program output</div>' + data[1] : '') +
+                    (data.length > 2 ? '<div class="output-divider">Output max length exceeded</div>' : '');
                 break;
         }
     };
