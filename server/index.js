@@ -1,9 +1,9 @@
 const fs = require('fs');
 const uws = require('uWebSockets.js');
 const { exec, spawn, execSync } = require('child_process');
+const crypto = require('crypto');
 embed('app.js');
 embed('static.js');
-embed('sha256.js');
 
 const MAX_RUNNING = 4;
 let queue = [];
@@ -90,11 +90,11 @@ function checkQueue() {
 }
 
 function hashFiles(files) {
-    let sum = '';
+    const hash = crypto.createHash('sha256');
     for (let i = 0; i < files.length; ++i) {
-        sum += files[i];
+        hash.write(files[i]);
     }
-    return sha256(sum);
+    return hash.digest('hex');
 }
 
 function runProg(ws, hash, name) {
