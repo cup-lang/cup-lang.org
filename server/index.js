@@ -1,6 +1,6 @@
 const fs = require('fs');
 const uws = require('uWebSockets.js');
-const { exec, spawn, execSync } = require('child_process');
+const { exec, spawn } = require('child_process');
 const crypto = require('crypto');
 embed('app.js');
 embed('static.js');
@@ -46,14 +46,18 @@ app.ws('/', {
     },
 });
 
+function trySend(ws, message) {
+    if (ws.open) {
+        ws.send(message);
+    }
+}
+
 function checkQueue() {
     if (running < MAX_RUNNING && queue.length > 0) {
         running += 1;
         const req = queue.shift();
         for (let i = 0; i < queue.length; ++i) {
-            if (queue[i].ws.open) {
-                queue[i].ws.send(`\u0000${i}`);
-            }
+            trySend(queue[i].ws, `\u0000${i}`);
         }
         let length = 0;
         for (let i = 0; i < req.files.length; ++i) {
@@ -66,6 +70,10 @@ function checkQueue() {
                     hash = hashFiles(req.files);
                 }
                 if (cache[i].hash == hash) {
+                    if (cache[i].name == null) {
+                        queue.push(req);
+                        return trySend(req.ws, `\u0000${queue.length - 1}`);
+                    }
                     return runProg(req.ws, hash, cache[i].name);
                 }
             }
@@ -78,13 +86,14 @@ function checkQueue() {
         }
         fs.mkdirSync(`playground/${hash}`);
         fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
+        let prog = { length: length, hash: hash };
+        cache.push(prog);
         exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -q -f - .`, (err, stdout) => {
             if (err) {
                 return endProg(req.ws);
             }
-            const name = stdout.trim();
-            cache.push({ length: length, hash: hash, name: name });
-            runProg(req.ws, hash, name);
+            prog.name = stdout.trim();
+            runProg(req.ws, hash, prog.name);
         });
     }
 }
@@ -126,9 +135,7 @@ function runProg(ws, hash, name) {
         }
     });
     proc.on('exit', () => {
-        if (ws.open) {
-            ws.send(`\u0002${hash}\u0000${out}`);
-        }
+        trySend(ws, `\u0002${hash}\u0000${out}`);
         endProg(ws);
     });
 }
