@@ -42,7 +42,7 @@ app.ws('/', {
         }
     },
     close: ws => {
-        delete ws.open;
+        ws.open = false;
     },
 });
 

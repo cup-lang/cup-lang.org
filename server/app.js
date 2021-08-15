@@ -1,7 +1,8 @@
-let useSSL;
+const useSSL = fs.existsSync('cert.pem');
 const app = (() => {
-    if (useSSL = fs.existsSync('cert.pem')) {
+    if (useSSL) {
         uws.App().get('/**', (res, req) => {
+            res.onAborted(() => {});
             res.writeStatus('301');
             res.writeHeader('location', 'https://cup-lang.org' + req.getUrl());
             res.end();
@@ -18,6 +19,6 @@ const app = (() => {
 
 app.listen('0.0.0.0', useSSL ? 443 : 3001, token => {
     if (token) {
-        console.log(`Listening...`);
+        console.log('Listening...');
     }
 });
