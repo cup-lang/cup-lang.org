@@ -17,6 +17,13 @@ const app = (() => {
     }
 })();
 
+app.get('/vscode', res => {
+    res.onAborted(() => {});
+    res.writeStatus('301');
+    res.writeHeader('location', 'https://marketplace.visualstudio.com/items?itemName=cup-lang.cup');
+    res.end();
+});
+
 app.listen('0.0.0.0', useSSL ? 443 : 3001, token => {
     if (token) {
         console.log('Listening...');
