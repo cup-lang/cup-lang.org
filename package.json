@@ -6,6 +6,6 @@
     },
     "dependencies": {
       "html-minifier": "^4.0.0",
-      "uWebSockets.js": "github:uNetworking/uWebSockets.js#v19.2.0"
+      "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.1.0"
     }
   }
