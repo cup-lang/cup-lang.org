@@ -1,3 +1,3 @@
-# cup-lang.github.io
+# Official Cup Website
 
-Official Cup website
+https://cup-lang.org/
