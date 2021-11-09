@@ -185,6 +185,50 @@
     cursor: grab;
 }
 
+#discord-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    padding: 0 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    color: var(--color3);
+    background: #5865f2;
+}
+
+    #discord-button:hover {
+        background: #4650c1;
+    }
+
+    #discord-button > svg {
+        height: 32px;
+    }
+
+#reddit-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    padding: 0 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    color: var(--color3);
+    background: #ff4500;
+}
+
+    #reddit-button:hover {
+        background: #4650c1;
+    }
+
+    #reddit-button > svg {
+        height: 32px;
+    }
+
 @media only screen and (max-width: 750px) {
     #cup {
         display: none;

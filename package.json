@@ -2,10 +2,10 @@
     "name": "cup-lang.org",
     "version": "1.0.0",
     "scripts": {
-      "start": "node build/build.js && docker system prune -f && node build/out/server.js"
+        "start": "node build/build.js && docker system prune -f && node build/out/server.js"
     },
     "dependencies": {
-      "html-minifier": "^4.0.0",
-      "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.1.0"
+        "html-minifier": "^4.0.0",
+        "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.1.0"
     }
-  }
+}

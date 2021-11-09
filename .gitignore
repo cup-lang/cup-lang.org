@@ -1,5 +1,10 @@
 node_modules
-package-lock.json
+
+# Build folder
 build/out/*
+
+# Playground folder
 playground
+
+# SSL Certificates
 *.pem

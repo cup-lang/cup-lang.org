@@ -37,8 +37,10 @@ function updatePage(href) {
     if (path[1] === 'learn') {
         var lesson = document.getElementById(path[path.length - 1]);
         if (path.length < 3 || !lesson) {
-            lesson = document.getElementById('introduction');
-            history.replaceState(null, '', href = '/learn/introduction');
+            href = localStorage.lesson || '/learn/introduction';
+            path = href.split('/');
+            lesson = document.getElementById(path[path.length - 1]);
+            history.replaceState(null, '', href);
         }
         lesson.style = '';
     }
@@ -48,6 +50,8 @@ function updatePage(href) {
         page.classList.add('nav-link-active');
     }
     if (path[1] === 'learn') {
+        localStorage.lesson = href;
+
         var lesson = document.querySelector('[href="' + href + '"]');
         lesson.classList.add('learn-link-active');
 
@@ -70,6 +74,16 @@ function updatePage(href) {
             rightButton.style = 'pointer-events:none;opacity: 0.5';
             rightButton.removeAttribute('href');
         }
+
+        window.onkeydown = function(e) {
+            if (left && e.keyCode == 37) {
+                leftButton.click();
+            } else if (right && e.keyCode == 39) {
+                rightButton.click();
+            }
+        };
+    } else {
+        window.onkeydown = null;
     }
 }
 
@@ -91,15 +105,27 @@ function setDownload(index) {
 }
 
 function setStars(stars) {
-    document.getElementById('star-count').innerHTML = '<svg viewBox="0 0 14 16" width="12" height="12" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>';
     if (stars === undefined) {
-        stars = localStorage.stars;
-        if (stars === undefined) {
-            stars = '?';
-        }
+        stars = localStorage.stars || '?';
     }
-    document.getElementById('star-count').innerHTML += '&nbsp;' + stars;
+    document.getElementById('star-count').innerHTML = '<svg viewBox="0 0 14 16" width="12" height="12" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>&nbsp;' + stars;
     localStorage.stars = stars;
+}
+
+function setDiscord(members) {
+    if (members === undefined) {
+        members = localStorage.discord || '?';
+    }
+    document.getElementById('discord-count').innerText = members;
+    localStorage.discord = members;
+}
+
+function setReddit(users) {
+    if (users === undefined) {
+        users = localStorage.reddit || '?';
+    }
+    document.getElementById('reddit-count').innerText = users;
+    localStorage.reddit = users;
 }
 
 function setSize(size) {
@@ -174,7 +200,6 @@ function autorun() {
         .then(function (data) {
             setStars(data.stargazers_count);
         });
-
     fetch('https://api.github.com/repos/cup-lang/cup/contents/bin')
         .then(function (res) { return res.json(); })
         .then(function (data) {
@@ -217,7 +242,7 @@ function autorun() {
             if (holding === false) {
                 y += delta * 2;
 
-                if (y > document.body.clientHeight + 150) {
+                if (y > Math.max(document.body.clientHeight, window.innerHeight) + 150) {
                     y = -200;
                     holding = null;
                     document.getElementById('cup').append(movable);
@@ -249,6 +274,20 @@ function autorun() {
         }, 0);
         return false;
     };
+
+    setDiscord();
+    setReddit();
+
+    fetch('https://discord.com/api/guilds/842863266585903144/widget.json')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+            setDiscord(data.presence_count);
+        });
+    fetch('https://www.reddit.com/r/cup_lang/about.json')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+            setReddit(data.data.active_user_count);
+        });
 
     var ws;
     function connect() {
