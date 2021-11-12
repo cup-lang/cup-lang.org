@@ -1,10 +1,8 @@
 #landing-top {
     display: flex;
     justify-content: space-between;
-}
-
-#top-header {
-    margin-top: 30px;
+    padding-top: 65px;
+    padding-bottom: 65px;
 }
 
 #top-description {
@@ -57,7 +55,7 @@
 }
 
     #star-count > svg {
-        margin-right: 2px;
+        margin-right: 4px;
     }
 
 #download-button {
@@ -144,7 +142,7 @@
 #social-buttons {
     display: flex;
     align-items: center;
-    margin: 20px 0 40px 0;
+    margin-top: 20px;
 }
 
 .social-button {
@@ -185,17 +183,29 @@
     cursor: grab;
 }
 
-#discord-button {
+#banners {
+    display: flex;
+}
+
+#discord-button, #reddit-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 250px;
     height: 50px;
     padding: 0 12px;
     text-decoration: none;
     border-radius: 5px;
     font-size: 12px;
     color: var(--color3);
+}
+
+    #discord-button > svg, #reddit-button > svg {
+        height: 32px;
+        margin-right: 25px;
+    }
+
+#discord-button {
+    margin-right: 20px;
     background: #5865f2;
 }
 
@@ -203,30 +213,12 @@
         background: #4650c1;
     }
 
-    #discord-button > svg {
-        height: 32px;
-    }
-
 #reddit-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 250px;
-    height: 50px;
-    padding: 0 12px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 12px;
-    color: var(--color3);
     background: #ff4500;
 }
 
     #reddit-button:hover {
-        background: #4650c1;
-    }
-
-    #reddit-button > svg {
-        height: 32px;
+        background: #cc3700;
     }
 
 @media only screen and (max-width: 750px) {
@@ -238,10 +230,6 @@
 @media only screen and (max-width: 550px) {
     #landing-top > div {
         width: 100%;
-    }
-
-    #top-header {
-        margin-top: 0;
     }
 
     #top-buttons {
@@ -258,5 +246,13 @@
 
     #social-buttons {
         margin-bottom: 0;
+    }
+
+    #banners {
+        flex-direction: column;
+    }
+
+    #discord-button {
+        margin: 0 0 8px 0;
     }
 }

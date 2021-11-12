@@ -25,8 +25,16 @@ h1, .nav-link {
     font-family: "Titillium Web";
 }
 
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+    margin-top: 0;
+}
+
 p {
     line-height: 24px;
+}
+
+p:last-child, ul:last-child {
+    margin-bottom: 0;
 }
 
 a, a:link, a:visited {
@@ -124,7 +132,14 @@ code, .code {
 }
 
 .section-content {
-    padding: 30px 15px;
+    padding: 50px 15px;
+}
+
+@media only screen and (max-width: 550px) {
+    .section-content {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
 }
 
 /* #endregion */

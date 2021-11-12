@@ -104,40 +104,39 @@ function setDownload(index) {
     document.getElementById('download-menu').innerHTML = makeDownloadItem(++index) + makeDownloadItem(++index);
 }
 
-function setStars(stars) {
-    if (stars === undefined) {
-        stars = localStorage.stars || '?';
-    }
-    document.getElementById('star-count').innerHTML = '<svg viewBox="0 0 14 16" width="12" height="12" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>&nbsp;' + stars;
+function setGithubStars(stars) {
+    stars = stars || localStorage.stars || '?';
+    document.getElementById('star-count').innerHTML = '<svg viewBox="0 0 14 16" width="12" height="12" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>' + stars;
     localStorage.stars = stars;
 }
 
-function setDiscord(members) {
-    if (members === undefined) {
-        members = localStorage.discord || '?';
-    }
-    document.getElementById('discord-count').innerText = members;
-    localStorage.discord = members;
-}
-
-function setReddit(users) {
-    if (users === undefined) {
-        users = localStorage.reddit || '?';
-    }
-    document.getElementById('reddit-count').innerText = users;
-    localStorage.reddit = users;
-}
-
-function setSize(size) {
+function setBinarySize(size) {
     document.getElementById('file-size').innerText = 'v0.0.1';
+    size = size || localStorage.size;
     if (size === undefined) {
-        size = localStorage.size;
-        if (size === undefined) {
-            return;
-        }
+        return;
     }
     document.getElementById('file-size').innerText += ' - ' + size + 'kB';
     localStorage.size = size;
+}
+
+function setDiscordUsers(count) {
+    count = count || localStorage.discord || '?';
+    document.getElementById('discord-count').innerText = count;
+    localStorage.discord = count;
+}
+
+function setRedditUsers(count) {
+    count = count || localStorage.reddit || '?';
+    document.getElementById('reddit-count').innerText = count;
+    localStorage.reddit = count;
+}
+
+function getJSON(res) {
+    if (!res.ok) {
+        throw Error(res.statusText);
+    }
+    return res.json();
 }
 
 function autorun() {
@@ -170,8 +169,8 @@ function autorun() {
         setDownload(2);
     }
 
-    setStars();
-    setSize();
+    setGithubStars();
+    setBinarySize();
 
     var open;
     var arrow = document.getElementById('download-arrow');
@@ -195,16 +194,12 @@ function autorun() {
         return false;
     };
 
-    fetch('https://api.github.com/repos/cup-lang/cup')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-            setStars(data.stargazers_count);
-        });
-    fetch('https://api.github.com/repos/cup-lang/cup/contents/bin')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-            setSize(Math.floor(data[0].size / 1000));
-        });
+    fetch('https://api.github.com/repos/cup-lang/cup').then(getJSON).then(function (data) {
+        setGithubStars(data.stargazers_count);
+    }).catch(function() {});
+    fetch('https://api.github.com/repos/cup-lang/cup/contents/bin').then(getJSON).then(function (data) {
+        setBinarySize(Math.floor(data[0].size / 1000));
+    }).catch(function() {});
 
     document.getElementById('cup').innerHTML = logo.split() + '<div id="cup-handle"></div>';
     document.getElementById('cup-handle').onmousedown = function (e) {
@@ -275,19 +270,28 @@ function autorun() {
         return false;
     };
 
-    setDiscord();
-    setReddit();
+    setDiscordUsers();
+    setRedditUsers();
 
-    fetch('https://discord.com/api/guilds/842863266585903144/widget.json')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-            setDiscord(data.presence_count);
-        });
-    fetch('https://www.reddit.com/r/cup_lang/about.json')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-            setReddit(data.data.active_user_count);
-        });
+    fetch('https://discord.com/api/guilds/842863266585903144/widget.json').then(getJSON).then(function (data) {
+        setDiscordUsers(data.presence_count);
+    }).catch(function() {});
+    fetch('https://www.reddit.com/r/cup_lang/about.json').then(getJSON).then(function (data) {
+        setRedditUsers(data.data.active_user_count);
+    }).catch(function() {});
+
+    document.getElementById('learn').querySelectorAll('h1, h2, h3, h4, h5').forEach(function (e) {
+        var link = document.createElement('a');
+        link.href = '#';
+        link.innerText = '§';
+        link.style = 'margin-left:6px';
+        e.onmouseenter = function() {
+            e.appendChild(link);
+        };
+        e.onmouseleave = function() {
+            e.removeChild(link);
+        };
+    });
 
     var ws;
     function connect() {
