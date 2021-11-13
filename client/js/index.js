@@ -326,6 +326,7 @@ function autorun() {
                     }, 0);
                     break;
                 case 2: // Compilation result
+                    console.log(data);
                     playgroundAction.removeAttribute('disabled');
                     data[1] = data[1].replaceAll('\033[0m', '</span>');
                     data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');
@@ -353,9 +354,7 @@ function autorun() {
     };
 
     var playgroundCode = document.getElementById('playground-code');
-    if (localStorage.code) {
-        playgroundCode.value = localStorage.code;
-    }
+    playgroundCode.value = localStorage.code || "sub main() {\r\n    fmt:print(\"Hello, World!\");\r\n};\r\n\r\n#bind(\"printf\") sub fmt:print ();";
     playgroundCode.oninput = function (e) {
         localStorage.code = e.target.value;
     };

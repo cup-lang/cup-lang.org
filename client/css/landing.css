@@ -62,6 +62,11 @@
     display: flex;
 }
 
+#download-button-link, #download-arrow {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 #download-button-link {
     flex-grow: 1;
     color: var(--color3);
