@@ -326,7 +326,6 @@ function autorun() {
                     }, 0);
                     break;
                 case 2: // Compilation result
-                    console.log(data);
                     playgroundAction.removeAttribute('disabled');
                     data[1] = data[1].replaceAll('\033[0m', '</span>');
                     data[1] = data[1].replaceAll('\033[35m', '<span style="color:magenta">');

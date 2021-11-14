@@ -85,7 +85,7 @@ function checkQueue() {
             fs.rmSync(`playground/${cache.shift().hash}`, { recursive: true, force: true });
         }
         fs.mkdirSync(`playground/${hash}`);
-        fs.writeFileSync(`playground/${hash}/main.cp`, req.files[0]);
+        fs.writeFileSync(`playground/${hash}/main.cup`, req.files[0]);
         let prog = { length: length, hash: hash };
         cache.push(prog);
         exec(`echo "FROM ubuntu\nRUN apt-get update && apt-get -y install gcc\nCOPY playground/cup .\nCOPY playground/${hash} prog/\nRUN chmod +x cup\nCMD ./cup build -i prog -o out.c && gcc out.c -o out && echo -n ${hash} && ./out" | docker build -q -f - .`, (err, stdout) => {
