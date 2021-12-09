@@ -138,7 +138,7 @@
                 <h1>Introduction</h1>
                 <p>Your Cup journey begins here!</p>
                 <p>Cup is a free and open source project consisting of a compiler, build system and a package manager. It brings back the simple C-style memory management while having a modern and expressive syntax.</p>
-                <p>This tutorial should teach you basics of Cup and how to use it. If you encounter any problems or have any questions you can reach out on our <a href="https://discord.gg/cup">Discord Server</a> in the <code>#begginers</code> channel.</p>
+                <p>This tutorial should teach you basics of Cup and how to use it. If you encounter any problems or have any questions you can reach out on our <a href="https://discord.gg/cup">Discord Server</a> in the <code>#beginners</code> channel.</p>
             </div>
             <div id="getting-started" class="lesson" style="display:none">
                 <h1>Getting Started</h1>
@@ -154,7 +154,7 @@
                     XXXXXXXXXXXX
                 </code>
                 <h3>Troubleshooting</h3>
-                <p>If you see the <code>No C compiler detected!</code> error it means you did something wrong installing the C compiler. You can try a different compiler or ask for help on our <a href="https://discord.gg/cup">Discord Server</a> in the #begginers channel.</p>
+                <p>If you see the <code>No C compiler detected!</code> error it means you did something wrong installing the C compiler. You can try a different compiler or ask for help on our <a href="https://discord.gg/cup">Discord Server</a> in the #beginners channel.</p>
             </div>
             <div id="commands" class="lesson" style="display:none">
                 <h1>Commands</h1>
@@ -193,9 +193,9 @@
                 <h3>Writing and running a Cup Program</h3>
                 <p>Now open the <code>main.cp</code> file that just got created in the editor of your choice and type in this code:</p>
                 <code style="display:block">
-                    <span style="color:#b294bb">sub</span> <span style="color:#8abeb7">main</span>() {
+                    <span style="color:#b294bb">proc</span> <span style="color:#8abeb7">main</span>() {
                     <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#de935f">std:fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#de935f">fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);
                     <br>
                     };
                 </code>
@@ -203,20 +203,20 @@
                 <code style="display:block">
                     Hello, world!
                 </code>
-                <p>If you can see that on your screen, congratulations! You're officialy a Cup programmer!</p>
+                <p>If you can see that on your screen, congratulations! You're officially a Cup programmer!</p>
                 <h3>What just happened?</h3>
                 <p>Let’s review in detail what just happened in your “Hello, world!” program. Here’s the first piece of the puzzle:</p>
                 <code style="display:block">
-                    <span style="color:#b294bb">sub</span> <span style="color:#8abeb7">main</span>() {
+                    <span style="color:#b294bb">proc</span> <span style="color:#8abeb7">main</span>() {
                     <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="hidden"><span style="color:#de935f">std:fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="hidden"><span style="color:#de935f">fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);</span>
                     <br>
                     };
                 </code>
             </div>
             <div id="guessing-game" class="lesson" style="display:none">
                 <h1>Guessing Game</h1>
-                <p>Now let's up the challenge a little bit. This chapter introduces you to a few common Cup concepts by showing you how to use them in a real program. You’ll learn about <code>var</code>, <code>match</code>, <code>subroutines</code>, using <code>namespaces</code>, and more! The following chapters will explore these ideas in more detail. In this chapter, you’ll practice the fundamentals.</p>
+                <p>Now let's up the challenge a little bit. This chapter introduces you to a few common Cup concepts by showing you how to use them in a real program. You’ll learn about <code>variables</code>, <code>matching</code>, <code>procedures</code>, <code>namespaces</code> and more! The following chapters will explore these ideas in more detail. In this chapter, you’ll practice the fundamentals.</p>
                 <p>We’ll implement a classic beginner programming problem: a guessing game. Here’s how it works: the program will generate a random integer between 1 and 100. It will then prompt the player to enter a guess. After a guess is entered, the program will indicate whether the guess is too low or too high. If the guess is correct, the game will print a congratulatory message and exit.</p>
             </div>
             <div id="learn-buttons">
