@@ -24,8 +24,9 @@ app.get('/vscode', res => {
     res.end();
 });
 
-app.listen('0.0.0.0', useSSL ? 443 : 3001, token => {
+const PORT = useSSL ? 443 : 3001;
+app.listen('0.0.0.0', PORT, token => {
     if (token) {
-        console.log('Listening...');
+        console.log(`Listening on port ${PORT}...`);
     }
 });
