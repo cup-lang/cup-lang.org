@@ -1,26 +1,21 @@
-const favicon = fs.readFileSync("assets/favicon.ico");
-const icon192 = fs.readFileSync("assets/icon192.png");
-const robots = fs.readFileSync("assets/robots.txt");
+function load(path) { return fs.readFileSync(path); }
 
-const html = fs.readFileSync('build/out/client.html');
+function get(name, data, type) {
+    app.get(`/${name}`, res => {
+        res.onAborted(() => { });
+        res.writeHeader('Cache-Control', 'max-age=86400');
+        res.writeHeader('Content-Type', type);
+        res.end(data);
+    });
+}
 
-app.get('/favicon.ico', res => {
-    res.onAborted(() => {});
-    res.writeHeader('Cache-Control', 'max-age=86400');
-    res.writeHeader('Content-Type', 'image/vnd.microsoft.icon');
-    res.end(favicon);
-}).get('/icon192.png', res => {
-    res.onAborted(() => {});
-    res.writeHeader('Cache-Control', 'max-age=86400');
-    res.writeHeader('Content-Type', 'image/png');
-    res.end(icon192);
-}).get('/robots.txt', res => {
-    res.onAborted(() => {});
-    res.writeHeader('Cache-Control', 'max-age=86400');
-    res.writeHeader('Content-Type', 'text/plain');
-    res.end(robots);
-}).get('/**', res => {
-    res.onAborted(() => {});
+get('favicon.ico', load('assets/favicon.ico'), 'image/vnd.microsoft.icon');
+get('icon192.png', load('assets/icon192.png'), 'image/png');
+get('robots.txt', load('assets/robots.txt'), 'text/plain');
+
+const html = load('build/out/client.html');
+app.get('/**', res => {
+    res.onAborted(() => { });
     res.writeHeader('Content-Type', 'text/html');
     res.end(html);
 });

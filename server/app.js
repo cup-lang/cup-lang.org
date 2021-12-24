@@ -1,10 +1,15 @@
-const useSSL = fs.existsSync('cert.pem');
+const DEBUG = process.argv[2] === '--debug';
+const PORT = DEBUG ? 3001 : 443; 
+
 const app = (() => {
-    if (useSSL) {
+    if (DEBUG) {
+        return uws.App();
+    } else {
+        // Redirect all HTTP to HTTPS
         uws.App().get('/**', (res, req) => {
             res.onAborted(() => {});
             res.writeStatus('301');
-            res.writeHeader('location', 'https://cup-lang.org' + req.getUrl());
+            res.writeHeader('location', `https://cup-lang.org${req.getUrl()}`);
             res.end();
         }).listen('0.0.0.0', 80, () => { });
 
@@ -12,8 +17,6 @@ const app = (() => {
             cert_file_name: 'cert.pem',
             key_file_name: 'key.pem',
         });
-    } else {
-        return uws.App();
     }
 })();
 
@@ -24,7 +27,6 @@ app.get('/vscode', res => {
     res.end();
 });
 
-const PORT = useSSL ? 443 : 3001;
 app.listen('0.0.0.0', PORT, token => {
     if (token) {
         console.log(`Listening on port ${PORT}...`);

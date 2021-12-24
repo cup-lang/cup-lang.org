@@ -1,3 +1,7 @@
+embed('client/css/reset.css');
+
+/* #region main */
+
 :root {
     color-scheme: dark;
     --color0: #202225;
@@ -56,6 +60,8 @@ code, .code {
         opacity: 0.2;
         user-select: none;
     }
+
+/* #endregion */
 
 /* #region header */
 
@@ -143,3 +149,7 @@ code, .code {
 }
 
 /* #endregion */
+
+embed('client/css/landing.css');
+embed('client/css/learn.css');
+embed('client/css/playground.css');

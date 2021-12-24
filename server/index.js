@@ -2,8 +2,8 @@ const fs = require('fs');
 const uws = require('uWebSockets.js');
 const { exec, spawn } = require('child_process');
 const crypto = require('crypto');
-embed('app.js');
-embed('static.js');
+embed('server/app.js');
+embed('server/static.js');
 
 const MAX_RUNNING = 4;
 let queue = [];

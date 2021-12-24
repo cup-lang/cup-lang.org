@@ -3,81 +3,50 @@ const htmlMinifier = require('html-minifier');
 
 function load(path) { return fs.readFileSync(path).toString(); }
 
-function cutout(file, name) {
-    let content = '';
-    const start = file.indexOf(name);
-    if (start !== -1) {
-        let braceCount = 1;
-        for (let ii = start + name.length + 2; ii < file.length; ++ii) {
-            const char = file[ii];
-            if (char === '{') {
-                ++braceCount;
-            } else if (char === '}') {
-                --braceCount;
+function embed(file) {
+    for (let i = 0; i < file.length; ++i) {
+        if (file.substr(i, 7) === 'embed(\'') {
+            let filename = '';
+            for (let ii = i + 7; ii < file.length; ++ii) {
+                if (file.substr(ii, 3) === '\');') {
+                    break;
+                }
+                filename += file[ii];
             }
-            if (braceCount === 0) {
-                break;
-            }
-            content += char;
+            file = file.substr(0, i) + load(filename) + file.substr(i + 10 + filename.length);
         }
     }
-    return [content, start];
+    return file;
 }
 
-function combineCSS(sheets) {
-    let css = '';
-    let root = '';
-    for (let i = 0; i < sheets.length; ++i) {
-        const sheet = sheets[i];
-        const rootStart = sheet.indexOf(':root');
-        let rootEnd = -1;
-        if (rootStart !== -1) {
-            rootEnd = sheet.substr(rootStart).indexOf('}');
-            root += sheet.substring(rootStart + 7, rootEnd);
-        }
-        css += sheet.substring(rootEnd + 1, sheet.length);
-    }
-    return `:root{${root}}${css}`;
-}
+if (!fs.existsSync('build/out')) { fs.mkdirSync('build/out'); }
 
-function combineJS(scripts) {
-    let js = '';
-    let autorun = '';
-    let onload = '';
-    for (let i = 0; i < scripts.length; ++i) {
-        const script = scripts[i];
-        const autorunCutout = cutout(script, 'function autorun()');
-        js += script.substr(0, autorunCutout[1] === -1 ? script.length : autorunCutout[1]);
-        autorun += autorunCutout[0];
-        onload += cutout(script, 'function onload()')[0];
-    }
-    return `${js}function autorun(){${autorun}}function onload(){${onload}}`;
-}
+const DEBUG = process.argv[2] === '--debug';
 
 // Build Client
-let client = load('client/html/index.html');
-let css = combineCSS([
-    load('client/css/reset.css'),
-    load('client/css/index.css'),
-    load('client/css/landing.css'),
-    load('client/css/learn.css'),
-    load('client/css/playground.css'),
-]);
-let js = combineJS([
-    load('client/js/index.js'),
-]);
-
-if (!fs.existsSync('build/out')) {
-    fs.mkdirSync('build/out');
+let client = embed(load('client/html/index.html'));
+const css = embed(load('client/css/index.css'));
+let js = `${embed(load('client/js/index.js'))}
+if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', autorun, false);
+    window.addEventListener('load', onload, false);
+} else if (document.attachEvent) {
+    document.attachEvent('onreadystatechange', autorun);
+    window.attachEvent('onload', onload);
+} else {
+    window.onload = () => {
+        autorun();
+        onload();
+    };
+}`;
+if (!DEBUG) {
+    js = require("@babel/core").transformSync(js, { presets: ["@babel/preset-env"] }).code;
 }
-
-js += `if(document.addEventListener){document.addEventListener('DOMContentLoaded',autorun,false);window.addEventListener('load',onload,false)}else if(document.attachEvent){document.attachEvent('onreadystatechange',autorun);window.attachEvent('onload',onload)}else{window.onload=function(){autorun();onload()}}`;
 client = client.replace('</head>', `<style type="text/css">${css}</style><script type="text/javascript">${js}</script></head>`);
-client = htmlMinifier.minify(client, { minifyCSS: true, minifyJS: true, removeComments: true, sortClassName: true, sortAttributes: true, collapseWhitespace: true });
+if (!DEBUG) {
+    client = htmlMinifier.minify(client, { minifyCSS: true, minifyJS: true, removeComments: true, sortClassName: true, sortAttributes: true, collapseWhitespace: true });
+}
 fs.writeFileSync('build/out/client.html', client);
 
 // Build Server
-let server = load('server/index.js');
-server = server.replace(`embed('app.js');`, load('server/app.js'));
-server = server.replace(`embed('static.js');`, load('server/static.js'));
-fs.writeFileSync('build/out/server.js', server);
+fs.writeFileSync('build/out/server.js', embed(load('server/index.js')));
