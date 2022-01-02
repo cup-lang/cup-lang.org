@@ -1,5 +1,4 @@
 const fs = require('fs');
-const uws = require('uWebSockets.js');
 const { exec, spawn } = require('child_process');
 const crypto = require('crypto');
 embed('server/app.js');
