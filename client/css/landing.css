@@ -80,7 +80,6 @@
     align-items: center;
     width: 40px;
     box-sizing: border-box;
-    color: var(--color6);
     background: var(--color5);
     margin-left: 2px;
     border-radius: 0 5px 5px 0;
@@ -92,6 +91,7 @@
 
     #download-arrow > svg {
         height: 20px;
+        fill: var(--color6);
     }
     
     .download-arrow-active > svg {
@@ -152,12 +152,15 @@
 
 .social-button {
     width: 20px;
-    color: var(--color4);
     margin-right: 15px;
 }
 
     .social-button:hover {
         color: var(--color4hover);   
+    }
+
+    .social-button > svg {
+        fill: var(--color4);
     }
 
 #cup {
