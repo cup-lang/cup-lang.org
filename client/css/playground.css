@@ -9,7 +9,7 @@
 }
 
 #playground-code {
-    white-space: break-spaces;
+    white-space: pre;
     resize: none;
     font-family: monospace, monospace;
     margin-right: 5px;
