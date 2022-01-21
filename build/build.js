@@ -40,6 +40,7 @@ if (document.addEventListener) {
     };
 }`;
 if (!DEBUG) {
+    js = `(() => {${js}})();`;
     js = require("@babel/core").transformSync(js, { presets: ["@babel/preset-env"] }).code;
 }
 client = client.replace('</head>', `<style type="text/css">${css}</style><script type="text/javascript">${js}</script></head>`);
