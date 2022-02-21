@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://cup-lang.org/sitemap.xml
