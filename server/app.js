@@ -1,6 +1,6 @@
 const uws = require('uWebSockets.js');
 
-const DEBUG = process.argv[2] === '--debug';
+const DEBUG = process.argv[2] == '--debug';
 const PORT = DEBUG ? 3001 : 443;
 
 const app = DEBUG ? uws.App() : uws.SSLApp({

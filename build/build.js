@@ -5,10 +5,10 @@ function load(path) { return fs.readFileSync(path).toString(); }
 
 function embed(file) {
     for (let i = 0; i < file.length; ++i) {
-        if (file.substr(i, 7) === 'embed(\'') {
+        if (file.substr(i, 7) == 'embed(\'') {
             let filename = '';
             for (let ii = i + 7; ii < file.length; ++ii) {
-                if (file.substr(ii, 3) === '\');') {
+                if (file.substr(ii, 3) == '\');') {
                     break;
                 }
                 filename += file[ii];
@@ -21,7 +21,7 @@ function embed(file) {
 
 if (!fs.existsSync('build/out')) { fs.mkdirSync('build/out'); }
 
-const DEBUG = process.argv[2] === '--debug';
+const DEBUG = process.argv[2] == '--debug';
 
 // Build Client
 let client = embed(load('client/html/index.html'));
@@ -41,7 +41,7 @@ if (document.addEventListener) {
 }`;
 if (!DEBUG) {
     js = `(() => {${js}})();`;
-    js = require("@babel/core").transformSync(js, { presets: ["@babel/preset-env"] }).code;
+    js = require('@babel/core').transformSync(js, { presets: ['@babel/preset-env'] }).code;
 }
 client = client.replace('</head>', `<style type="text/css">${css}</style><script type="text/javascript">${js}</script></head>`);
 if (!DEBUG) {

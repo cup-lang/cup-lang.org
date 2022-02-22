@@ -32,7 +32,7 @@ function updatePage(href) {
         return;
     }
     page.style = '';
-    if (path[1] === 'learn') {
+    if (path[1] == 'learn') {
         let lesson = document.getElementById(path[path.length - 1]);
         if (path.length < 3 || !lesson) {
             href = localStorage.lesson || '/learn/introduction';
@@ -46,7 +46,7 @@ function updatePage(href) {
     if (href !== '/') {
         document.querySelector(`[href="/${path[1]}"]`).classList.add('nav-link-active');
     }
-    if (path[1] === 'learn') {
+    if (path[1] == 'learn') {
         localStorage.lesson = href;
 
         const lesson = document.querySelector(`[href="${href}"]`);
@@ -226,7 +226,7 @@ function autorun() {
             const newTime = Date.now();
             const delta = (newTime - time) / 2;
 
-            if (holding === false) {
+            if (holding == false) {
                 y += delta * 2;
 
                 if (y > Math.max(document.body.clientHeight, window.innerHeight) + 150) {
@@ -236,7 +236,7 @@ function autorun() {
                 }
             }
 
-            if (holding === null) {
+            if (holding == null) {
                 y += delta * 2;
 
                 if (y >= 0) {
