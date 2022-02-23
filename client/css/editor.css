@@ -1,0 +1,55 @@
+.editor {
+    position: relative;
+}
+
+.editor-textarea, .editor-overlay {
+    width: calc(100% - var(--editor-lines-width));
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    margin-left: var(--editor-lines-width);
+    tab-size: 4;
+    line-height: 18px;
+}
+
+.editor-textarea {
+    resize: none;
+    color: transparent;
+    background: transparent;
+    caret-color: #fff;
+    border: 0;
+    white-space: pre;
+    font-family: monospace, monospace;
+    z-index: 10;
+}
+
+.editor-overlay {
+    user-select: none;
+    pointer-events: none;
+    white-space: pre;
+    overflow: auto;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.editor-lines {
+    width: var(--editor-lines-width);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color4);
+    background: #1a1c1e;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+    .editor-lines > div {
+        text-align: right;
+        font-size: 12px;
+        line-height: 18px;
+    }

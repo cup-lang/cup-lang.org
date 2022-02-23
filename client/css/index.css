@@ -4,6 +4,7 @@ embed('client/css/reset.css');
 
 :root {
     color-scheme: dark;
+    --editor-lines-width: 50px;
     --color0: #202225;
     --color1: #292b2f;
     --color2: #2f3136;
@@ -49,17 +50,12 @@ a, a:link, a:visited {
         color: var(--color4hover);
     }
 
-code, .code {
+textarea, code {
     color: var(--color3);
     background: var(--color0);
     padding: 3px 6px;
     border-radius: 5px;
 }
-
-    code > .hidden {
-        opacity: 0.2;
-        user-select: none;
-    }
 
 /* #endregion */
 
@@ -153,3 +149,4 @@ code, .code {
 embed('client/css/landing.css');
 embed('client/css/learn.css');
 embed('client/css/playground.css');
+embed('client/css/editor.css');

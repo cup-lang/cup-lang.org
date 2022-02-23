@@ -3,20 +3,17 @@
     margin-top: 10px;
 }
 
-#playground-code, #playground-output {
+#playground-editor, #playground-output {
     height: 500px;
     flex-basis: 50%;
 }
 
-#playground-code {
-    white-space: pre;
-    resize: none;
-    font-family: monospace, monospace;
+#playground-editor {
     margin-right: 5px;
 }
 
 #playground-output {
-    position: relative;
+    box-sizing: border-box;
     white-space: break-spaces;
     overflow-y: auto;
     margin-left: 5px;
@@ -57,7 +54,11 @@
         flex-direction: column;
     }
 
+    #playground-editor {
+        margin: 0;
+    }
+
     #playground-output {
-        margin-top: 10px;
+        margin: 10px 0 0 0;
     }
 }

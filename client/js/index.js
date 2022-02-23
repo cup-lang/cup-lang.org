@@ -82,6 +82,14 @@ function updatePage(href) {
     } else {
         window.onkeydown = null;
     }
+
+    if (path[1] == 'playground') {
+        window.onresize = () => {
+            playgroundEditor.update();
+        };
+    } else {
+        window.onresize = null;
+    }
 }
 
 function setDownload(index) {
@@ -130,6 +138,8 @@ function getJSON(res) {
     }
     return res.json();
 }
+
+let playgroundEditor;
 
 function autorun() {
     window.onpopstate = () => {
@@ -338,14 +348,34 @@ function autorun() {
     const playgroundAction = document.getElementById('playground-action');
     playgroundAction.onclick = () => {
         playgroundAction.setAttribute('disabled', true);
-        ws.send(`\0${playgroundCode.value}`);
+        ws.send(`\0${playgroundEditor.textarea.value}`);
     };
 
-    const playgroundCode = document.getElementById('playground-code');
-    playgroundCode.value = localStorage.code || "sub main() {\r\n    fmt:print(\"Hello, World!\");\r\n};\r\n\r\n#bind(\"printf\") sub fmt:print ();";
-    playgroundCode.oninput = e => {
-        localStorage.code = e.target.value;
-    };
+    playgroundEditor = new Editor(document.getElementById('playground-editor'));
+    playgroundEditor.textarea.addEventListener('input', () => {
+        localStorage.code = playgroundEditor.textarea.value;
+    });
+    playgroundEditor.setValue(localStorage.code || 'print|"Hello, World!"');
+
+    const editors = document.getElementsByClassName('editor');
+    for (let i = 0; i < editors.length; ++i) {
+        new Editor(editors[i]);
+    }
 }
 
 function onload() { }
+
+embed('client/js/editor.js');
+
+if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', autorun, false);
+    window.addEventListener('load', onload, false);
+} else if (document.attachEvent) {
+    document.attachEvent('onreadystatechange', autorun);
+    window.attachEvent('onload', onload);
+} else {
+    window.onload = () => {
+        autorun();
+        onload();
+    };
+}
