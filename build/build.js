@@ -13,7 +13,7 @@ function embed(file) {
                 }
                 filename += file[ii];
             }
-            file = file.substr(0, i) + load(filename) + file.substr(i + 10 + filename.length);
+            file = file.substr(0, i) + embed(load(filename)) + file.substr(i + 10 + filename.length);
         }
     }
     return file;
@@ -25,26 +25,9 @@ const DEBUG = process.argv[2] == '--debug';
 
 // Build Client
 let client = embed(load('client/html/index.html'));
-const css = embed(load('client/css/index.css'));
-let js = `${embed(load('client/js/index.js'))}
-if (document.addEventListener) {
-    document.addEventListener('DOMContentLoaded', autorun, false);
-    window.addEventListener('load', onload, false);
-} else if (document.attachEvent) {
-    document.attachEvent('onreadystatechange', autorun);
-    window.attachEvent('onload', onload);
-} else {
-    window.onload = () => {
-        autorun();
-        onload();
-    };
-}`;
 if (!DEBUG) {
-    js = `(() => {${js}})();`;
-    js = require('@babel/core').transformSync(js, { presets: ['@babel/preset-env'] }).code;
-}
-client = client.replace('</head>', `<style type="text/css">${css}</style><script type="text/javascript">${js}</script></head>`);
-if (!DEBUG) {
+    // js = `(() => {${js}})();`;
+    // js = require('@babel/core').transformSync(js, { presets: ['@babel/preset-env'] }).code;
     client = htmlMinifier.minify(client, { minifyCSS: true, minifyJS: true, removeComments: true, sortClassName: true, sortAttributes: true, collapseWhitespace: true });
 }
 fs.writeFileSync('build/out/client.html', client);
