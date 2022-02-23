@@ -345,6 +345,10 @@ function autorun() {
     }
     connect();
 
+    document.querySelectorAll('.lesson .editor').forEach(editor => {
+        new Editor(editor);
+    });
+
     const playgroundAction = document.getElementById('playground-action');
     playgroundAction.onclick = () => {
         playgroundAction.setAttribute('disabled', true);
@@ -356,11 +360,6 @@ function autorun() {
         localStorage.code = playgroundEditor.textarea.value;
     });
     playgroundEditor.setValue(localStorage.code || 'print|"Hello, World!"');
-
-    const editors = document.getElementsByClassName('editor');
-    for (let i = 0; i < editors.length; ++i) {
-        new Editor(editors[i]);
-    }
 }
 
 function onload() { }
