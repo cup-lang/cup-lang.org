@@ -43,7 +43,7 @@ function updatePage(href) {
         lesson.style = '';
     }
 
-    if (href !== '/') {
+    if (href != '/') {
         document.querySelector(`[href="/${path[1]}"]`).classList.add('nav-link-active');
     }
     if (path[1] == 'learn') {
@@ -153,9 +153,9 @@ function autorun() {
     const ios = ['iPhone', 'iPad', 'iPod'];
     const windows = ['Win32', 'Win64', 'Windows', 'WinCE'];
 
-    if (macos.indexOf(platform) !== -1 || ios.indexOf(platform) !== -1) {
+    if (macos.indexOf(platform) != -1 || ios.indexOf(platform) != -1) {
         setDownload(0);
-    } else if (windows.indexOf(platform) !== -1 || /Android/.test(window.navigator.userAgent)) {
+    } else if (windows.indexOf(platform) != -1 || /Android/.test(window.navigator.userAgent)) {
         setDownload(1);
     } else {
         setDownload(2);
