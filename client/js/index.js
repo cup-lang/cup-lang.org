@@ -84,8 +84,9 @@ function updatePage(href) {
     }
 
     if (path[1] == 'playground') {
+        playgroundEditor.overlayUpdate();
         window.onresize = () => {
-            playgroundEditor.update();
+            playgroundEditor.overlayUpdate();
         };
     } else {
         window.onresize = null;
@@ -142,6 +143,11 @@ function getJSON(res) {
 let playgroundEditor;
 
 function autorun() {
+    playgroundEditor = new Editor(
+        document.getElementById('playground-editor'),
+        localStorage.code || 'print|"Hello, World!"'
+    );
+
     window.onpopstate = () => {
         updatePage(location.pathname);
     };
@@ -346,7 +352,7 @@ function autorun() {
     connect();
 
     document.querySelectorAll('.lesson .editor').forEach(editor => {
-        new Editor(editor);
+        new Editor(editor).overlayUpdate();
     });
 
     const playgroundAction = document.getElementById('playground-action');
@@ -355,11 +361,9 @@ function autorun() {
         ws.send(`\0${playgroundEditor.textarea.value}`);
     };
 
-    playgroundEditor = new Editor(document.getElementById('playground-editor'));
     playgroundEditor.textarea.addEventListener('input', () => {
         localStorage.code = playgroundEditor.textarea.value;
     });
-    playgroundEditor.setValue(localStorage.code || 'print|"Hello, World!"');
 }
 
 function onload() { }

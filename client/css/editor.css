@@ -1,24 +1,33 @@
 .editor {
     position: relative;
+    color: var(--color3);
+    background: var(--color0);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-.editor-textarea, .editor-overlay {
+.editor-textarea, .editor-overlay, .editor-current-line {
     width: calc(100% - var(--editor-lines-width));
-    height: 100%;
     position: absolute;
     left: 0;
     top: 0;
-    box-sizing: border-box;
     margin-left: var(--editor-lines-width);
+}
+
+.editor-textarea, .editor-overlay {
+    height: 100%;
+    box-sizing: border-box;
     tab-size: 4;
     line-height: 18px;
+    padding: 3px 6px;
 }
 
 .editor-textarea {
     resize: none;
     color: transparent;
-    background: transparent;
+    background: none;
     caret-color: #fff;
+    outline: none;
     border: 0;
     white-space: pre;
     font-family: monospace, monospace;
@@ -26,12 +35,9 @@
 }
 
 .editor-overlay {
-    user-select: none;
     pointer-events: none;
     white-space: pre;
     overflow: auto;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
 }
 
 .editor-lines {
@@ -40,16 +46,23 @@
     position: absolute;
     left: 0;
     top: 0;
-    color: var(--color4);
-    background: #1a1c1e;
+    color: #858585;
+    padding: 3px 10px 3px 0;
     box-sizing: border-box;
+    pointer-events: none;
     overflow: hidden;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 }
 
     .editor-lines > div {
-        text-align: right;
+        height: 18px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
         font-size: 12px;
-        line-height: 18px;
     }
+
+.editor-current-line {
+    height: 18px;
+    border: 2px solid #282828;
+    box-sizing: border-box;
+}

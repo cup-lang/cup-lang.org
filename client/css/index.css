@@ -50,11 +50,11 @@ a, a:link, a:visited {
         color: var(--color4hover);
     }
 
-textarea, code {
+.code {
     color: var(--color3);
     background: var(--color0);
-    padding: 3px 6px;
     border-radius: 5px;
+    padding: 3px 6px;
 }
 
 /* #endregion */
