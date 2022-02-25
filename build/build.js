@@ -13,8 +13,8 @@ function embed(file) {
                 }
                 filename += file[ii];
             }
-            const embeded = embed(load(filename));
-            if (!DEBUG && embeded.endsWith('main.js')) {
+            let embeded = embed(load(filename));
+            if (!DEBUG && filename.endsWith('main.js')) {
                 embeded = `(() => {${embeded}})();`;
                 embeded = require('@babel/core').transformSync(embeded, { presets: ['@babel/preset-env'] }).code;
             }
