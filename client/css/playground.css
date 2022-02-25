@@ -13,6 +13,7 @@
 }
 
 #playground-output {
+    position: relative;
     box-sizing: border-box;
     white-space: break-spaces;
     overflow-y: auto;
@@ -24,7 +25,6 @@
     border-bottom: 2px solid var(--color5);
     left: 0;
     bottom: 0;
-    border-radius: 0 0 5px 5px;
 }
 
 .output-divider {
