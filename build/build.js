@@ -13,7 +13,12 @@ function embed(file) {
                 }
                 filename += file[ii];
             }
-            file = file.substr(0, i) + embed(load(filename)) + file.substr(i + 10 + filename.length);
+            const embeded = embed(load(filename));
+            if (!DEBUG && embeded.endsWith('main.js')) {
+                embeded = `(() => {${embeded}})();`;
+                embeded = require('@babel/core').transformSync(embeded, { presets: ['@babel/preset-env'] }).code;
+            }
+            file = file.substr(0, i) + embeded + file.substr(i + 10 + filename.length);
         }
     }
     return file;
@@ -24,13 +29,11 @@ if (!fs.existsSync('build/out')) { fs.mkdirSync('build/out'); }
 const DEBUG = process.argv[2] == '--debug';
 
 // Build Client
-let client = embed(load('client/html/index.html'));
+let client = embed(load('client/html/main.html'));
 if (!DEBUG) {
-    // js = `(() => {${js}})();`;
-    // js = require('@babel/core').transformSync(js, { presets: ['@babel/preset-env'] }).code;
     client = htmlMinifier.minify(client, { minifyCSS: true, minifyJS: true, removeComments: true, sortClassName: true, sortAttributes: true, collapseWhitespace: true });
 }
 fs.writeFileSync('build/out/client.html', client);
 
 // Build Server
-fs.writeFileSync('build/out/server.js', embed(load('server/index.js')));
+fs.writeFileSync('build/out/server.js', embed(load('server/main.js')));
