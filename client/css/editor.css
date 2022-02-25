@@ -31,13 +31,14 @@
     border: 0;
     white-space: pre;
     font-family: monospace, monospace;
-    z-index: 10;
+    z-index: 20;
 }
 
 .editor-overlay {
     pointer-events: none;
     white-space: pre;
     overflow: auto;
+    z-index: 10;
 }
 
 .editor-lines {
