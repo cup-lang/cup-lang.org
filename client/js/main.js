@@ -152,8 +152,6 @@ function autorun() {
         updatePage(location.pathname);
     };
 
-    document.querySelector('[href="/"]').innerHTML = `${logo.join('')}Cup`;
-
     for (const link of document.querySelectorAll('.nav-link, .learn-link, #learn-left, #learn-right')) {
         link.onclick = () => {
             history.pushState(null, '', link.href);
@@ -209,7 +207,6 @@ function autorun() {
         setBinarySize(Math.floor(data[0].size / 1024));
     }).catch(() => { });
 
-    document.getElementById('cup').innerHTML = `${logo.split()}<div id="cup-handle"></div>`;
     document.getElementById('cup-handle').onmousedown = e => {
         e.stopPropagation();
         const movable = document.getElementById('cup-movable');
