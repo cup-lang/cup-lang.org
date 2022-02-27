@@ -112,13 +112,13 @@ class Editor {
             for (let i = 1; i < trim.length; ++i) {
                 if (trim[i] == '.') {
                     if (float) {
-                        this.overlay.appendChild(document.createTextNode(buf));
+                        this.overlay.appendChild(document.createTextNode(this.buf));
                         this.buf = '';
                         return;
                     }
                     float = true;
                 } else if (trim.charCodeAt(i) < 48 || trim.charCodeAt(i) > 57) {
-                    this.overlay.appendChild(document.createTextNode(buf));
+                    this.overlay.appendChild(document.createTextNode(this.buf));
                     this.buf = '';
                     return;
                 }
