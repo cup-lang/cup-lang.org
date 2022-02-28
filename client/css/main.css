@@ -66,6 +66,8 @@ a, a:link, a:visited {
     height: 50px;
     background: var(--color0);
     position: fixed;
+    top: 0;
+    left: 0;
     overflow-x: auto;
     z-index: 1;
 }
