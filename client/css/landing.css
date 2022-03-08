@@ -83,6 +83,7 @@
     background: var(--color5);
     margin-left: 2px;
     border-radius: 0 5px 5px 0;
+    border: none;
 }
 
 #download-button-link:hover, #download-arrow:hover {
@@ -92,6 +93,7 @@
     #download-arrow > svg {
         height: 20px;
         fill: var(--color6);
+        transition: transform 200ms;
     }
     
     .download-arrow-active > svg {
@@ -153,14 +155,11 @@
 .social-button {
     width: 20px;
     margin-right: 15px;
+    fill: var(--color4);
 }
 
     .social-button:hover {
-        color: var(--color4hover);   
-    }
-
-    .social-button > svg {
-        fill: var(--color4);
+        fill: var(--color4hover);
     }
 
 #cup {

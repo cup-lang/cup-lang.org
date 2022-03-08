@@ -39,7 +39,7 @@ function updatePage(href) {
     }
 
     if (href != '/') {
-        document.querySelector(`[href="/${path[1]}"]`).classList.add('nav-link-active');
+        document.querySelector(`[href="/${path[1]}"]`)?.classList.add('nav-link-active');
     }
     if (path[1] == 'learn') {
         localStorage.lesson = href;

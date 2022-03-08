@@ -17,9 +17,8 @@ embed('client/css/normalize.css');
     --color6: #d99e82;
 }
 
-body, html {
+html, body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0;
     padding: 0;
     color: var(--color3);
     background: var(--color1);
@@ -40,6 +39,10 @@ p {
 
 p:last-child, ul:last-child {
     margin-bottom: 0;
+}
+
+a {
+    transition: background-color 200ms;
 }
 
 a, a:link, a:visited {
