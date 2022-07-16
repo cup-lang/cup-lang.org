@@ -1,69 +1,86 @@
 .editor {
-    position: relative;
-    color: var(--color3);
-    background: var(--color0);
-    border-radius: 5px;
-    overflow: hidden;
+	display: block;
+	position: relative;
+	color: var(--color3);
+	background: var(--color0);
+	border-radius: 5px;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
-.editor-textarea, .editor-overlay, .editor-current-line {
-    width: calc(100% - var(--editor-lines-width));
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-left: var(--editor-lines-width);
+.editor[hide] > .editor-lines {
+	opacity: 0;
+}
+
+.editor[hide]:hover > .editor-lines,
+.editor[hide] > .editor-textarea:focus ~ .editor-lines {
+	opacity: 1;
+}
+
+.editor-static, .editor-textarea, .editor-overlay, .editor-current-line {
+	width: calc(100% - var(--editor-lines-width));
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-left: var(--editor-lines-width);
 }
 
 .editor-textarea, .editor-overlay {
-    height: 100%;
-    box-sizing: border-box;
-    tab-size: 4;
-    line-height: 18px;
-    padding: 3px 6px;
+	height: 100%;
+	box-sizing: border-box;
+	tab-size: 4;
+	line-height: 18px;
+	padding: 3px 6px;
 }
 
 .editor-textarea {
-    resize: none;
-    color: transparent;
-    background: none;
-    caret-color: #fff;
-    outline: none;
-    border: 0;
-    white-space: pre;
-    font-family: monospace, monospace;
-    z-index: 20;
+	resize: none;
+	color: transparent;
+	background: none;
+	caret-color: #fff;
+	outline: none;
+	border: 0;
+	white-space: pre;
+	font-family: monospace, monospace;
+	z-index: 20;
 }
 
 .editor-overlay {
-    pointer-events: none;
-    white-space: pre;
-    overflow: auto;
-    z-index: 10;
+	background: none;
+	pointer-events: none;
+	white-space: pre;
+	overflow: auto;
+	z-index: 10;
 }
 
 .editor-lines {
-    width: var(--editor-lines-width);
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #858585;
-    padding: 3px 10px 3px 0;
-    box-sizing: border-box;
-    pointer-events: none;
-    overflow: hidden;
+	width: var(--editor-lines-width);
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #00000033;
+	color: var(--color4hover);
+	padding: 3px 6px 3px 0;
+	border-radius: 0;
+	box-sizing: border-box;
+	pointer-events: none;
+	overflow: hidden;
+	transition: opacity 200ms;
+	z-index: 10;
 }
 
-    .editor-lines > div {
-        height: 18px;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        font-size: 12px;
-    }
+	.editor-lines > div {
+		height: 18px;
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		font-size: 14px;
+	}
 
 .editor-current-line {
-    height: 18px;
-    border: 2px solid #282828;
-    box-sizing: border-box;
+	width: 100%;
+	height: 18px;
+	background: var(--color1);
+	margin-left: 0;
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://cup-lang.org/</loc>
+</url>
+<url>
+<loc>https://cup-lang.org/learn</loc>
+</url>
+<url>
+<loc>https://cup-lang.org/playground</loc>
+</url>
+<url>
+<loc>https://cup-lang.org/learn/introduction</loc>
+</url>
+<url>
+<loc>https://cup-lang.org/learn/getting-started</loc>
+</url>
+<url>
+<loc>https://cup-lang.org/learn/getting-started/first-program</loc>
+</url>
+<url>
+<loc>https://cup-lang.org/learn/guessing-game</loc>
+</url>
+</urlset>

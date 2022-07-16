@@ -1,64 +1,66 @@
 #playground-content {
-    display: flex;
-    margin-top: 10px;
+	display: flex;
+	margin-top: -1px;
 }
 
 #playground-editor, #playground-output {
-    height: 500px;
-    flex-basis: 50%;
+	min-height: 500px;
+	max-height: 500px;
+	flex-basis: 50%;
 }
 
 #playground-editor {
-    margin-right: 5px;
+	margin-right: 5px;
 }
 
 #playground-output {
-    position: relative;
-    box-sizing: border-box;
-    white-space: break-spaces;
-    overflow-y: auto;
-    margin-left: 5px;
+	position: relative;
+	box-sizing: border-box;
+	white-space: break-spaces;
+	overflow-y: auto;
+	margin-left: 5px;
+	border: 2px solid var(--color2);
 }
 
 #playground-timer {
-    position: absolute;
-    border-bottom: 2px solid var(--color5);
-    left: 0;
-    bottom: 0;
+	position: absolute;
+	border-bottom: 2px solid var(--color5);
+	left: 0;
+	bottom: 0;
 }
 
 .output-divider {
-    display: flex;
-    align-items: center;
-    color: var(--color6);
-    margin: 10px 0;
+	display: flex;
+	align-items: center;
+	color: var(--color6);
+	margin: 10px 0;
 }
 
-    .output-divider::before {
-        flex: 1;
-        margin-right: 10px;
-        border-top: 1px solid var(--color5);
-        content: '';
-    }
-    
-    .output-divider::after {
-        flex: 1;
-        margin-left: 10px;
-        border-top: 1px solid var(--color5);
-        content: '';
-    }
+	.output-divider::before {
+		flex: 1;
+		margin-right: 10px;
+		border-top: 1px solid var(--color5);
+		content: '';
+	}
+	
+	.output-divider::after {
+		flex: 1;
+		margin-left: 10px;
+		border-top: 1px solid var(--color5);
+		content: '';
+	}
 
 @media only screen and (max-width: 750px) {
-    #playground-content {
-        height: calc(100vh - 144px);
-        flex-direction: column;
-    }
+	#playground-content {
+		height: calc(100vh - 144px);
+		flex-direction: column;
+	}
 
-    #playground-editor {
-        margin: 0;
-    }
+	#playground-editor {
+		margin: 0;
+	}
 
-    #playground-output {
-        margin: 10px 0 0 0;
-    }
+	#playground-output {
+		margin: 10px 0 0 0;
+	}
 }

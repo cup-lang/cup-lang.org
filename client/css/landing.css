@@ -1,265 +1,370 @@
+/* #region top */
+
+.content:nth-child(2n) {
+	background: var(--color2);
+}
+
 #landing-top {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 65px;
-    padding-bottom: 65px;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
 #top-description {
-    margin: 10px 0 15px 0;
+	font-size: 16px;
+	font-weight: normal;
+	margin-left: 10px;
 }
 
 #top-buttons {
-    display: flex;
+	display: flex;
 }
 
 .top-button {
-    padding: 0 12px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 15px;
+	padding: 0 12px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 15px;
 }
 
-    .top-button > svg {
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        margin-right: 10px;
-    }
+	.top-button > svg {
+		width: 32px;
+		height: 32px;
+		flex-shrink: 0;
+		margin-right: 10px;
+	}
 
 .top-button-info {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .top-button-sub-info {
-    font-size: 13px;
+	font-size: 13px;
 }
 
 #github-button {
-    color: #222;
-    background: var(--color3);
-    margin-right: 15px;
+	color: var(--color2);
+	fill: var(--color2);
+	background: var(--color3);
+	margin-right: 15px;
 }
 
-    #github-button:hover {
-        background: var(--color3hover);
-    }
+	#github-button:hover {
+		background: var(--color3hover);
+	}
 
 #star-count {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
-    #star-count > svg {
-        margin-right: 4px;
-    }
+	#star-count > svg {
+		margin-right: 4px;
+	}
 
-#download-button {
-    display: flex;
+.download-button {
+	position: relative;
+	display: flex;
 }
 
-#download-button-link, #download-arrow {
-    opacity: 0.5;
-    pointer-events: none;
+.download-button-link {
+	flex-grow: 1;
+	color: #fff !important;
+	fill: #fff;
+	background: var(--color5);
+	border-radius: 5px 0 0 5px;
 }
 
-#download-button-link {
-    flex-grow: 1;
-    color: var(--color3);
-    background: var(--color5);
-    border-radius: 5px 0 0 5px;
+.download-arrow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	background: var(--color5);
+	margin-left: 2px;
+	border-radius: 0 5px 5px 0;
 }
 
-#download-arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    box-sizing: border-box;
-    background: var(--color5);
-    margin-left: 2px;
-    border-radius: 0 5px 5px 0;
-    border: none;
+.download-button-link:hover, .download-arrow:hover {
+	background: var(--color5hover);
 }
 
-#download-button-link:hover, #download-arrow:hover {
-    background: var(--color5hover);
+	.download-arrow > svg {
+		height: 20px;
+		fill: var(--color6);
+		transition: transform 200ms;
+		pointer-events: none;
+	}
+	
+	#download-trigger1:checked ~ .download-arrow > svg,
+	#download-trigger2:checked ~ .download-arrow > svg {
+		transform: rotateZ(180deg);
+	}
+
+.download-menu {
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	top: calc(100% + 2px);
+	right: 0;
+	width: 220px;
+	z-index: 10;
 }
 
-    #download-arrow > svg {
-        height: 20px;
-        fill: var(--color6);
-        transition: transform 200ms;
-    }
-    
-    .download-arrow-active > svg {
-        transform: rotateZ(180deg);
-    }
-
-.download-arrow-active {
-    background: var(--color5hover);
-}
-
-#download-menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 52px;
-    right: 0;
-    width: 220px;
-    z-index: 10;
-}
+	#download-trigger1:checked ~ .download-menu,
+	#download-trigger2:checked ~ .download-menu {
+		display: flex;
+	}
 
 .download-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 40px;
-    padding: 0 10px;
-    color: var(--color3) !important;
-    background: var(--color5);
-    font-size: 15px;
-    text-decoration: none;
-    border-radius: 5px 5px 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 40px;
+	padding: 0 10px;
+	color: #fff !important;
+	fill: #fff;
+	background: var(--color5);
+	font-size: 15px;
+	text-decoration: none;
 }
 
-.download-item:nth-child(2) {
-    border-radius: 0 0 5px 5px;
-}
+	.download-item:first-child {
+		border-radius: 5px 5px 0 0;
+	}
+
+	.download-item:last-child {
+		border-radius: 0 0 5px 5px;
+	}
+
+	.download-item > span {
+		font-size: 12px;
+	}
 
 .download-item:hover {
-    background: var(--color5hover);
+	background: var(--color5hover);
 }
 
-    .download-item > div {
-        display: flex;
-        align-items: center;
-    }
+	.download-item > div {
+		display: flex;
+		align-items: center;
+	}
+
+.download-other {
+	height: 30px;
+	justify-content: center;
+	border-top: 2px solid var(--color1);
+}
+
+	.download-other:hover {
+		text-decoration: underline;
+	}
 
 .download-item-svg {
-    width: 20px;
-    height: 25px;
-    margin-right: 10px;
+	width: 20px;
+	height: 25px;
+	margin-right: 10px;
 }
 
 #social-buttons {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 12px 0 0 -8px;
 }
 
 .social-button {
-    width: 20px;
-    margin-right: 15px;
-    fill: var(--color4);
+	width: 20px;
+	margin: 8px;
+	transition: fill 100ms;
 }
 
-    .social-button:hover {
-        fill: var(--color4hover);
-    }
+.social-button:not(:hover) {
+	fill: var(--color4) !important;
+}
 
 #cup {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: auto;
+	position: relative;
+	width: 150px;
+	height: 150px;
+	margin: auto;
 }
 
-    #cup > svg {
-        position: absolute;
-    }
+	#cup > svg {
+		position: absolute;
+	}
 
 #cup-movable {
-    pointer-events: none;
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    transform-origin: 120px 22.5px;
+	width: 150px;
+	height: 150px;
+	pointer-events: none;
+	position: absolute;
+	transform-origin: 120px 22.5px;
+	overflow: visible;
+	z-index: 100;
 }
 
 #cup-handle {
-    position: absolute;
-    top: 5%;
-    right: 0;
-    width: 40%;
-    height: 20%;
-    cursor: grab;
+	position: absolute;
+	top: 5%;
+	right: 0;
+	width: 40%;
+	height: 20%;
+	cursor: grab;
 }
 
-#banners {
-    display: flex;
+/* #endregion */
+
+/* #region example */
+
+#landing-example {
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+	#landing-example > .editor {
+		width: 350px;
+		max-height: 100px;
+	}
+	
+	#landing-example > div {
+		flex-shrink: 0;
+		text-align: right;
+		margin: 0 0 0 30px;
+	}
+
+/* #endregion */
+
+/* #region community */
+
+#landing-community {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: right;
+}
+
+#community-buttons {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	margin-right: 30px;
 }
 
 #discord-button, #reddit-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    padding: 0 12px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 15px;
-    color: var(--color3);
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 12px;
+	margin: 5px 0;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 15px;
+	color: #fff;
+	fill: #fff;
 }
 
-    #discord-button > svg, #reddit-button > svg {
-        height: 32px;
-        margin-right: 25px;
-    }
+	#discord-button > svg, #reddit-button > svg {
+		height: 32px;
+		margin-right: 5px;
+	}
 
 #discord-button {
-    margin-right: 20px;
-    background: #5865f2;
+	background: #5865f2;
 }
 
-    #discord-button:hover {
-        background: #4650c1;
-    }
+	#discord-button:hover {
+		background: #4650c1;
+	}
 
 #reddit-button {
-    background: #ff4500;
+	background: #ff4500;
 }
 
-    #reddit-button:hover {
-        background: #cc3700;
-    }
+	#reddit-button:hover {
+		background: #cc3700;
+	}
+
+/* #endregion */
+
+/* #region start */
+
+#landing-start {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+/* #endregion */
 
 @media only screen and (max-width: 750px) {
-    #cup {
-        display: none;
-    }
+	#cup {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 550px) {
-    #landing-top > div {
-        width: 100%;
-    }
+	#landing-top {
+		padding-top: 70px !important;
+		padding-bottom: 70px !important;
+	}
 
-    #top-buttons {
-        flex-direction: column;
-    }
+	#landing-top > div {
+		width: 100%;
+	}
 
-    #github-button {
-        margin: 0;
-    }
+	#top-buttons {
+		flex-direction: column;
+	}
 
-    #download-button {
-        margin-top: 8px;
-    }
+	#github-button {
+		margin: 0;
+	}
 
-    #social-buttons {
-        margin-bottom: 0;
-    }
+	#download-button {
+		margin-top: 8px;
+	}
 
-    #banners {
-        flex-direction: column;
-    }
+	#social-buttons {
+		margin-bottom: 0;
+	}
 
-    #discord-button {
-        margin: 0 0 8px 0;
-    }
+	#landing-example {
+		height: unset;
+		flex-direction: column-reverse;
+	}
+
+		#landing-example > .editor {
+			width: 100%;
+			max-height: unset;
+		}
+
+		#landing-example > div {
+			text-align: unset;
+			margin: 0 0 30px 0;
+		}
+
+	#landing-community {
+		flex-direction: column-reverse;
+		text-align: unset;
+	}
+
+	#community-buttons {
+		width: 100%;
+		margin: 30px 0 0 0;
+	}
 }

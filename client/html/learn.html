@@ -1,114 +1,89 @@
-<div id="learn" class="page section-content content" style="display:none">
-    <nav id="learn-nav">
-        <a class="learn-link" href="/learn/introduction">
-            Introduction
-        </a>
-        <a class="learn-link" href="/learn/getting-started">
-            <b>1.</b> Getting Started
-        </a>
-            <a class="learn-link learn-link-sub" href="/learn/getting-started/commands">
-                <b>1.1.</b> Commands
-            </a>
-            <a class="learn-link learn-link-sub" href="/learn/getting-started/first-program">
-                <b>1.2.</b> First program
-            </a>
-        <a class="learn-link" href="/learn/guessing-game">
-            <b>2.</b> Guessing game
-        </a>
-    </nav>
-    <div>
-        <div id="introduction" class="lesson" style="display:none">
-            <h1>Introduction</h1>
-            <p>Your Cup journey begins here!</p>
-            <p>Cup is a free and open source project consisting of a compiler, build system and a package manager. It brings back the simple C-style memory management while having a modern and expressive syntax.</p>
-            <p>This tutorial should teach you basics of Cup and how to use it. If you encounter any problems or have any questions you can reach out on our <a title="Discord" href="https://discord.gg/cup" target="_blank" rel="noopener">Discord Server</a> in the <code>#beginners</code> channel.</p>
-        </div>
-        <div id="getting-started" class="lesson" style="display:none">
-            <h1>Getting Started</h1>
-            <p>Cup is conveniently distributed as a single executable file which means it's portable in it's nature. Cup still can be installed using the <code><span style="color:#de935f">cup</span> self install</code> command. You will learn more about commands in the next lesson.</p>
-            <p>To be able to use Cup you will also need a C compiler of some kind. You can use either <a title="GCC" href="https://gcc.gnu.org/install/binaries.html" target="_blank" rel="noopener">GCC</a>, <a title="Clang" href="https://releases.llvm.org/download.html" target="_blank" rel="noopener">Clang</a> or <a title="MSVC" href="https://visualstudio.microsoft.com/visual-cpp-build-tools" target="_blank" rel="noopener">MSVC</a>. Refer to your platform’s documentation on how to install a given compiler.</p>
-            <h3>Check the installation</h3>
-            <p>To check whether you have installed Cup and a C compiler correctly, open a shell and run <code><span style="color:#de935f">cup</span> version</code>. You should see something similar to this:</p>
-            <code style="display:block">
-                XXXXXXXXXXXX
-                <br>
-                XXXXXXXXXXXX
-                <br>
-                XXXXXXXXXXXX
-            </code>
-            <h3>Troubleshooting</h3>
-            <p>If you see the <code>No C compiler detected!</code> error it means you did something wrong installing the C compiler. You can try a different compiler or ask for help on our <a title="Discord" href="https://discord.gg/cup" target="_blank" rel="noopener">Discord Server</a> in the #beginners channel.</p>
-        </div>
-        <div id="commands" class="lesson" style="display:none">
-            <h1>Commands</h1>
-            <p>There is a number of commands that are available to you when using Cup. They are designed to automate things and make managing your project easier.</p>
-            <p>To see this list you can run <code><span style="color:#de935f">cup</span> help</code>. To see more info about a given command run <code><span style="color:#de935f">cup</span> help</code> followed by the name of a command, for example <code><span style="color:#de935f">cup</span> help build</code>.</p>
-            <h3>Complilation commands</h3>
-            <ul>
-                <li><code><span style="color:#de935f">cup</span> run</code> - Compiles and runs the current package</li>
-                <li><code><span style="color:#de935f">cup</span> build</code> - Compile the current package</li>
-                <li><code><span style="color:#de935f">cup</span> check</code> - Analyzes the current package</li>
-            </ul>
-            <h3>Package commands</h3>
-            <ul>
-                <li><code><span style="color:#de935f">cup</span> new <span style="color:#d54e53">[PACKAGE]</span></code> - Creates a new package with given name</li>
-                <li><code><span style="color:#de935f">cup</span> update <span style="color:#d54e53">[PACKAGE]</span></code> - Updates given dependency</li>
-                <li><code><span style="color:#de935f">cup</span> add <span style="color:#d54e53">[PACKAGE]</span></code> - Adds given dependency</li>
-                <li><code><span style="color:#de935f">cup</span> remove <span style="color:#d54e53">[PACKAGE]</span></code> - Removes given dependency</li>
-            </ul>
-            <h3>Generation commands</h3>
-            <ul>
-                <li><code><span style="color:#de935f">cup</span> gen docs</code> - Generate documentation for the current package</li>
-                <li><code><span style="color:#de935f">cup</span> gen binds <span style="color:#d54e53">[HEADER]</span></code> - Generate bindings for a given C header file</li>
-            </ul>
-            <h3>Self commands</h3>
-            <ul>
-                <li><code><span style="color:#de935f">cup</span> self install</code> - Install the Cup Toolkit</li>
-                <li><code><span style="color:#de935f">cup</span> self update</code> - Update the Cup Toolkit</li>
-                <li><code><span style="color:#de935f">cup</span> self uninstall</code> - Uninstall the Cup Toolkit</li>
-            </ul>
-        </div>
-        <div id="first-program" class="lesson" style="display:none">
-            <h1>First Program</h1>
-            <p>Now that everything is installed and you know how to use commands, let’s write your first Cup program. It’s traditional when learning a new language to write a little program that shows the text <code>Hello, world!</code> to the screen, so we’ll do just this here!</p>
-            <h3>Creating a new project</h3>
-            <p>Creating a empty project with Cup is very simple. All you need to do is run <code><span style="color:#de935f">cup</span> new</code> followed by the name of the project, for example <code><span style="color:#de935f">cup</span> new hello-world</code>. This will create a folder with a name <code>hello-world</code> and a file called <code>main.cp</code> inside it.</p>
-            <h3>Writing and running a Cup Program</h3>
-            <p>Now open the <code>main.cp</code> file that just got created in the editor of your choice and type in this code:</p>
-            <code style="display:block">
-                <span style="color:#b294bb">proc</span> <span style="color:#8abeb7">main</span>() {
-                <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#de935f">fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);
-                <br>
-                };
-            </code>
-            <p>Save the file and run <code><span style="color:#de935f">cup</span> run</code>. This will compile and run the code for you. You should see this on your screen:</p>
-            <code style="display:block">
-                Hello, world!
-            </code>
-            <p>If you can see that on your screen, congratulations! You're officially a Cup programmer!</p>
-            <h3>What just happened?</h3>
-            <p>Let’s review in detail what just happened in your “Hello, world!” program. Here’s the first piece of the puzzle:</p>
-            <code style="display:block">
-                <span style="color:#b294bb">proc</span> <span style="color:#8abeb7">main</span>() {
-                <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="hidden"><span style="color:#de935f">fmt:print</span>(<span style="color:#b5bd68">"Hello, world!"</span>);</span>
-                <br>
-                };
-            </code>
-        </div>
-        <div id="guessing-game" class="lesson" style="display:none">
-            <h1>Guessing Game</h1>
-            <p>Now let's up the challenge a little bit. This chapter introduces you to a few common Cup concepts by showing you how to use them in a real program. You’ll learn about <code>variables</code>, <code>matching</code>, <code>procedures</code>, <code>namespaces</code> and more! The following chapters will explore these ideas in more detail. In this chapter, you’ll practice the fundamentals.</p>
-            <p>We’ll implement a classic beginner programming problem: a guessing game. Here’s how it works: the program will generate a random integer between 1 and 100. It will then prompt the player to enter a guess. After a guess is entered, the program will indicate whether the guess is too low or too high. If the guess is correct, the game will print a congratulatory message and exit.</p>
-        </div>
-        <div id="learn-buttons">
-            <a id="learn-left" title="Left">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
-            </a>
-            <a id="learn-right" title="Right">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
-            </a>
-        </div>
-    </div>
+<div id="learn" class="page" style="display:none">
+	<div class="content">
+		<nav id="learn-nav">
+			<a class="learn-link" href="/learn/introduction">
+				Introduction
+			</a>
+			<div class="learn-link-separator"></div>
+			<a class="learn-link" href="/learn/getting-started">
+				<b>1.</b> Getting Started
+			</a>
+			<a class="learn-link learn-link-sub" href="/learn/getting-started/first-program">
+				<b>1.1.</b> First Program
+			</a>
+			<div class="learn-link-separator"></div>
+			<a class="learn-link" href="/learn/guessing-game">
+				<b>2.</b> Guessing Game
+			</a>
+		</nav>
+		<div id="learn-content">
+			<div id="introduction" class="lesson" style="display:none">
+				<h1>Introduction 🏁</h1>
+				<p>Your Cup journey begins here!</p>
+				<p>The upcoming series of lessons will teach you the basics of Cup and how to use it.</p>
+				<p>If you encounter any problems or have any questions you can reach out on our <a title="Discord" href="https://discord.gg/cup" target="_blank" rel="noopener">Discord Server</a> in the <a title="Beginners" href="https://discord.com/channels/842863266585903144/842869687355965511" target="_blank" rel="noopener">#beginners</a> channel.</p>
+			</div>
+			<div id="getting-started" class="lesson" style="display:none">
+				<h1>Getting Started 🌱</h1>
+				<p>To start programming in Cup you're gonna need to install it first.</p>
+				<div style="width:300px">
+					embed('client/html/downloadButton.html');
+				</div>
+				<p>Next you will need something to write your code in. Your best choice would be <a title="Visual Studio Code" target="_blank" href="https://code.visualstudio.com" rel="noopener">Visual Studio Code</a> as when combined with the <a title="Cup for VSCode" target="_blank" href="https://github.com/cup-lang/vscode-cup" rel="noopener">Cup Extension</a> it's the easiest way to create and manage your Cup projects.</p>
+			</div>
+			<div id="first-program" class="lesson" style="display:none">
+				<h1>First Program 👋</h1>
+				<p>Now that Cup is installed, let's write your first Cup program! It's common when learning a language to write a little program that shows the text <code>Hello, World!</code> on the screen.</p>
+				<h3 id="writing-and-running-a-cup-program">Writing and running a Cup Program</h3>
+				<p>Create a new file (e.g. <code>hello.cup</code>) and type in this code:</p>
+				<code class="editor" hide value="print &quot;Hello, World!&quot;"></code>
+				<p>Save the file and execute <code>Cup: Run Project</code>. This will build and run the code for you. You should see this on your screen:</p>
+				<code style="display:block">Hello, World!</code>
+				<p>If you can see that on your screen, congratulations! You're officially a Cup programmer!</p>
+			</div>
+			<div id="guessing-game" class="lesson" style="display:none">
+				<h1>Guessing Game 🎲</h1>
+				<p>Now let's create something a little more interactive!</p>
+				<p>We'll implement a simple game based on guessing. Here's a demonstration of how it will work:</p>
+				<button id="guessing-game-start" class="action">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"></path></svg>
+				</button>
+				<div id="guessing-game-steps" class="code">
+					<ol>
+						<li id="guessing-game-step1">
+							<span>Generate a random integer</span> between 1 and 100.
+							<code id="guessing-game-roll" style="display:none"></code>
+						</li>
+						<li id="guessing-game-step2">
+							<span>Ask the player to enter a guess.</span>
+							<input id="guessing-game-input" style="display:none" type="number" min="1" max="100">
+							<button id="guessing-game-guess" style="display:none">Guess</button>
+						</li>
+						<li id="guessing-game-step3">
+							<span>If the guess is...</span>
+							<ul>
+								<li id="guessing-game-step4">
+									<span>...too low or too high, hint the player</span> and go back to Step 2.
+									<code id="guessing-game-hint" style="display:none"></code>
+								</li>
+								<li id="guessing-game-step5">
+									<span>...exactly right, congratulate the player</span> and end the game.
+									<code id="guessing-game-won" style="display:none">You won!</code>
+								</li>
+							</ul>
+						</li>
+					</ol>
+				</div>
+				<p>This chapter introduces a few common Cup concepts like <code style="color:var(--object)">objects</code>, <code style="color:var(--type)">types</code> and <code style="color:var(--symbol)">symbols</code>.</p>
+			</div>
+			<div id="learn-buttons">
+				<a id="learn-left" title="Left">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+				</a>
+				<a id="learn-right" title="Right">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+				</a>
+			</div>
+		</div>
+	</div>
 </div>

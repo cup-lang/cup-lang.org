@@ -1,10 +1,4 @@
-node_modules
-
-# Build folder
-build/out/*
-
-# Playground folder
-playground
-
-# SSL Certificates
-*.pem
+node_modules/
+out/
+playground/
+stats.json

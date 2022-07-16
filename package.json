@@ -1,19 +1,19 @@
 {
-    "name": "cup-lang.org",
-    "version": "0.1.0",
-    "browserslist": [ "defaults" ],
-    "scripts": {
-        "start": "docker system prune -f && node build/build.js && node build/out/server.js",
-        "debug": "node build/build.js --debug && node build/out/server.js --debug"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.16.0",
-        "@babel/preset-env": "^7.16.4",
-        "postcss": "^8.4.7",
-        "autoprefixer": "^10.4.2",
-        "html-minifier": "^4.0.0"
-    },
-    "dependencies": {
-        "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.6.0"
-    }
+	"name": "cup-lang.org",
+	"version": "0.1.0",
+	"browserslist": [ "defaults" ],
+	"scripts": {
+		"start": "docker system prune -f && node build.js && node out/server.js",
+		"debug": "node build.js --debug && node out/server.js --debug"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/preset-env": "^7.16.4",
+		"postcss": "^8.4.7",
+		"autoprefixer": "^10.4.2",
+		"html-minifier": "^4.0.0"
+	},
+	"dependencies": {
+		"uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.6.0"
+	}
 }
