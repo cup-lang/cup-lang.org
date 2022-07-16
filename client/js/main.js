@@ -29,7 +29,7 @@ function updatePage(path) {
 
 	if (splitPath[1] == 'learn') {
 		if (splitPath.length < 3) {
-			path = localStorage.lesson;
+			path = localStorage.lesson || '/learn/introduction';
 			splitPath = path.split('/');
 		}
 		let lesson = document.getElementById(splitPath[splitPath.length - 1]);
