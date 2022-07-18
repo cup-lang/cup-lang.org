@@ -107,6 +107,7 @@ code, .code {
 	background: var(--color0);
 	border-radius: 5px;
 	padding: 3px 6px;
+	font-family: 'Inconsolata', monospace;
 }
 
 ul, ol {
