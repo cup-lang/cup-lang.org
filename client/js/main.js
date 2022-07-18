@@ -51,9 +51,8 @@ function updatePage(path) {
 		window.onkeydown = null;
 	}
 
-	
 	page.style = '';
-	page.scrollTo({ top: 0, behavior: 'smooth' });
+	document.body.scrollTo({ top: 0, behavior: 'smooth' });
 	setTimeout(() => {
 		page.querySelectorAll('.editor').forEach(e => {
 			if (e.init === false) {
@@ -66,6 +65,8 @@ function updatePage(path) {
 			playgroundEditor.overlayUpdate();
 		}
 	}, 0);
+
+	return path;
 }
 
 let playgroundEditor;
@@ -86,8 +87,7 @@ function autorun() {
 
 	for (const link of document.querySelectorAll('.nav-link, .link, .learn-link, #learn-left, #learn-right')) {
 		link.onclick = () => {
-			history.pushState(null, '', link.href);
-			updatePage(link.getAttribute('href'));
+			history.pushState(null, '', updatePage(link.getAttribute('href')));
 			return false;
 		}
 	}

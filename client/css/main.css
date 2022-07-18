@@ -117,6 +117,12 @@ ul, ol {
 	text-align: right;
 }
 
+.emoji {
+	height: 1em;
+	position: relative;
+	top: .125em;
+}
+
 .action {
 	width: 50px;
 	height: 24px;
@@ -186,6 +192,10 @@ ul, ol {
 	margin: 0 -2px;
 	border-radius: 10px;
 	background: var(--color2);
+}
+
+.nav-link > .emoji {
+	margin-left: .25em;
 }
 
 .nav-content {

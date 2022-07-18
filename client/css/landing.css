@@ -266,7 +266,7 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 12px;
-	margin: 5px 0;
+	margin: 4px 0;
 	text-decoration: none;
 	border-radius: 5px;
 	font-size: 15px;
@@ -332,11 +332,7 @@
 	}
 
 	#github-button {
-		margin: 0;
-	}
-
-	#download-button {
-		margin-top: 8px;
+		margin: 0 0 8px 0;
 	}
 
 	#social-buttons {
