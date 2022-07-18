@@ -68,8 +68,10 @@
 						</li>
 						<li id="guessing-game-step2">
 							<span>Ask the player to enter a guess.</span>
-							<input id="guessing-game-input" style="display:none" type="number" min="1" max="100">
-							<button id="guessing-game-guess" style="display:none">Guess</button>
+							<form id="guessing-game-form" style="display:none">
+								<input id="guessing-game-input" type="number" min="1" max="100">
+								<button id="guessing-game-submit" type="submit">Guess</button>
+							</form>
 						</li>
 						<li id="guessing-game-step3">
 							<span>If the guess is...</span>

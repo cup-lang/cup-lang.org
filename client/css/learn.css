@@ -59,6 +59,10 @@
 	text-decoration: underline;
 }
 
+#guessing-game-form {
+	display: inline;
+}
+
 #guessing-game-input {
 	width: 50px;
 	margin-left: 5px;

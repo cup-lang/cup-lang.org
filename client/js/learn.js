@@ -48,9 +48,10 @@ function learnAutorun () {
 	const guessingGameStart = document.getElementById('guessing-game-start');
 	guessingGameStart.onclick = () => {
 		guessingGameStart.setAttribute('disabled', true);
+		const guessingGameForm = document.getElementById('guessing-game-form');
 		const guessingGameInput = document.getElementById('guessing-game-input');
-		const guessingGameGuess = document.getElementById('guessing-game-guess');
-		guessingGameInput.style.display = guessingGameGuess.style.display = 'none';
+		const guessingGameSubmit = document.getElementById('guessing-game-submit');
+		guessingGameForm.style.display = 'none';
 		document.getElementById('guessing-game-step3').removeAttribute('current');
 		document.getElementById('guessing-game-step5').removeAttribute('current');
 		document.getElementById('guessing-game-won').style.display = 'none';
@@ -70,9 +71,9 @@ function learnAutorun () {
 					document.getElementById('guessing-game-step1').removeAttribute('current');
 					document.getElementById('guessing-game-step2').setAttribute('current', true);
 					setTimeout(() => {
-						guessingGameInput.style = guessingGameGuess.style = '';
-						guessingGameGuess.onclick = () => {
-							guessingGameGuess.setAttribute('disabled', true);
+						guessingGameForm.style = '';
+						guessingGameForm.onsubmit = () => {
+							guessingGameSubmit.setAttribute('disabled', true);
 							const guessingGameHint = document.getElementById('guessing-game-hint');
 							guessingGameHint.style.display = 'none';
 							document.getElementById('guessing-game-step2').removeAttribute('current');
@@ -95,11 +96,12 @@ function learnAutorun () {
 											document.getElementById('guessing-game-step3').removeAttribute('current');
 											document.getElementById('guessing-game-step4').removeAttribute('current');
 											document.getElementById('guessing-game-step2').setAttribute('current', true);
-											guessingGameGuess.removeAttribute('disabled');
+											guessingGameSubmit.removeAttribute('disabled');
 										}, 2000);
 									}, 2000);
 								}
 							}, 3000);
+							return false;
 						};
 					}, 1000);
 				}, 2000);
