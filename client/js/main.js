@@ -20,11 +20,10 @@ function updatePage(path) {
 	}
 
 	let splitPath = path.split('/');
-	let page = splitPath[1].length == 0 ? null : document.getElementById(splitPath[1]);
-	
+	let page = splitPath[1].length == 0 ? document.getElementById('landing') : document.getElementById(splitPath[1]);
+
 	if (!page) {
-		history.replaceState(null, '', path = '/');
-		page = document.getElementById('landing');
+		page = document.getElementById('not-found');
 	}
 
 	if (splitPath[1] == 'learn') {
@@ -43,7 +42,7 @@ function updatePage(path) {
 	}
 
 	if (path != '/') {
-		document.querySelector(`[href="/${splitPath[1]}"]`)?.classList.add('nav-link-active');
+		document.querySelector(`.nav-link[href="/${splitPath[1]}"]`)?.classList.add('nav-link-active');
 	}
 	if (splitPath[1] == 'learn') {
 		updateLearn(path);
@@ -69,12 +68,22 @@ function updatePage(path) {
 	return path;
 }
 
-let playgroundEditor;
+function shake(input) {
+	if (input.classList.contains('shake')) {
+		clearTimeout(input.timeout);
+		input.classList.remove('shake');
+		setTimeout(() => { input.classList.add('shake'); }, 0);
+	} else {
+		input.classList.add('shake');
+	}
+	input.timeout = setTimeout(() => { input.classList.remove('shake'); }, 300);
+}
 
+let playgroundEditor;
 function autorun() {
 	document.querySelectorAll('.editor').forEach(e => {
 		if (e.id === 'playground-editor') {
-			playgroundEditor = new Editor(e, localStorage.code || 'print "Hello, World!"');
+			playgroundEditor = new Editor(e, localStorage.code || 'print: "Hello, World!"');
 		} else {
 			e.init = false;
 			e.editor = new Editor(e, e.getAttribute('value'));
@@ -94,11 +103,15 @@ function autorun() {
 
 	updatePage(location.pathname);
 
+	searchAutorun();
+	downloadButtonAutorun();
 	landingAutorun();
 	learnAutorun();
 	playgroundAutorun();
 }
 
+embed('client/js/search.js');
+embed('client/js/downloadButton.js');
 embed('client/js/editor.js');
 embed('client/js/landing.js');
 embed('client/js/learn.js');

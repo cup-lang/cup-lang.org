@@ -1,0 +1,11 @@
+#not-found {
+	min-height: 0;
+}
+
+#not-found-search {
+	font-size:25px
+}
+
+	#not-found-search:not(:hover) {
+		text-decoration: none;
+	}

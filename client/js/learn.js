@@ -72,6 +72,7 @@ function learnAutorun () {
 					document.getElementById('guessing-game-step2').setAttribute('current', true);
 					setTimeout(() => {
 						guessingGameForm.style = '';
+						guessingGameInput.oninvalid = () => { shake(guessingGameInput); };
 						guessingGameForm.onsubmit = () => {
 							guessingGameSubmit.setAttribute('disabled', true);
 							const guessingGameHint = document.getElementById('guessing-game-hint');

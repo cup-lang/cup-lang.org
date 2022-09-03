@@ -1,0 +1,95 @@
+.download-button {
+	position: relative;
+	display: inline-flex;
+}
+
+.download-button-link {
+	flex-grow: 1;
+	color: #fff !important;
+	fill: #fff;
+	background: var(--color5);
+	border-radius: 5px 0 0 5px !important;
+}
+
+.download-arrow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 32px;
+	background: var(--color5);
+	margin-left: 2px;
+	border-radius: 0 5px 5px 0;
+}
+
+.download-button-link:hover, .download-arrow:hover {
+	background: var(--color5hover);
+}
+
+	.download-arrow > svg {
+		height: 20px;
+		fill: var(--color6);
+		transition: transform 200ms;
+		pointer-events: none;
+	}
+	
+	#download-trigger1:checked ~ .download-arrow > svg,
+	#download-trigger2:checked ~ .download-arrow > svg {
+		transform: rotateZ(180deg);
+	}
+
+.download-menu {
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	top: calc(100% + 2px);
+	right: 0;
+	width: 160px;
+	z-index: 10;
+	animation: fade-in 200ms;
+}
+
+	#download-trigger1:checked ~ .download-menu,
+	#download-trigger2:checked ~ .download-menu {
+		display: flex;
+	}
+
+.download-item {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	padding: 0 10px;
+	color: #fff !important;
+	fill: #fff;
+	background: var(--color5);
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.download-item:first-child {
+	border-radius: 5px 5px 0 0;
+}
+
+.download-item:last-child {
+	border-radius: 0 0 5px 5px;
+}
+
+.download-item:hover {
+	background: var(--color5hover);
+}
+
+	.download-item > div {
+		display: flex;
+		align-items: center;
+	}
+
+.download-other {
+	height: 30px;
+	justify-content: center;
+	border-top: 2px solid var(--color1);
+}
+
+.download-item-svg {
+	width: 20px;
+	height: 25px;
+	margin-right: 10px;
+}

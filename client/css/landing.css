@@ -1,57 +1,115 @@
-/* #region top */
+@keyframes landing-scroll-show {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes landing-scroll-move {
+	50% { transform: translate(-50%, -50%) scale(1.25); }
+}
+
+#landing-scroll-down {
+	position: absolute;
+	top: 4.5vh;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 36px;
+	padding: 4px;
+	fill: var(--color4);
+	animation: landing-scroll-show 1s, landing-scroll-move 1.5s linear infinite;
+	transition: opacity 200ms;
+	cursor: pointer;
+}
+
+@media only screen and (min-height: 1250px) {
+	#landing-scroll-more {
+		display: none;
+	}
+}
+
+/* #region first */
 
 .content:nth-child(2n) {
 	background: var(--color2);
 }
 
-#landing-top {
+#landing-first {
 	display: flex;
-	justify-content: space-between;
-	padding-top: 100px;
-	padding-bottom: 100px;
+	justify-content: center;
+	align-items: center;
 }
 
-#top-description {
-	font-size: 16px;
-	font-weight: normal;
-	margin-left: 10px;
+#landing-first-top {
+	position: absolute;
+	top: 12%;
+	text-align: center;
 }
 
-#top-buttons {
+	#landing-first-top > h1 {
+		font-size: 50px;
+		margin: 0;
+	}
+
+	#landing-first-top > h2 {
+		font-size: 30px;
+		margin: 16px 0 32px 0;
+	}
+
+	#landing-first-top-h3 {
+		font-size: 20px;
+		font-weight: normal;
+		margin-left: 5px;
+	}
+
+#landing-first-buttons {
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }
 
 .top-button {
-	padding: 0 12px;
+	padding: 0 20px;
 	height: 50px;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
 	border-radius: 5px;
 	font-size: 15px;
+	gap: 10px;
 }
 
 	.top-button > svg {
 		width: 32px;
 		height: 32px;
 		flex-shrink: 0;
-		margin-right: 10px;
 	}
 
 .top-button-info {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
-.top-button-sub-info {
+.top-button-info-top {
+	display: flex;
+	align-items: center;
+}
+
+	.top-button-info-top > .download-item-svg {
+		height: 14px;
+		margin: 0;
+	}
+
+.top-button-info-bottom {
 	font-size: 13px;
+	text-align: initial;
 }
 
 #github-button {
 	color: var(--color2);
 	fill: var(--color2);
 	background: var(--color3);
-	margin-right: 15px;
+	box-sizing: border-box;
 }
 
 	#github-button:hover {
@@ -64,158 +122,50 @@
 }
 
 	#star-count > svg {
-		margin-right: 4px;
+		margin-right: 2px;
 	}
-
-.download-button {
-	position: relative;
-	display: flex;
-}
-
-.download-button-link {
-	flex-grow: 1;
-	color: #fff !important;
-	fill: #fff;
-	background: var(--color5);
-	border-radius: 5px 0 0 5px;
-}
-
-.download-arrow {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 40px;
-	background: var(--color5);
-	margin-left: 2px;
-	border-radius: 0 5px 5px 0;
-}
-
-.download-button-link:hover, .download-arrow:hover {
-	background: var(--color5hover);
-}
-
-	.download-arrow > svg {
-		height: 20px;
-		fill: var(--color6);
-		transition: transform 200ms;
-		pointer-events: none;
-	}
-	
-	#download-trigger1:checked ~ .download-arrow > svg,
-	#download-trigger2:checked ~ .download-arrow > svg {
-		transform: rotateZ(180deg);
-	}
-
-.download-menu {
-	display: none;
-	flex-direction: column;
-	position: absolute;
-	top: calc(100% + 2px);
-	right: 0;
-	width: 220px;
-	z-index: 10;
-}
-
-	#download-trigger1:checked ~ .download-menu,
-	#download-trigger2:checked ~ .download-menu {
-		display: flex;
-	}
-
-.download-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 40px;
-	padding: 0 10px;
-	color: #fff !important;
-	fill: #fff;
-	background: var(--color5);
-	font-size: 15px;
-	text-decoration: none;
-}
-
-	.download-item:first-child {
-		border-radius: 5px 5px 0 0;
-	}
-
-	.download-item:last-child {
-		border-radius: 0 0 5px 5px;
-	}
-
-	.download-item > span {
-		font-size: 12px;
-	}
-
-.download-item:hover {
-	background: var(--color5hover);
-}
-
-	.download-item > div {
-		display: flex;
-		align-items: center;
-	}
-
-.download-other {
-	height: 30px;
-	justify-content: center;
-	border-top: 2px solid var(--color1);
-}
-
-	.download-other:hover {
-		text-decoration: underline;
-	}
-
-.download-item-svg {
-	width: 20px;
-	height: 25px;
-	margin-right: 10px;
-}
 
 #social-buttons {
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	margin: 12px 0 0 -8px;
+	margin-top: 10px;
 }
 
 .social-button {
 	width: 20px;
-	margin: 8px;
-	transition: fill 100ms;
+	padding: 8px;
+	transition: fill 200ms, transform 200ms;
 }
 
-.social-button:not(:hover) {
-	fill: var(--color4) !important;
-}
-
-#cup {
-	position: relative;
-	width: 150px;
-	height: 150px;
-	margin: auto;
-}
-
-	#cup > svg {
-		position: absolute;
+	.social-button:not(:hover) {
+		fill: var(--color4) !important;
 	}
 
-#cup-movable {
-	width: 150px;
-	height: 150px;
-	pointer-events: none;
+	.social-button:hover {
+		transform: scale(1.5);
+	}
+
+#landing-first-cup {
 	position: absolute;
-	transform-origin: 120px 22.5px;
-	overflow: visible;
-	z-index: 100;
+	bottom: -140px;
+	width: 450px;
+	height: 60%;
+	max-height: 450px;
+	transition: transform 50ms;
+	cursor: pointer;
 }
 
-#cup-handle {
+	#landing-first-cup:active {
+		transform: translateY(8px);
+	}
+
+.landing-falling-cup {
 	position: absolute;
-	top: 5%;
-	right: 0;
-	width: 40%;
-	height: 20%;
-	cursor: grab;
+	pointer-events: none;
+	user-select: none;
+	z-index: 100;
 }
 
 /* #endregion */
@@ -223,21 +173,53 @@
 /* #region example */
 
 #landing-example {
-	height: 100px;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
+	padding-top: 150px;
+	padding-bottom: 150px;
 }
 
-	#landing-example > .editor {
-		width: 350px;
-		max-height: 100px;
+#landing-example-top {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+	#landing-example-top > h2 {
+		font-size: 40px;
 	}
-	
-	#landing-example > div {
-		flex-shrink: 0;
-		text-align: right;
-		margin: 0 0 0 30px;
+
+	#landing-example-top > p {
+		font-size: 20px;
+	}
+
+#landing-example > .editor {
+	max-width: 100%;
+	width: 350px;
+	max-height: 100px;
+}
+
+/* #endregion */
+
+/* #region features */
+
+#landing-features {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding-top: 150px;
+	padding-bottom: 150px;
+}
+
+	#landing-features > div > h2 {
+		font-size: 40px;
+	}
+
+	#landing-features > div > ul {
+		font-size: 20px;
 	}
 
 /* #endregion */
@@ -246,27 +228,40 @@
 
 #landing-community {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	text-align: right;
+	padding-top: 150px;
+	padding-bottom: 150px;
 }
 
+#landing-community-top {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+	#landing-community-top > h2 {
+		font-size: 40px;
+	}
+
+	#landing-community-top > p {
+		font-size: 20px;
+	}
+
 #community-buttons {
-	width: 300px;
 	display: flex;
-	flex-direction: column;
-	margin-right: 30px;
+	max-width: 100%;
+	gap: 10px;
 }
 
 #discord-button, #reddit-button {
-	width: 100%;
+	width: 280px;
 	height: 50px;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 12px;
-	margin: 4px 0;
 	text-decoration: none;
 	border-radius: 5px;
 	font-size: 15px;
@@ -311,56 +306,31 @@
 
 /* #endregion */
 
-@media only screen and (max-width: 750px) {
-	#cup {
+@media only screen and (max-width: 700px) {
+	#landing-first-top {
+		position: initial;
+	}
+
+	#landing-first-cup {
 		display: none;
 	}
 }
 
 @media only screen and (max-width: 550px) {
-	#landing-top {
-		padding-top: 70px !important;
-		padding-bottom: 70px !important;
-	}
-
-	#landing-top > div {
+	#landing-first > div {
 		width: 100%;
 	}
 
-	#top-buttons {
+	#landing-first-buttons {
 		flex-direction: column;
 	}
 
-	#github-button {
-		margin: 0 0 8px 0;
-	}
-
-	#social-buttons {
-		margin-bottom: 0;
-	}
-
-	#landing-example {
-		height: unset;
-		flex-direction: column-reverse;
-	}
-
-		#landing-example > .editor {
-			width: 100%;
-			max-height: unset;
+		#landing-first-buttons > .download-button, #github-button {
+			width: 300px;
+			max-width: 100%;
 		}
-
-		#landing-example > div {
-			text-align: unset;
-			margin: 0 0 30px 0;
-		}
-
-	#landing-community {
-		flex-direction: column-reverse;
-		text-align: unset;
-	}
-
+		
 	#community-buttons {
-		width: 100%;
-		margin: 30px 0 0 0;
+		flex-direction: column;
 	}
 }

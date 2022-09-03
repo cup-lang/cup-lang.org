@@ -234,7 +234,7 @@ class Editor {
 				++height;
 			}
 		}
-		this.parent.style.height = `${6 + 18 * height}px`;
+		this.parent.style.height = `${8 + 18 * height}px`;
 	}
 
 	overlayUpdate() {

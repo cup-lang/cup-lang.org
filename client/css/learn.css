@@ -18,10 +18,13 @@
 }
 
 .learn-link {
-	text-decoration: none;
 	padding: 10px;
 	margin: 2px 0;
 }
+
+	.learn-link:not(:hover) {
+	text-decoration: none;
+	}
 
 	.learn-link-sub {
 		margin-top: -4px;
@@ -33,7 +36,8 @@
 	height: 2px;
 	margin: -2px auto;
 	border-radius: 10px;
-	background: var(--color4hover);
+	background: var(--color4);
+	opacity: 0.25;
 }
 
 .learn-link-active {

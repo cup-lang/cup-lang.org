@@ -60,10 +60,10 @@
 	left: 0;
 	top: 0;
 	background: #00000033;
-	color: var(--color4hover);
+	color: var(--color4);
 	padding: 3px 6px 3px 0;
-	border-radius: 0;
 	box-sizing: border-box;
+	border-radius: 0;
 	pointer-events: none;
 	overflow: hidden;
 	transition: opacity 200ms;
@@ -80,7 +80,7 @@
 
 .editor-current-line {
 	width: 100%;
-	height: 18px;
+	height: 20px;
 	background: var(--color1);
 	margin-left: 0;
 }

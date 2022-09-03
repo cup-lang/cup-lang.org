@@ -1,5 +1,6 @@
 #playground-content {
 	display: flex;
+	gap: 10px;
 	margin-top: -1px;
 }
 
@@ -9,16 +10,11 @@
 	flex-basis: 50%;
 }
 
-#playground-editor {
-	margin-right: 5px;
-}
-
 #playground-output {
 	position: relative;
 	box-sizing: border-box;
 	white-space: break-spaces;
 	overflow-y: auto;
-	margin-left: 5px;
 	border: 2px solid var(--color2);
 }
 
@@ -52,7 +48,6 @@
 
 @media only screen and (max-width: 750px) {
 	#playground-content {
-		height: calc(100vh - 144px);
 		flex-direction: column;
 	}
 
