@@ -12,7 +12,7 @@ const stats = (() => {
 	return {};
 })();
 
-const originalHtml = load('out/client.html').toString();
+const originalHtml = load('build/client.htm').toString();
 let html;
 function updateHtml () {
 	html = originalHtml

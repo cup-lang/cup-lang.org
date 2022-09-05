@@ -37,15 +37,15 @@ async function embed(file) {
 }
 
 (async function () {
-	if (!fs.existsSync('out')) { fs.mkdirSync('out'); }
+	if (!fs.existsSync('build')) { fs.mkdirSync('build'); }
 
 	// Build Client
-	let client = await embed(load('client/html/main.html'));
+	let client = await embed(load('client/main.htm'));
 	if (!DEBUG) {
 		client = htmlMinifier.minify(client, { minifyCSS: true, minifyJS: true, removeComments: true, sortClassName: true, sortAttributes: true, collapseWhitespace: true });
 	}
-	fs.writeFileSync('out/client.html', client);
+	fs.writeFileSync('build/client.htm', client);
 
 	// Build Server
-	fs.writeFileSync('out/server.js', await embed(load('server/main.js')));
+	fs.writeFileSync('build/server.js', await embed(load('server/main.js')));
 })();

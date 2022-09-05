@@ -110,11 +110,11 @@ function autorun() {
 	playgroundAutorun();
 }
 
-embed('client/js/search.js');
-embed('client/js/downloadButton.js');
-embed('client/js/editor.js');
-embed('client/js/landing.js');
-embed('client/js/learn.js');
-embed('client/js/playground.js');
+embed('client/search/search.js');
+embed('client/downloadButton/downloadButton.js');
+embed('client/editor/editor.js');
+embed('client/landing/landing.js');
+embed('client/learn/learn.js');
+embed('client/playground/playground.js');
 
 document.addEventListener('DOMContentLoaded', autorun, false);

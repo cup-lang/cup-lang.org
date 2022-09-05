@@ -1,4 +1,4 @@
-embed('client/css/normalize.css');
+embed('client/normalize.css');
 
 /* #region main */
 
@@ -364,11 +364,11 @@ ul, ol {
 
 /* #endregion */
 
-embed('client/css/search.css');
-embed('client/css/downloadButton.css');
-embed('client/css/editor.css');
-embed('client/css/landing.css');
-embed('client/css/notFound.css');
-embed('client/css/learn.css');
-embed('client/css/playground.css');
-embed('client/css/donate.css');
+embed('client/search/search.css');
+embed('client/downloadButton/downloadButton.css');
+embed('client/editor/editor.css');
+embed('client/landing/landing.css');
+embed('client/notFound/notFound.css');
+embed('client/learn/learn.css');
+embed('client/playground/playground.css');
+embed('client/donate/donate.css');

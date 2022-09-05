@@ -1,4 +1,4 @@
 node_modules/
-out/
+build/
 playground/
 stats.json

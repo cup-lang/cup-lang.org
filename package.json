@@ -3,8 +3,8 @@
 	"version": "0.1.0",
 	"browserslist": [ "defaults" ],
 	"scripts": {
-		"start": "docker system prune -f && node build.js && node out/server.js",
-		"debug": "node build.js --debug && node out/server.js --debug"
+		"start": "docker system prune -f && node build.js && node build/server.js",
+		"debug": "node build.js --debug && node build/server.js --debug"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.16.0",
@@ -14,6 +14,6 @@
 		"html-minifier": "^4.0.0"
 	},
 	"dependencies": {
-		"uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.6.0"
+		"uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.10.0"
 	}
 }
