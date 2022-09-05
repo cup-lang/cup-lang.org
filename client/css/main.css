@@ -7,7 +7,7 @@ embed('client/css/normalize.css');
 	--header-height: 46px;
 	--editor-lines-width: 40px;
 	
-	--shadow: #0000001a;
+	--shadow: #0000000d;
 
 	--color0: #1c1c1c;
 	--color1: #2b2b2b;
@@ -32,8 +32,6 @@ embed('client/css/normalize.css');
 @media (prefers-color-scheme: light) {
 	:root {
 		color-scheme: light;
-
-		--shadow: #0000000d;
 
 		--color0: #d6d6d6;
 		--color1: #ededed;
@@ -66,11 +64,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	overflow-y: auto;
-	text-shadow: 0.1em 0.1em var(--shadow);
 }
 
-h1, .nav-link {
+h1, h2, .nav-link {
 	font-family: "Titillium Web";
+}
+
+h1, h2, h3, h4, h5 {
+	text-shadow: 0.1em 0.1em var(--shadow);
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {

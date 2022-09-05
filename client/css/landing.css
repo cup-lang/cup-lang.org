@@ -4,7 +4,9 @@
 }
 
 @keyframes landing-scroll-move {
-	50% { transform: translate(-50%, -50%) scale(1.25); }
+	25% { transform: translate(-50%, calc(-50% - 2px)); }
+	50% { transform: translate(-50%, -50%); }
+	75% { transform: translate(-50%, calc(-50% + 2px)); }
 }
 
 #landing-scroll-down {
@@ -12,10 +14,11 @@
 	top: 4.5vh;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	width: 36px;
 	height: 36px;
 	padding: 4px;
 	fill: var(--color4);
-	animation: landing-scroll-show 1s, landing-scroll-move 1.5s linear infinite;
+	animation: landing-scroll-show 1s, landing-scroll-move 1s linear infinite;
 	transition: opacity 200ms;
 	cursor: pointer;
 }
@@ -50,12 +53,12 @@
 	}
 
 	#landing-first-top > h2 {
-		font-size: 30px;
+		font-size: 32px;
 		margin: 16px 0 32px 0;
 	}
 
 	#landing-first-top-h3 {
-		font-size: 20px;
+		font-size: 22px;
 		font-weight: normal;
 		margin-left: 5px;
 	}
@@ -255,10 +258,10 @@
 }
 
 #discord-button, #reddit-button {
-	width: 280px;
 	height: 50px;
 	box-sizing: border-box;
 	display: flex;
+	gap: 50px;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 12px;
