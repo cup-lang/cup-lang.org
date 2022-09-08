@@ -20,7 +20,7 @@ let pages = {
 	'playground': null,
 	'packages': null,
 	'donate': null,
-	'download': null,
+	'downloads': null,
 };
 function updateHtml () {
 	const htm = templateHTM
