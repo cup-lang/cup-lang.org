@@ -39,7 +39,7 @@
 				</a>
 			</div>
 			<div class="nav-side">
-				<button id="header-search" class="search-button" title="Search">
+				<button id="header-search" class="search-button" title="Search" style="display:none">
 					<svg style="height:1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#9AAAB4" d="M13.503 19.693l2.828 2.828-4.95 4.95-2.828-2.829z"/><path fill="#66757F" d="M1.257 29.11l5.88-5.879c.781-.781 2.047-.781 2.828 0l2.828 2.828c.781.781.781 2.047 0 2.828l-5.879 5.879c-1.562 1.563-4.096 1.563-5.658 0-1.561-1.561-1.56-4.094.001-5.656z"/><circle fill="#8899A6" cx="22.355" cy="13.669" r="13.5"/><circle fill="#BBDDF5" cx="22.355" cy="13.669" r="9.5"/></svg>
 				</button>
 				<a class="nav-link" href="/learn" title="Learn">
@@ -70,18 +70,35 @@
 		</form>
 		<div id="search-suggestions">
 			<b>SUGGESTIONS</b>
-			<a class="link" href="/">Search #1</a>
-			<a class="link" href="/">Search #2</a>
-			<a class="link" href="/">Search #3</a>
-			<a class="link" href="/">Search #4</a>
+			<a class="link" href="/learn">Learn</a>
+			<a class="link" href="/playground">Playground</a>
+			<a class="link" href="/packages">Packages</a>
+			<a class="link" href="/donate">Donate</a>
 		</div>
 	</div>
 	embed('client/landing/landing.htm');
 	embed('client/notFound/notFound.htm');
 	embed('client/learn/learn.htm');
 	embed('client/playground/playground.htm');
-	<div id="packages" class="page" style="display:none"></div>
+	<div id="packages" class="page">
+		<div class="content">
+			<h1>
+				Work in progress
+				<svg class="emoji" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#FFCC4D" d="M36 15c0 2.209-1.791 4-4 4H4c-2.209 0-4-1.791-4-4V7c0-2.209 1.791-4 4-4h28c2.209 0 4 1.791 4 4v8z"/><path d="M6 3H4C1.791 3 0 4.791 0 7v2l6-6zm6 0L0 15c0 1.36.682 2.558 1.72 3.28L17 3h-5zM7 19h5L28 3h-5zm16 0L35.892 6.108c-.281-1.23-1.126-2.24-2.252-2.748L18 19h5zm13-4v-3l-7 7h3c2.209 0 4-1.791 4-4z" fill="#292F33"/><path fill="#99AAB5" d="M4 19h5v14H4zm23 0h5v14h-5z"/></svg>
+			</h1>
+			<h2>Come back soon!</h2>
+		</div>
+	</div>
 	embed('client/donate/donate.htm');
+	<div id="download" class="page">
+		<div class="content">
+			<h1>
+				Work in progress
+				<svg class="emoji" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#FFCC4D" d="M36 15c0 2.209-1.791 4-4 4H4c-2.209 0-4-1.791-4-4V7c0-2.209 1.791-4 4-4h28c2.209 0 4 1.791 4 4v8z"/><path d="M6 3H4C1.791 3 0 4.791 0 7v2l6-6zm6 0L0 15c0 1.36.682 2.558 1.72 3.28L17 3h-5zM7 19h5L28 3h-5zm16 0L35.892 6.108c-.281-1.23-1.126-2.24-2.252-2.748L18 19h5zm13-4v-3l-7 7h3c2.209 0 4-1.791 4-4z" fill="#292F33"/><path fill="#99AAB5" d="M4 19h5v14H4zm23 0h5v14h-5z"/></svg>
+			</h1>
+			<h2>Come back soon!</h2>
+		</div>
+	</div>
 	<nav id="footer">
 		<div class="nav-content content">
 			<div class="footer-group">

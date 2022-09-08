@@ -36,7 +36,7 @@
 #donation-bar-fill {
 	display: flex;
 	position: absolute;
-	width: 10%;
+	width: 20px;
 	height: 100%;
 	transition: width 200ms;
 }

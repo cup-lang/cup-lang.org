@@ -17,7 +17,7 @@ function updateLessonNavigation(lesson, left) {
 	}
 }
 
-function updateLearn (path) {
+function updateLearn(path) {
 	localStorage.lesson = path;
 
 	const lesson = document.querySelector(`[href="${path}"]`);
@@ -35,7 +35,7 @@ function updateLearn (path) {
 	};
 }
 
-function learnAutorun () {
+function learnAutorun() {
 	for (const header of document.getElementById('learn').querySelectorAll('h2, h3, h4, h5')) {
 		const hash = document.createElement('a');
 		hash.classList.add('hash-link');

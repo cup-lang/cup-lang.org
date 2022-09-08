@@ -4,27 +4,36 @@
 }
 
 @keyframes landing-scroll-move {
-	25% { transform: translate(-50%, calc(-50% - 2px)); }
-	50% { transform: translate(-50%, -50%); }
-	75% { transform: translate(-50%, calc(-50% + 2px)); }
+	25% { transform: translate(-50%, -2px); }
+	50% { transform: translate(-50%, 0); }
+	75% { transform: translate(-50%, 2px); }
+}
+
+#landing-scroll-up {
+	top: calc(2% + var(--header-height));
 }
 
 #landing-scroll-down {
-	position: absolute;
-	top: 4.5vh;
+	bottom: 2%;
+}
+
+#landing-scroll-up, #landing-scroll-down {
+	position: fixed;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 0);
 	width: 36px;
 	height: 36px;
 	padding: 4px;
 	fill: var(--color4);
 	animation: landing-scroll-show 1s, landing-scroll-move 1s linear infinite;
 	transition: opacity 200ms;
+	backdrop-filter: blur(3px) saturate(200%);
 	cursor: pointer;
+	z-index: 1000;
 }
 
 @media only screen and (min-height: 1250px) {
-	#landing-scroll-more {
+	#landing-scroll-up, #landing-scroll-down {
 		display: none;
 	}
 }
@@ -39,6 +48,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
+	box-sizing: border-box;
 }
 
 #landing-first-top {
@@ -309,7 +320,7 @@
 
 /* #endregion */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px), only screen and (max-height: 500px) {
 	#landing-first-top {
 		position: initial;
 	}

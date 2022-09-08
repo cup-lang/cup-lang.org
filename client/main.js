@@ -7,12 +7,28 @@ Math.clamp = (value, min, max) => {
 	return value;
 };
 
+const autoruns = {
+	'landing': { func: landingAutorun },
+	'learn': { func: learnAutorun },
+	'playground': { func: playgroundAutorun },
+};
+
+function triggerAutorun(name) {
+	const autorun = autoruns[name];
+	if (autorun && !autorun.triggered) {
+		autorun.triggered = true;
+		autorun.func();
+	}
+}
+
 function updatePage(path) {
 	for (const page of document.getElementsByClassName('page')) {
 		page.style = 'display:none';
+		page.removeAttribute('visible');
 	}
 	for (const lesson of document.getElementsByClassName('lesson')) {
 		lesson.style = 'display:none';
+		lesson.removeAttribute('visible');
 	}
 
 	for (const link of document.querySelectorAll('.nav-link, .learn-link')) {
@@ -20,13 +36,21 @@ function updatePage(path) {
 	}
 
 	let splitPath = path.split('/');
-	let page = splitPath[1].length == 0 ? document.getElementById('landing') : document.getElementById(splitPath[1]);
+	let page;
+	if (splitPath[1].length == 0) {
+		page = document.getElementById('landing');
+		triggerAutorun('landing');
+	} else if (splitPath[1] !== 'landing') {
+		page = document.getElementById(splitPath[1]);
+		triggerAutorun(splitPath[1]);
+	}
 
 	if (!page) {
 		page = document.getElementById('not-found');
 	}
 
 	if (splitPath[1] == 'learn') {
+		// No particual lesson selected
 		if (splitPath.length < 3) {
 			path = localStorage.lesson || '/learn/introduction';
 			splitPath = path.split('/');
@@ -105,9 +129,6 @@ function autorun() {
 
 	searchAutorun();
 	downloadButtonAutorun();
-	landingAutorun();
-	learnAutorun();
-	playgroundAutorun();
 }
 
 embed('client/search/search.js');

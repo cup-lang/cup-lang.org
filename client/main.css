@@ -4,7 +4,7 @@ embed('client/normalize.css');
 
 :root {
 	color-scheme: dark;
-	--header-height: 46px;
+	--header-height: %HEADER_HEIGHT%px;
 	--editor-lines-width: 40px;
 	
 	--shadow: #0000000d;
@@ -310,6 +310,10 @@ ul, ol {
 	animation: fade-in 200ms;
 }
 
+.page[visible] {
+	display: initial !important;
+}
+
 .section {
 	position: relative;
 	width: 100%;
@@ -349,7 +353,7 @@ ul, ol {
 		justify-content: space-around;
 		align-items: start;
 		flex-wrap: wrap;
-		gap: 10px;
+		gap: 30px;
 	}
 
 .footer-group {

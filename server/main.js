@@ -12,13 +12,25 @@ const stats = (() => {
 	return {};
 })();
 
-const originalHtml = load('build/client.htm').toString();
-let html;
+const templateHTM = load('build/client.htm').toString();
+let pages = {
+	'landing': null,
+	'not-found': null,
+	'learn': null,
+	'playground': null,
+	'packages': null,
+	'donate': null,
+	'download': null,
+};
 function updateHtml () {
-	html = originalHtml
-		.replaceAll('%STARS%', stats.stars || '?')
-		.replaceAll('%DISCORD%', stats.discord || '?')
-		.replaceAll('%REDDIT%', stats.reddit || '?');
+	const htm = templateHTM
+	.replaceAll('%STARS%', stats.stars || '?')
+	.replaceAll('%DISCORD%', stats.discord || '?')
+	.replaceAll('%REDDIT%', stats.reddit || '?');
+
+	for (const page in pages) {
+		pages[page] = htm.replace(`id="${page}"`, `id="${page}" visible`);
+	}
 }
 updateHtml();
 
@@ -52,8 +64,10 @@ setInterval(() => {
 	});
 }, 1000 * 60 * 60);
 
-app.get('/**', res => {
-	res.onAborted(() => { });
-	res.writeHeader('Content-Type', 'text/html');
-	res.end(html);
-});
+for (const page in pages) {
+	if (page !== 'not-found' && page !== 'landing') {
+		get(page, pages[page], 'text/html');
+	}
+}
+get('', pages['landing'], 'text/html');
+get('**', pages['not-found'], 'text/html');

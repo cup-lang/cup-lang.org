@@ -1,6 +1,8 @@
 function searchAutorun () {
-	document.getElementById('header-search').onclick =
-	document.getElementById('not-found-search').onclick = () => {
+	const headerSearch = document.getElementById('header-search');
+	const notFoundSearch = document.getElementById('not-found-search');
+	headerSearch.style = notFoundSearch.style = '';
+	headerSearch.onclick = notFoundSearch.onclick = () => {
 		const headerContent = document.getElementById('header-content');
 		headerContent.setAttribute('search', true);
 		const overlay = document.getElementById('search-overlay');

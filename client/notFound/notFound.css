@@ -2,6 +2,23 @@
 	min-height: 0;
 }
 
+#not-found-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 200px;
+	padding-bottom: 200px;
+	gap: 30px;
+}
+
+#not-found-header {
+	width: 550px;
+	max-width: 100%;
+	font-size: 50px;
+	text-align: center;
+	margin: 0;
+}
+
 #not-found-search {
 	font-size:25px
 }

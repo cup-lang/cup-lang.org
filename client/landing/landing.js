@@ -71,20 +71,71 @@ function landingAutorun() {
 		}
 	}, 0);
 
+	const scrollUp = document.getElementById('landing-scroll-up');
 	const scrollDown = document.getElementById('landing-scroll-down');
+	let scrollIndex = 0;
+	function setScrollButtonsVisibility(initial) {
+		if (scrollIndex == 0) {
+			scrollDown.style = '';
+			if (!initial) {
+				scrollUp.style = 'opacity:0';
+				setTimeout(() => { scrollUp.style = 'display:none'; }, 200);
+			} else {
+				scrollUp.style = 'display:none';
+			}
+		} else if (scrollIndex == 4) {
+			scrollUp.style = '';
+			if (!initial) {
+				scrollDown.style = 'opacity:0';
+				setTimeout(() => { scrollDown.style = 'display:none'; }, 200);
+			} else {
+				scrollDown.style = 'display:none';
+			}
+		} else {
+			scrollUp.style = scrollDown.style = '';
+		}
+	}
+	
+	let scrolling = false;
+	function triggerScroll(direction) {
+		if (scrolling) { return; }
+
+		scrolling = true;
+		scrollIndex = Math.min(Math.max(scrollIndex + direction, 0), 4);
+		setScrollButtonsVisibility();
+		const startTime = Date.now();
+		const startScroll = document.body.scrollTop;
+		const interval = setInterval(() => {
+			const progress = (Date.now() - startTime) / 400;
+			if (progress >= 1.1) {
+				scrolling = false;
+				clearInterval(interval);
+			} else {
+				let target = 0;
+				const sections = document.querySelectorAll('.section');
+				for (let i = 0; i < scrollIndex; ++i) {
+					target += sections[i].clientHeight;
+				}
+				target += sections[scrollIndex].clientHeight / 2;
+				target -= (document.body.clientHeight - %HEADER_HEIGHT%) / 2;
+				document.body.scrollTop = startScroll + (target - startScroll) * (0.5 - Math.cos(Math.PI * Math.min(progress, 1)) * 0.5);
+			}
+		}, 0);
+	}
+	scrollUp.onclick = () => { triggerScroll(-1); };
+	scrollDown.onclick = () => { triggerScroll(1); };
+
 	const scrollTimeout = setTimeout(() => {
-		scrollDown.style = '';
+		setScrollButtonsVisibility(true);
 	}, 10000);
-	scrollDown.onclick = () => {
-		document.body.scrollTo({
-			top: document.querySelector('.section').clientHeight * 0.9,
-			behavior: 'smooth'
-		}); 
-	};
+	
 	document.body.addEventListener('scroll', () => {
+		if (scrolling) { return; }
+
 		clearTimeout(scrollTimeout);
-		scrollDown.style.opacity = '0';
+		scrollUp.style.opacity = scrollDown.style.opacity = '0';
 		setTimeout(() => {
+			scrollUp.remove();
 			scrollDown.remove();
 		}, 200);
 	});

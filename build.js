@@ -41,6 +41,7 @@ async function embed(file) {
 
 	// Build Client
 	let client = await embed(load('client/main.htm'));
+	client = client.replaceAll('%HEADER_HEIGHT%', 46);
 	if (!DEBUG) {
 		client = htmlMinifier.minify(client, { minifyCSS: true, minifyJS: true, removeComments: true, sortClassName: true, sortAttributes: true, collapseWhitespace: true });
 	}
