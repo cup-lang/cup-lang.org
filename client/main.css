@@ -71,7 +71,7 @@ h1, h2, .nav-link {
 }
 
 h1, h2, h3, h4, h5 {
-	text-shadow: 0.1em 0.1em var(--shadow);
+	text-shadow: 0.05em 0.05em var(--shadow);
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {

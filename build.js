@@ -20,7 +20,7 @@ async function embed(file) {
 				fileCounts[filename] = 0; 
 			}
 			const index = ++fileCounts[filename];
-			let embeded = await embed(load(filename).replaceAll('%INDEX%', index));
+			let embeded = await embed(load(filename).replaceAll('%INDEX%', index).replaceAll('%HEADER_HEIGHT%', 46));
 			if (!DEBUG) {
 				if (filename.endsWith('main.js')) {
 					embeded = `(() => {${embeded}})();`;
@@ -41,7 +41,6 @@ async function embed(file) {
 
 	// Build Client
 	let client = await embed(load('client/main.htm'));
-	client = client.replaceAll('%HEADER_HEIGHT%', 46);
 	if (!DEBUG) {
 		client = htmlMinifier.minify(client, { minifyCSS: true, minifyJS: true, removeComments: true, sortClassName: true, sortAttributes: true, collapseWhitespace: true });
 	}
