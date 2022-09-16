@@ -294,20 +294,20 @@ ul, ol {
 
 /* #region sections */
 
-@keyframes fade-in {
+@keyframes fly {
 	0% {
 		transform: translateX(25px);
-		opacity: 0;
+		opacity: 0 !important;
 	}
 	100% {
-		opacity: 1;
+		opacity: 1 !important;
 	}
 }
 
 .page {
 	flex-shrink: 0;
 	min-height: calc(100vh - var(--header-height) - 15px);
-	animation: fade-in 200ms;
+	animation: fly 200ms;
 }
 
 .page[visible] {

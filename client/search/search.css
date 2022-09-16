@@ -7,7 +7,7 @@
 	height: 100%;
 	background: #00000080;
 	z-index: 2000;
-	animation: fade-in 200ms;
+	animation: fly 200ms;
 }
 
 	#search-overlay[search] {

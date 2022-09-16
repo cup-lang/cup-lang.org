@@ -14,7 +14,7 @@
 }
 
 .lesson {
-	animation: fade-in 200ms;
+	animation: fly 200ms;
 }
 
 .learn-link:first-child {

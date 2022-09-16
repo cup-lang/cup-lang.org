@@ -70,7 +70,7 @@ function landingAutorun() {
 			cup.style.top = `${cupTime / 20}%`;
 		}
 	}, 0);
-
+	
 	const scrollUp = document.getElementById('landing-scroll-up');
 	const scrollDown = document.getElementById('landing-scroll-down');
 	let scrollIndex = 0;
@@ -129,6 +129,7 @@ function landingAutorun() {
 		setScrollButtonsVisibility(true);
 	}, 10000);
 	
+	const sections = document.querySelectorAll('.landing-scroll-anim');
 	document.body.addEventListener('scroll', () => {
 		if (scrolling) { return; }
 
@@ -138,5 +139,10 @@ function landingAutorun() {
 			scrollUp.remove();
 			scrollDown.remove();
 		}, 200);
+
+		sections.forEach(s => {
+			const y = s.getBoundingClientRect().y + s.getBoundingClientRect().height / 2 - window.innerHeight / 2;
+			s.style.opacity = 1 - (Math.abs(y) / 500);
+		});
 	});
 }

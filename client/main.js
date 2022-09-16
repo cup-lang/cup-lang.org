@@ -107,7 +107,7 @@ let playgroundEditor;
 function autorun() {
 	document.querySelectorAll('.editor').forEach(e => {
 		if (e.id === 'playground-editor') {
-			playgroundEditor = new Editor(e, localStorage.code || 'print: "Hello, World!"');
+			playgroundEditor = new Editor(e, localStorage.code || 'print "Hello, World!"');
 		} else {
 			e.init = false;
 			e.editor = new Editor(e, e.getAttribute('value'));
