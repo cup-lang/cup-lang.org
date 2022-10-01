@@ -3,10 +3,7 @@ const uws = require('uWebSockets.js');
 const DEBUG = process.argv[2] == '--debug';
 const PORT = DEBUG ? 3001 : 443;
 
-const app = DEBUG ? uws.App() : uws.SSLApp({
-	cert_file_name: 'cert.pem',
-	key_file_name: 'key.pem',
-});
+const app = uws.App();
 
 app.get('/vscode', res => {
 	res.onAborted(() => { });
